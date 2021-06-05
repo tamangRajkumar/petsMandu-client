@@ -24,28 +24,28 @@ function homeRoute(){
         {/* Image Carousel */}
         {/* <input className="text-center mt-3 border border-gray-300 rounded-2xl px-20 "  type="text" placeholder="Hotel Name? " />   */}
        <div className="flex   justify-center items-center ">  
-       {/* <ChevronDoubleLeftIcon className="w-20 h-20 text-gray-500 cursor-pointer"/> */}
+         <ChevronDoubleLeftIcon className="w-20 h-20 text-gray-500 cursor-pointer"/>  
 
        <div className="mx-10  mt-20 hover:shadow-2xl rounded-3xl ">
 
 
        <div className=" ml-80">
-       <button className="absolute  border border-gray-500  rounded-2xl bg-blue-300 px-2 pb-1 mt-80 ml-80  hover:bg-black transform hover:scale-110 hover:bg-opacity-10 hover:border-gray-700 duration-150"
+       <button className="absolute md:mr-20 animate-spin border border-gray-500  rounded-2xl bg-blue-300 px-2 pb-1 mt-80 ml-80  hover:bg-black transform hover:scale-110 hover:bg-opacity-10 hover:border-gray-700 duration-150"
     //    onClick={ ()=>history.push('/Annapurna_hotel')
     //         }  
      > 
        
-       <span className="text-2xl text-black font-bold hover:text-gray-200 outline-none hidden md:hidden">Explore Nearby Hotels </span>
+       <span className="text-2xl text-black font-bold hover:text-gray-200 outline-none">Explore Nearby Hotels </span>
        </button>
        </div >
 
-   <img src={imgBoudha} alt="" className="h-96  w-full rounded-3xl" />
+   <img src={imgBoudha} alt="" className="h-96  w-full  rounded-3xl" />
 
   
 
    </div>
 
-        {/* <ChevronDoubleRightIcon className="w-20 h-20 text-gray-500 cursor-pointer" /> */}
+          <ChevronDoubleRightIcon className="w-20 h-20 text-gray-500 cursor-pointer" />  
            
             
      

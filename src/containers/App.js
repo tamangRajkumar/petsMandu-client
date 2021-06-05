@@ -83,10 +83,10 @@ function App(){
         <div className="flex items-center space-x-4 hidden md:hidden lg:flex">
             {/* Log in & Sign up menu */}
 
-        <div className="border border-gray-500 rounded-md p-1 bg-purple-300 transform hover:scale-110 hover:shadow-xl duration-150">
+        <div className="border border-gray-500 rounded-md p-1 bg-gradient-to-r from-purple-300 to-purple-400 transform hover:scale-110 hover:shadow-xl duration-150">
             <Link to="/log_in" > Log In </Link>
         </div>
-        <div className="border border-yellow-500 rounded-md p-1 bg-gradient-to-r from-purple-300 to-gray-400 transform hover:scale-110 hover:bg-opacity-10 hover:shadow-xl duration-150">
+        <div className="border border-yellow-500 rounded-md p-1 bg-gradient-to-r from-purple-300 to-purple-400 transform hover:scale-110 hover:bg-opacity-10 hover:shadow-xl duration-150 ">
             <Link to="sign_up"> Sign Up </Link>
         </div>        
         
