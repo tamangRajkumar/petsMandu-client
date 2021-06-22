@@ -6,10 +6,14 @@ import {ChevronDoubleLeftIcon, ChevronDoubleRightIcon, ChevronRightIcon, HeartIc
 // import ourFeatured from "../ourFeatured";
 // import {useHistory} from 'react-router-dom';
 
+import {Link} from "react-router-dom";
+
+
 
 function homeRoute(){
-        // const history = useHistory();
+   
 
+    // const history = useHistory();
 
 
     return(
@@ -24,28 +28,30 @@ function homeRoute(){
         {/* Image Carousel */}
         {/* <input className="text-center mt-3 border border-gray-300 rounded-2xl px-20 "  type="text" placeholder="Hotel Name? " />   */}
        <div className="flex   justify-center items-center ">  
-         <ChevronDoubleLeftIcon className="w-20 h-20 text-gray-500 cursor-pointer"/>  
+          {/* <ChevronDoubleLeftIcon className="w-20 h-20 text-gray-500 cursor-pointer"/>    */}
 
-       <div className="mx-10  mt-20 hover:shadow-2xl rounded-3xl ">
+       <div className="mx-20  mt-20 hover:shadow-2xl rounded-3xl ">
 
 
-       <div className=" ml-80">
-       <button className="absolute md:mr-20 animate-spin border border-gray-500  rounded-2xl bg-blue-300 px-2 pb-1 mt-80 ml-80  hover:bg-black transform hover:scale-110 hover:bg-opacity-10 hover:border-gray-700 duration-150"
-    //    onClick={ ()=>history.push('/Annapurna_hotel')
+       <div>
+       <button className="absolute right-20 md:right-40 mt-80 animate-spin outline-none   rounded-2xl bg-blue-300 px-2 pb-1  hover:bg-black transform hover:scale-110 hover:bg-opacity-10 hover:border-gray-700 duration-150"
+    //   
+    //{recheck this useHistory code }
+    // onClick={ history.push('/home')
     //         }  
      > 
        
-       <span className="text-2xl text-black font-bold hover:text-gray-200 outline-none">Explore Nearby Hotels </span>
+       <Link to="/all_hotels"  className="text-xl px-5 text-black font-bold hover:text-gray-200 outline-none"> Log In And Become A Host  </Link>
        </button>
        </div >
 
-   <img src={imgBoudha} alt="" className="h-96  w-full  rounded-3xl" />
+   <img src={imgBoudha} alt="" className="h-96  w-full  rounded-3xl " />
 
   
 
    </div>
 
-          <ChevronDoubleRightIcon className="w-20 h-20 text-gray-500 cursor-pointer" />  
+          {/* <ChevronDoubleRightIcon className="text-gray-500 w-20 h-20  cursor-pointer" />   */}
            
             
      
@@ -68,7 +74,7 @@ function homeRoute(){
                 {/* Top Rated Hotels */}
 
             <div >
-                  <h1 className="font-bold text-4xl mt-20 ml-20 "> Top Rated Hotels      </h1>
+                  <h1 className="font-bold text-4xl mt-20 ml-20 "> Our Featured Posts    </h1>
         
         
 
@@ -99,7 +105,7 @@ function homeRoute(){
             }
             </div>
 
-            <ChevronRightIcon className="w-10 h-10 text-gray-500 border broder-gray-300 rounded-3xl shadow-xl transform shadow-inner cursor-pointer hover:shadow-xl hover:scale-125 duration-200  " />
+            <ChevronRightIcon className="w-10 h-10 text-gray-500 border broder-gray-200 rounded-3xl shadow-xl transform shadow-inner cursor-pointer hover:shadow-xl hover:scale-125 duration-200  " />
             
             </div>
 
@@ -113,7 +119,7 @@ function homeRoute(){
 
             <div>
                 {/* Our Featured */}
-                <h1 className="font-bold text-4xl mt-10 ml-20"> Our Featured   </h1>
+                <h1 className="font-bold text-4xl mt-10 ml-20"> Rent Vehicles  </h1>
 
               
               <div className="flex items-center justify-center">
@@ -151,7 +157,7 @@ function homeRoute(){
 
             <div>
                 {/* Near Your Location */}
-                <h1 className="font-bold text-4xl mt-10 ml-20"> Near your Location      </h1>
+                <h1 className="font-bold text-4xl mt-10 ml-20"> Rent Rooms/Apartments/Hostels    </h1>
             
             
             <div className="flex items-center justify-center">
@@ -188,7 +194,7 @@ function homeRoute(){
 
             <div>
             {/* Trending Now */}
-            <h1 className="font-bold text-4xl mt-10 ml-20"> Trending Now     </h1>
+            <h1 className="font-bold text-4xl mt-10 ml-20"> Rent Traditional Clothes/ Fashion Clothes   </h1>
            
            
            <div className="flex items-center justify-center">
@@ -224,8 +230,76 @@ function homeRoute(){
 
 
 
+            <div>
+            {/* Trending Now */}
+            <h1 className="font-bold text-4xl mt-10 ml-20"> Rent Musical Instruments  </h1>
+           
+           
+           <div className="flex items-center justify-center">
+            <div className="flex text-center ">
+            {listOfHotels.map(  
+                function(lists){
+                  return ( <Cards
+                   
+                    key={lists.id}
+                    name={lists.name}
+                    img={lists.imgURL}
+                    place={lists.place }
+                    rating={lists.rating}
+                    cost={lists.cost}
+                    href={lists.forHref}
+                    
+        
+                    />
+                   ); 
+                }
+            )
+            }
+        </div>
+           
+        <ChevronRightIcon className="w-10 h-10 text-gray-500 border broder-gray-300 rounded-3xl shadow-xl transform shadow-inner cursor-pointer hover:shadow-xl hover:scale-125 duration-200  " />
+        </div>
+
+            </div>
 
 
+
+
+
+
+
+
+            <div>
+            {/* Trending Now */}
+            <h1 className="font-bold text-4xl mt-10 ml-20"> Rent Books   </h1>
+           
+           
+           <div className="flex items-center justify-center">
+            <div className="flex text-center ">
+            {listOfHotels.map(  
+                function(lists){
+                  return ( <Cards
+                   
+                    key={lists.id}
+                    name={lists.name}
+                    img={lists.imgURL}
+                    place={lists.place }
+                    rating={lists.rating}
+                    cost={lists.cost}
+                    href={lists.forHref}
+                    
+        
+                    />
+                   ); 
+                }
+            )
+            }
+        </div>
+           
+        <ChevronRightIcon className="w-10 h-10 text-gray-500 border broder-gray-300 rounded-3xl shadow-xl transform shadow-inner cursor-pointer hover:shadow-xl hover:scale-125 duration-200  " />
+        </div>
+
+            </div>
 
 
 
@@ -235,14 +309,14 @@ function homeRoute(){
     
 <div>
             {/* List Of All Hotels */}
-            <h1 className="font-bold text-4xl mt-10 ml-20"> List Of all Hotels     </h1>
+            <h1 className="font-bold text-4xl mt-10 ml-20"> Trending Now    </h1>
 
             
         <div className="flex text-center justify-center "> 
     {/* Body List of hotels */}
      
   
-            {listOfHotels.map( function(lists) {
+            {listOfHotels.map( function(lists) {    
                return(   
 
             <Cards
@@ -271,28 +345,7 @@ function homeRoute(){
 
 
 
-<div>
-    <div className="h-40  border border-gray-300 bg-gray-300 mt-10">
-        {/* Footer */}
 
-        
-            <div>
-            {/* Contact Us Section */}
-            <h1 className="font-bold text-4xl mt-5 text-center"> Contact Us   </h1>
-            </div>
-
-
-    {/* <link to={contactUs} className="flex justify-center border border-red-300 "> Contact Us</a> */}
-
-    {/* <route path={contactUs}  /> */}
-
-    </div>
-
-
-
-
-
-        </div>
         
       
 

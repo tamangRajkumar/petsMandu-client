@@ -17,7 +17,7 @@ function Cards(props){
 
         <img className=" h-60 w-60 rounded-t-xl"src= {props.img} alt="" />
 
-        <h1 className="font-bold"> {props.name} </h1>
+        <h1 className="font-bold "> {props.name} </h1>
        
         <p className=""> {props.place} </p>
            
@@ -39,7 +39,7 @@ function Cards(props){
 
            </div>
 
-        <div className="m-2">
+        <div className="text-center m-2">
         
             <Link to={props.href} className="border border-blue-300 bg-gray-400 rounded-lg px-2 py-1 transform  hover:shadow-xl hover:bg-gray-300  " > View Details </Link>
         </div>

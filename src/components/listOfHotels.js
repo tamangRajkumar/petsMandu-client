@@ -1,12 +1,17 @@
-import images from "../images/sampleimg.jpg";
+import image1 from "./images/img1.jpg";
+import image2 from "./images/img2.jpeg";
+import image3 from "./images/img3.jpg";
+import image4 from "./images/img4.jpg";
+
+
 
 const listOfHotels = [{
     id:1,
     name: "Hotel Annapurna",
-    imgURL:images,
+    imgURL:image1,
     place:"kathmandu",
     rating:"4.9",
-    cost:"Nrp 500/Night",
+    cost:"Nrp 1500/Night",
     
     forHref:"Annapurna_hotel",
 
@@ -20,30 +25,30 @@ const listOfHotels = [{
 {
     id:2,
     name: "Hotel Kathmandu",
-    imgURL:images,
+    imgURL:image2,
     place:"kathmandu",
     rating:"4.2",
-    cost:"Nrp 500/Night",
+    cost:"Nrp 800/Night",
 
     forHref:"Kathmandu_hotel"
 },
 {
     id:3,
     name: "Boudha Hotel",
-    imgURL:images,
+    imgURL:image3,
     place:"kathmandu",
     rating:"3.9",
-    cost:"Nrp 500/Night",
+    cost:"Nrp 600/Night",
     forHref:"Boudha_hotel"
 
 },
 {
     id:4,
     name: "New-road",
-    imgURL:images,
+    imgURL:image4,
     place:"kathmandu",
     rating:"4.5",
-    cost:"Nrp 500/Night",
+    cost:"Nrp 1000/Night",
     forHref:"Annapurna_hotel"
 },
 // {

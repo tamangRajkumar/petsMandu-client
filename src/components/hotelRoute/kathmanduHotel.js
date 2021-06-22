@@ -4,7 +4,7 @@ import React from "react";
 function kathmanduHotel(){
     return(
         <div >
-        <h1 className="">kathmandu Hotel</h1>
+        <h1 className="">Kathmandu Hotel</h1>
         </div>
 
     );
