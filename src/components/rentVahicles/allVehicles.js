@@ -1,9 +1,10 @@
 
 import React from "react";
+import allVehiclesList from "../allVehiclesList";
 import allInstrumetsLists from "../allVehiclesList"
 import Cards from "../CardsVerticalAligned"
 
-function rentMusicInstruments(){
+function allVehicles(){
     return(
         <div>
         {/* Musical Instruments section */}
@@ -64,7 +65,7 @@ function rentMusicInstruments(){
     }
 
 
-export default rentMusicInstruments;
+export default allVehicles;
 
 
 

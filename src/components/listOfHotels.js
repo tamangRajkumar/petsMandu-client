@@ -7,7 +7,7 @@ import image4 from "./images/img4.jpg";
 
 const listOfHotels = [{
     id:1,
-    name: "Hotel Annapurna",
+    name: "Car For Rent",
     imgURL:image1,
     place:"kathmandu",
     rating:"4.9",
@@ -24,7 +24,7 @@ const listOfHotels = [{
 },
 {
     id:2,
-    name: "Hotel Kathmandu",
+    name: "Mini-Truck For Rent",
     imgURL:image2,
     place:"kathmandu",
     rating:"4.2",
@@ -34,7 +34,7 @@ const listOfHotels = [{
 },
 {
     id:3,
-    name: "Boudha Hotel",
+    name: "Micro-Bus For Rent",
     imgURL:image3,
     place:"kathmandu",
     rating:"3.9",
@@ -44,7 +44,7 @@ const listOfHotels = [{
 },
 {
     id:4,
-    name: "New-road",
+    name: "Bike For Rent",
     imgURL:image4,
     place:"kathmandu",
     rating:"4.5",

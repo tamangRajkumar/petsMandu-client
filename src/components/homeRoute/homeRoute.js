@@ -2,7 +2,7 @@ import React from "react";
 import listOfHotels from "../listOfHotels";
 import Cards from "../Cards";
 import imgBoudha from "./imgBoudha.jpg";
-import {ChevronDoubleLeftIcon, ChevronDoubleRightIcon, ChevronRightIcon, HeartIcon, StarIcon} from '@heroicons/react/solid';
+import {ChevronDoubleLeftIcon, ChevronDoubleRightIcon, ChevronRightIcon, HeartIcon, apptarIcon} from '@heroicons/react/solid';
 // import ourFeatured from "../ourFeatured";
 // import {useHistory} from 'react-router-dom';
 
@@ -41,7 +41,8 @@ function homeRoute(){
     //         }  
      > 
        
-       <Link to="/all_hotels"  className="text-xl px-5 text-black font-bold hover:text-gray-200 outline-none"> Log In And Become A Host  </Link>
+       <Link to="/all_hotels"  className="text-xl px-5 text-black font-bold hover:text-gray-200 outline-none">
+        Sign Up And Become A Host  </Link>
        </button>
        </div >
 

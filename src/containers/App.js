@@ -18,7 +18,8 @@ import signUp from "../components/signUp";
 import allHotels from "../components/allHotels";
 
 import logIn from "../components/logIn";
-
+import rentMusicInstruments from "../components/rentMusicInstruments/rentMusicInstruments";
+import allVehicles from "../components/rentVahicles/allVehicles";
 
 
 
@@ -96,7 +97,7 @@ function App(){
         {/* All Categories links */}
      <div className="flex flex-wrap justify-center items-center space-x-3 m-2">   
 <div className=" rounded-xl p-1 shadow-md bg-gradient-to-r from-purple-300 to-purple-400 transform hover:scale-110 hover:shadow-xl duration-150">
-            <Link to="/rent_vehicles" > Rent Vehicles </Link>
+            <Link to="/all_vehicles"  > Rent Vehicles </Link>
         </div>
         <div className=" rounded-xl p-1 shadow-md bg-gradient-to-r from-purple-300 to-purple-400 transform hover:scale-110 hover:shadow-xl duration-150">
             <Link to="/rent_rooms" > Rooms/Apartments/Hostels </Link>
@@ -111,7 +112,7 @@ function App(){
         </div>
 
         <div className=" rounded-xl p-1 shadow-md bg-gradient-to-r from-purple-300 to-purple-400 transform hover:scale-110 hover:shadow-xl duration-150">
-            <Link to="/rent_musical_intruments" > Musical Instruments </Link>
+            <Link to="/rent_musical_instruments" > Musical Instruments </Link>
         </div>
         <div className=" rounded-xl p-1 shadow-md bg-gradient-to-r from-purple-300 to-purple-400 transform hover:scale-110 hover:shadow-xl duration-150">
             <Link to="/rent_books" > Books </Link>
@@ -209,7 +210,7 @@ function App(){
 
 
         <div >
-            {/* Page Routing */}
+            {/*Header Page Routing */}
             {/* <Route path="/" exact content={Annapurna_hotel} />  */}
             <Switch>
 
@@ -227,8 +228,9 @@ function App(){
                 
                 <Route path="/all_hotels" component={allHotels} />
 
-              
+                <Route path="/rent_musical_instruments" component={rentMusicInstruments} />
 
+                <Route path="/all_vehicles" component={allVehicles} />
 
 
 

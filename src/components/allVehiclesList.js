@@ -5,13 +5,13 @@ import image4 from "./images/img4.jpg";
 
 
 
-const allHotelsList = [{
+const allVehiclesList = [{
     id:1,
-    name: "Hotel Annapurna",
+    name: "Car for Rent",
     imgURL:image1,
-    place:"kathmandu",
+    place:"kathmandu, Nepal",
     rating:"4.9",
-    cost:"Nrp 1500/Night",
+    cost:"Nrp 1500/Day",
     
     forHref:"Annapurna_hotel",
 
@@ -24,37 +24,37 @@ const allHotelsList = [{
 },
 {
     id:2,
-    name: "Hotel Kathmandu",
+    name: "Yamaha Bike for Rent",
     imgURL:image2,
-    place:"kathmandu",
+    place:"kathmandu, Nepal",
     rating:"4.2",
-    cost:"Nrp 800/Night",
+    cost:"Nrp 800/Day",
 
     forHref:"Kathmandu_hotel"
 },
 {
     id:3,
-    name: "Boudha Hotel",
+    name: "Car for Rent",
     imgURL:image3,
-    place:"kathmandu",
+    place:"kathmandu, Nepal",
     rating:"3.9",
-    cost:"Nrp 600/Night",
+    cost:"Nrp 600/Day",
     forHref:"Boudha_hotel"
 
 },
 {
     id:4,
-    name: "New-road",
+    name: "Delivery Truck For Rent",
     imgURL:image4,
-    place:"kathmandu",
+    place:"kathmandu, Nepal",
     rating:"4.5",
-    cost:"Nrp 1000/Night",
+    cost:"Nrp 1000/Day",
     forHref:"Annapurna_hotel"
 },{
     id:5,
-    name: "Hotel Annapurna",
+    name: "Mini Bus For Rent",
     imgURL:image1,
-    place:"kathmandu",
+    place:"kathmandu, Nepal",
     rating:"4.9",
     cost:"Nrp 1500/Night",
     
@@ -69,9 +69,9 @@ const allHotelsList = [{
 },
 {
     id:6,
-    name: "Hotel Kathmandu",
+    name: "Mini Micro For Rent",
     imgURL:image2,
-    place:"kathmandu",
+    place:"kathmandu, Nepal",
     rating:"4.2",
     cost:"Nrp 800/Night",
 
@@ -79,9 +79,9 @@ const allHotelsList = [{
 },
 {
     id:7,
-    name: "Boudha Hotel",
+    name: "Tour For Rent",
     imgURL:image3,
-    place:"kathmandu",
+    place:"kathmandu, Nepal",
     rating:"3.9",
     cost:"Nrp 600/Night",
     forHref:"Boudha_hotel"
@@ -89,18 +89,18 @@ const allHotelsList = [{
 },
 {
     id:8,
-    name: "New-road",
+    name: "Tourist Bus For Rent",
     imgURL:image4,
-    place:"kathmandu",
+    place:"kathmandu, Nepal",
     rating:"4.5",
     cost:"Nrp 1000/Night",
     forHref:"Annapurna_hotel"
 },
 {
     id:9,
-    name: "Hotel Annapurna",
+    name: "Cross-Fire for Rent",
     imgURL:image1,
-    place:"kathmandu",
+    place:"kathmandu, Nepal",
     rating:"4.9",
     cost:"Nrp 1500/Night",
     
@@ -115,9 +115,9 @@ const allHotelsList = [{
 },
 {
     id:10,
-    name: "Hotel Kathmandu",
+    name: "Bus For Rent",
     imgURL:image2,
-    place:"kathmandu",
+    place:"kathmandu, Nepal",
     rating:"4.2",
     cost:"Nrp 800/Night",
 
@@ -125,9 +125,9 @@ const allHotelsList = [{
 },
 {
     id:11,
-    name: "Boudha Hotel",
+    name: "Car For Rent",
     imgURL:image3,
-    place:"kathmandu",
+    place:"kathmandu, Nepal",
     rating:"3.9",
     cost:"Nrp 600/Night",
     forHref:"Boudha_hotel"
@@ -135,18 +135,18 @@ const allHotelsList = [{
 },
 {
     id:12,
-    name: "New-road",
+    name: "Mini Truck For Rent",
     imgURL:image4,
-    place:"kathmandu",
+    place:"kathmandu, Nepal",
     rating:"4.5",
     cost:"Nrp 1000/Night",
     forHref:"Annapurna_hotel"
 },
 {
     id:13,
-    name: "Hotel Annapurna",
+    name: "Scooty for Rent",
     imgURL:image1,
-    place:"kathmandu",
+    place:"kathmandu, Nepal",
     rating:"4.9",
     cost:"Nrp 1500/Night",
     
@@ -161,9 +161,9 @@ const allHotelsList = [{
 },
 {
     id:14,
-    name: "Hotel Kathmandu",
+    name: "Mini bus For Rent",
     imgURL:image2,
-    place:"kathmandu",
+    place:"kathmandu, Nepal",
     rating:"4.2",
     cost:"Nrp 800/Night",
 
@@ -171,9 +171,9 @@ const allHotelsList = [{
 },
 {
     id:15,
-    name: "Boudha Hotel",
+    name: "Micro-bus for rent",
     imgURL:image3,
-    place:"kathmandu",
+    place:"kathmandu, Nepal",
     rating:"3.9",
     cost:"Nrp 600/Night",
     forHref:"Boudha_hotel"
@@ -181,18 +181,18 @@ const allHotelsList = [{
 },
 {
     id:16,
-    name: "New-road",
+    name: "Truck for Rent",
     imgURL:image4,
-    place:"kathmandu",
+    place:"kathmandu, Nepal",
     rating:"4.5",
     cost:"Nrp 1000/Night",
     forHref:"Annapurna_hotel"
 },
 {
     id:17,
-    name: "Hotel Annapurna",
+    name: "Six wheeler for Rent",
     imgURL:image1,
-    place:"kathmandu",
+    place:"kathmandu, Nepal",
     rating:"4.9",
     cost:"Nrp 1500/Night",
     
@@ -207,9 +207,9 @@ const allHotelsList = [{
 },
 {
     id:18,
-    name: "Hotel Kathmandu",
+    name: "Tourist Bus for Rent",
     imgURL:image2,
-    place:"kathmandu",
+    place:"kathmandu, Nepal",
     rating:"4.2",
     cost:"Nrp 800/Night",
 
@@ -217,9 +217,9 @@ const allHotelsList = [{
 },
 {
     id:19,
-    name: "Boudha Hotel",
+    name: "Bus for Rent",
     imgURL:image3,
-    place:"kathmandu",
+    place:"kathmandu, Nepal",
     rating:"3.9",
     cost:"Nrp 600/Night",
     forHref:"Boudha_hotel"
@@ -227,7 +227,7 @@ const allHotelsList = [{
 },
 {
     id:20,
-    name: "New-road",
+    name: "Car For Rent",
     imgURL:image4,
     place:"kathmandu",
     rating:"4.5",
@@ -236,4 +236,4 @@ const allHotelsList = [{
 }
 ]
 
-export default allHotelsList;
+export default allVehiclesList;

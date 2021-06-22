@@ -10,11 +10,10 @@ function Cards(props){
 
     return(
 
-<div className=" border border-gray-100 shadow-xl rounded-2xl  m-4   hover:shadow-2xl transform hover:scale-110 duration-150 ">
+<div className=" border border-gray-100 shadow-xl rounded-2xl  m-4   hover:shadow-2xl transform hover:scale-105 duration-150 ">
          
         {/* body Hotel lists */}
-        
-
+        <Link to={props.href}>
         <img className=" h-60 w-60 rounded-t-xl"src= {props.img} alt="" />
 
         <h1 className="font-bold "> {props.name} </h1>
@@ -47,6 +46,7 @@ function Cards(props){
 
         {/* <button className="border border-blue-300 bg-gray-400 rounded-lg px-1 "> View Details </button> */}
 
+        </Link>
 
         </div>   
 
