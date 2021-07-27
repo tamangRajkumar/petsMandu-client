@@ -1,5 +1,5 @@
 import React from "react";
-import listOfHotels from "../listOfHotels";
+import listOfHotels from "../AllPetsLists/landingPagePetsList";
 
 function annapurnaHotel(){
    

@@ -1,5 +1,5 @@
 import React from "react";
-import listOfHotels from "../listOfHotels";
+import listOfHotels from "../AllPetsLists/landingPagePetsList";
 import Cards from "../Cards";
 import imgBoudha from "./imgBoudha.jpg";
 import {ChevronDoubleLeftIcon, ChevronDoubleRightIcon, ChevronRightIcon, HeartIcon, apptarIcon} from '@heroicons/react/solid';
@@ -41,7 +41,7 @@ function homeRoute(){
     //         }  
      > 
        
-       <Link to="/all_hotels"  className="text-xl px-5 text-black font-bold hover:text-gray-200 outline-none">
+       <Link to="/sign_up"  className="text-xl px-5 text-black font-bold hover:text-gray-200 outline-none">
         Sign Up And Become A Host  </Link>
        </button>
        </div >
@@ -117,10 +117,53 @@ function homeRoute(){
 
 
 
+            <div>
+                {/* Our Featured */}
+                <h1 className="font-bold text-4xl mt-10 ml-20"> Your Nearest Pets shops  </h1>
+
+              
+              <div className="flex items-center justify-center">
+            <div className="flex text-center justify-center">
+            {listOfHotels.map(  
+                function(lists){
+                  return ( <Cards
+                   
+                    key={lists.id}
+                    name={lists.name}
+                    img={lists.imgURL}
+                    place={lists.place }
+                    rating={lists.rating}
+                    cost={lists.cost}
+                    href={lists.forHref}
+                    
+        
+                    />
+                   ); 
+                }
+            )
+            }
+        </div>  
+
+
+        <ChevronRightIcon className="w-10 h-10 text-gray-500 border broder-gray-300 rounded-3xl shadow-xl transform shadow-inner cursor-pointer hover:shadow-xl hover:scale-125 duration-200  " />
+        </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
 
             <div>
                 {/* Our Featured */}
-                <h1 className="font-bold text-4xl mt-10 ml-20"> Rent Vehicles  </h1>
+                <h1 className="font-bold text-4xl mt-10 ml-20"> Hire Nearest Vetneries  </h1>
 
               
               <div className="flex items-center justify-center">
@@ -158,7 +201,7 @@ function homeRoute(){
 
             <div>
                 {/* Near Your Location */}
-                <h1 className="font-bold text-4xl mt-10 ml-20"> Rent Rooms/Apartments/Hostels    </h1>
+                <h1 className="font-bold text-4xl mt-10 ml-20"> Dogs   </h1>
             
             
             <div className="flex items-center justify-center">
@@ -195,7 +238,7 @@ function homeRoute(){
 
             <div>
             {/* Trending Now */}
-            <h1 className="font-bold text-4xl mt-10 ml-20"> Rent Traditional Clothes/ Fashion Clothes   </h1>
+            <h1 className="font-bold text-4xl mt-10 ml-20"> Cats  </h1>
            
            
            <div className="flex items-center justify-center">
@@ -233,7 +276,7 @@ function homeRoute(){
 
             <div>
             {/* Trending Now */}
-            <h1 className="font-bold text-4xl mt-10 ml-20"> Rent Musical Instruments  </h1>
+            <h1 className="font-bold text-4xl mt-10 ml-20"> Fish & Aquariums  </h1>
            
            
            <div className="flex items-center justify-center">
@@ -272,7 +315,7 @@ function homeRoute(){
 
             <div>
             {/* Trending Now */}
-            <h1 className="font-bold text-4xl mt-10 ml-20"> Rent Books   </h1>
+            <h1 className="font-bold text-4xl mt-10 ml-20"> Parrots & Birds </h1>
            
            
            <div className="flex items-center justify-center">
@@ -310,7 +353,7 @@ function homeRoute(){
     
 <div>
             {/* List Of All Hotels */}
-            <h1 className="font-bold text-4xl mt-10 ml-20"> Trending Now    </h1>
+            <h1 className="font-bold text-4xl mt-10 ml-20"> Toys And Peripherals   </h1>
 
             
         <div className="flex text-center justify-center "> 

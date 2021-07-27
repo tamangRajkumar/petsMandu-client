@@ -6,20 +6,27 @@ import {Route, Switch, Link} from 'react-router-dom';
 
 
 
-
-
 import homeRoute from "../components/homeRoute/homeRoute";
+import annapurnaHotel from "../components/hotelRoute/annapurnaHotel";
 
- import annapurnaHotel from "../components/hotelRoute/annapurnaHotel";
 
 import boudhaHotel from "../components/hotelRoute/boudhaHotel";
 import kathmanduHotel from "../components/hotelRoute/kathmanduHotel";
-import signUp from "../components/signUp";
-import allHotels from "../components/allHotels";
+import signUp from "../components/LogInSignIn/signUp";
 
-import logIn from "../components/logIn";
-import rentMusicInstruments from "../components/rentMusicInstruments/rentMusicInstruments";
-import allVehicles from "../components/rentVahicles/allVehicles";
+
+import logIn from "../components/LogInSignIn/logIn";
+
+import favoritesList from "../components/yourFavorites/favoritesList";
+import fishAndAquariums from "../components/fishAndAquarium/fishAndAquarium";
+import parrotsAndBirds from "../components/parrotsAndBirds/birds";
+import lostAndFoundPets from "../components/lostAndFound/lostAndFound";
+import cats from "../components/cats/cats";
+import dogs from "../components/dogs/allDogs";
+import nearestVetnaries from "../components/hireVetnaries/hireVetnaries";
+import allPets from "../components/searchAllPets/allPets";
+import IndividualRoute from "../components/individualRouteUsingParams/individualRoute";
+
 
 
 
@@ -74,16 +81,14 @@ function App(){
      <div>
          {/* Logo of app */}
         <Link to="/">
-        <HomeIcon className="h-6 w-6 mt-7 rounded-xl text-gray-500 flex items-center  transform hover:scale-125 hover:bg-opacity-60 hover:text-opacity-70 hover:shadow-xl duration-150 " />
+        <HomeIcon className="h-6 w-6 mt-3 rounded-xl text-gray-500 flex items-center  transform hover:scale-125 hover:bg-opacity-60 hover:text-opacity-70 hover:shadow-xl duration-150 " />
         </Link>
     </div>
         <Link to="/" className="ml-5  rounded-xl font-bold ">
             
             
-        <span href="#" className="ml-2 ">Rent</span>  <br/>  
-        
-             <span href="#" className="ml-8 mr-6 " >n</span> <br/>
-             <span href="#" className="ml-8 mr-6 " >Deal</span>
+        <span href="#" className="ml-2 ">Pets</span>  <br/> 
+             <span href="#" className="ml-8 mr-6 " >Mandu</span>
         </Link>
 
         </div>
@@ -97,25 +102,28 @@ function App(){
         {/* All Categories links */}
      <div className="flex flex-wrap justify-center items-center space-x-3 m-2">   
 <div className=" rounded-xl p-1 shadow-md bg-gradient-to-r from-purple-300 to-purple-400 transform hover:scale-110 hover:shadow-xl duration-150">
-            <Link to="/all_vehicles"  > Rent Vehicles </Link>
+            <Link to="/dogs"  > Dogs </Link>
         </div>
         <div className=" rounded-xl p-1 shadow-md bg-gradient-to-r from-purple-300 to-purple-400 transform hover:scale-110 hover:shadow-xl duration-150">
-            <Link to="/rent_rooms" > Rooms/Apartments/Hostels </Link>
-        </div>
-        
-        <div className=" rounded-xl p-1 shadow-md bg-gradient-to-r from-purple-300 to-purple-400 transform hover:scale-110 hover:shadow-xl duration-150">
-            <Link to="/rent_lands_properties" > Properties/Lands </Link>
+            <Link to="/cats" > Cats </Link>
         </div>
         
         <div className=" rounded-xl p-1 shadow-md bg-gradient-to-r from-purple-300 to-purple-400 transform hover:scale-110 hover:shadow-xl duration-150">
-            <Link to="/rent_clothes" > Clothes </Link>
+            <Link to="/fish_aquariums" > Fish/ Aquarium   </Link>
+        </div>
+        
+        <div className=" rounded-xl p-1 shadow-md bg-gradient-to-r from-purple-300 to-purple-400 transform hover:scale-110 hover:shadow-xl duration-150">
+            <Link to="/parrots_birds" > Parrots/ Birds </Link>
         </div>
 
         <div className=" rounded-xl p-1 shadow-md bg-gradient-to-r from-purple-300 to-purple-400 transform hover:scale-110 hover:shadow-xl duration-150">
-            <Link to="/rent_musical_instruments" > Musical Instruments </Link>
+            <Link to="/nearest_vetnaries" > Nearest Vetneries </Link>
         </div>
         <div className=" rounded-xl p-1 shadow-md bg-gradient-to-r from-purple-300 to-purple-400 transform hover:scale-110 hover:shadow-xl duration-150">
-            <Link to="/rent_books" > Books </Link>
+            <Link to="/lost_found_pets" > Lost & Found Pets </Link>
+        </div>
+        <div className=" rounded-xl p-1 shadow-md bg-gradient-to-r from-purple-300 to-purple-400 transform hover:scale-110 hover:shadow-xl duration-150">
+            <Link to="/favorites_list" > Your Favorites</Link>
         </div>
         </div>
 </div>
@@ -129,11 +137,11 @@ function App(){
             
             <div  className="transform hover:scale-105 duration-300 hover:shadow rounded-3xl  ">
                            {/* Search Icon */}
-        <Link to="/all_hotels" >
+        <Link to="/all_pets" >
             <SearchIcon class="h-6 w-6 text-gray-500 absolute ml-52 mt-2.5 z-50  " />
            </ Link>
             <input className="text-center  border border-gray-50 shadow-md outline-none rounded-3xl flex-1 px-10 py-2 "  
-            type="text" placeholder="Rent Anything? " />
+            type="text" placeholder="Search any pet? " />
 
        
            
@@ -226,11 +234,21 @@ function App(){
                 <Route path="/sign_up" component={signUp} />
                 <Route path="/log_in" component={logIn} />
                 
-                <Route path="/all_hotels" component={allHotels} />
+                <Route path="/all_pets" component={allPets} />
 
-                <Route path="/rent_musical_instruments" component={rentMusicInstruments} />
+                <Route path="/nearest_vetnaries" component={nearestVetnaries} />
 
-                <Route path="/all_vehicles" component={allVehicles} />
+                <Route path="/dogs" component={dogs} />
+
+                <Route path="/cats" component={cats} />
+                <Route path="/lost_found_pets" component={lostAndFoundPets} />
+                <Route path="/fish_aquariums" component={fishAndAquariums} />
+                <Route path="/parrots_birds" component={parrotsAndBirds} />
+                <Route path="/favorites_list" component={favoritesList} />
+
+
+                {/* individual pets page routing using params */}
+                <Route path="/pets/:indexNumber" component={IndividualRoute} />
 
 
 
@@ -260,23 +278,7 @@ function App(){
 
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
 </>
-
-
-
-
-
     );
 
 }
