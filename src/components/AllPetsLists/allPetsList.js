@@ -1,5 +1,5 @@
 import image1 from "../images/img1.jpg";
-import image2 from "../images/img2.jpeg";
+import image2 from "../images/img2.jpg";
 import image3 from "../images/img3.jpg";
 import image4 from "../images/img4.jpg";
 
@@ -7,7 +7,7 @@ import image4 from "../images/img4.jpg";
 
 const allVehiclesList = [{
     id:1,
-    name: "Car for Rent",
+    name: "Germanshepher",
     imgURL:image1,
     place:"kathmandu, Nepal",
     rating:"4.9",
@@ -34,7 +34,7 @@ const allVehiclesList = [{
 },
 {
     id:2,
-    name: "Yamaha Bike for Rent",
+    name: "BullDog",
     imgURL:image2,
     place:"kathmandu, Nepal",
     rating:"4.2",
@@ -44,7 +44,7 @@ const allVehiclesList = [{
 },
 {
     id:3,
-    name: "Car for Rent",
+    name: "bhotey dog",
     imgURL:image3,
     place:"kathmandu, Nepal",
     rating:"3.9",
@@ -54,7 +54,7 @@ const allVehiclesList = [{
 },
 {
     id:4,
-    name: "Delivery Truck For Rent",
+    name: "Germanshepher",
     imgURL:image4,
     place:"kathmandu, Nepal",
     rating:"4.5",
@@ -62,7 +62,7 @@ const allVehiclesList = [{
     forHref:"pets/3"
 },{
     id:5,
-    name: "Mini Bus For Rent",
+    name: "Germanshepher",
     imgURL:image1,
     place:"kathmandu, Nepal",
     rating:"4.9",
@@ -79,7 +79,7 @@ const allVehiclesList = [{
 },
 {
     id:6,
-    name: "Mini Micro For Rent",
+    name: "Germanshepher",
     imgURL:image2,
     place:"kathmandu, Nepal",
     rating:"4.2",
@@ -89,7 +89,7 @@ const allVehiclesList = [{
 },
 {
     id:7,
-    name: "Tour For Rent",
+    name: "Germanshepher",
     imgURL:image3,
     place:"kathmandu, Nepal",
     rating:"3.9",
@@ -99,7 +99,7 @@ const allVehiclesList = [{
 },
 {
     id:8,
-    name: "Tourist Bus For Rent",
+    name: "Bulldog",
     imgURL:image4,
     place:"kathmandu, Nepal",
     rating:"4.5",
@@ -108,7 +108,7 @@ const allVehiclesList = [{
 },
 {
     id:9,
-    name: "Cross-Fire for Rent",
+    name: "Germanshepher",
     imgURL:image1,
     place:"kathmandu, Nepal",
     rating:"4.9",
@@ -125,7 +125,7 @@ const allVehiclesList = [{
 },
 {
     id:10,
-    name: "Bus For Rent",
+    name: "Germanshepher",
     imgURL:image2,
     place:"kathmandu, Nepal",
     rating:"4.2",
@@ -135,7 +135,7 @@ const allVehiclesList = [{
 },
 {
     id:11,
-    name: "Car For Rent",
+    name: "Bulldog",
     imgURL:image3,
     place:"kathmandu, Nepal",
     rating:"3.9",
@@ -145,7 +145,7 @@ const allVehiclesList = [{
 },
 {
     id:12,
-    name: "Mini Truck For Rent",
+    name: "Germanshepher",
     imgURL:image4,
     place:"kathmandu, Nepal",
     rating:"4.5",
@@ -154,7 +154,7 @@ const allVehiclesList = [{
 },
 {
     id:13,
-    name: "Scooty for Rent",
+    name: "Germanshepher",
     imgURL:image1,
     place:"kathmandu, Nepal",
     rating:"4.9",
@@ -171,7 +171,7 @@ const allVehiclesList = [{
 },
 {
     id:14,
-    name: "Mini bus For Rent",
+    name: "Germanshepher",
     imgURL:image2,
     place:"kathmandu, Nepal",
     rating:"4.2",
@@ -181,7 +181,7 @@ const allVehiclesList = [{
 },
 {
     id:15,
-    name: "Micro-bus for rent",
+    name: "Germanshepher",
     imgURL:image3,
     place:"kathmandu, Nepal",
     rating:"3.9",
@@ -191,7 +191,7 @@ const allVehiclesList = [{
 },
 {
     id:16,
-    name: "Truck for Rent",
+    name: "Germanshepher",
     imgURL:image4,
     place:"kathmandu, Nepal",
     rating:"4.5",
@@ -200,7 +200,7 @@ const allVehiclesList = [{
 },
 {
     id:17,
-    name: "Six wheeler for Rent",
+    name: "Bulldog",
     imgURL:image1,
     place:"kathmandu, Nepal",
     rating:"4.9",
@@ -217,7 +217,7 @@ const allVehiclesList = [{
 },
 {
     id:18,
-    name: "Tourist Bus for Rent",
+    name: "Germanshepher",
     imgURL:image2,
     place:"kathmandu, Nepal",
     rating:"4.2",
@@ -227,7 +227,7 @@ const allVehiclesList = [{
 },
 {
     id:19,
-    name: "Bus for Rent",
+    name: "Germanshepher",
     imgURL:image3,
     place:"kathmandu, Nepal",
     rating:"3.9",
@@ -237,7 +237,7 @@ const allVehiclesList = [{
 },
 {
     id:20,
-    name: "Car For Rent",
+    name: "Germanshepher",
     imgURL:image4,
     place:"kathmandu",
     rating:"4.5",

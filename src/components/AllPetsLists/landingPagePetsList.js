@@ -1,5 +1,5 @@
 import image1 from "../images/img1.jpg";
-import image2 from "../images/img2.jpeg";
+import image2 from "../images/img2.jpg";
 import image3 from "../images/img3.jpg";
 import image4 from "../images/img4.jpg";
 
@@ -7,7 +7,7 @@ import image4 from "../images/img4.jpg";
 
 const listOfHotels = [{
     id:1,
-    name: "Car For Rent",
+    name: "Germanshepher",
     imgURL:image1,
     place:"kathmandu",
     rating:"4.9",
@@ -19,12 +19,11 @@ const listOfHotels = [{
     deatailOfHotel:""
 
 
-
-    
+   
 },
 {
     id:2,
-    name: "Mini-Truck For Rent",
+    name: "Himalayan Dog",
     imgURL:image2,
     place:"kathmandu",
     rating:"4.2",
@@ -34,7 +33,7 @@ const listOfHotels = [{
 },
 {
     id:3,
-    name: "Micro-Bus For Rent",
+    name: "Germanshepher",
     imgURL:image3,
     place:"kathmandu",
     rating:"3.9",
@@ -49,7 +48,7 @@ const listOfHotels = [{
     place:"kathmandu",
     rating:"4.5",
     cost:"Nrp 1000/Night",
-    forHref:"Annapurna_hotel"
+    forHref:"Bulldog"
 },
 // {
 //     id:5,

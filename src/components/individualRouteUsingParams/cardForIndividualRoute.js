@@ -43,7 +43,7 @@ function cardForIndividualRoute(props){
 
 
         <div className="m-10 ">
-            <p className="text-3xl font-bold text-center  ">Hotel Discription</p>
+            <p className="text-3xl font-bold text-center  ">Pet Food Discription</p>
             <p className="text-justify m-5">{props.petDetails}</p>
                 
         </div>

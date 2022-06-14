@@ -1,6 +1,6 @@
 import React from "react";
-import Cards from "../Cards"
-import allHotelsList from "../AllPetsLists/allPetsList";
+import Cards from "../../components/Cards"
+import allHotelsList from "../../components/AllPetsLists/allPetsList";
 
 
 

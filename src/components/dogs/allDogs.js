@@ -8,7 +8,7 @@ function dogs(){
     return(
         <div>
         {/* Musical Instruments section */}
-        <h1 className="text-white">
+         <h1 className="text-white">
             Hello world
         </h1>
 
@@ -19,9 +19,9 @@ function dogs(){
                 Search By Filters                 
             </h1>
             <div className="flex m-3 justify-center ">
+            <button className="bg bg-gray-300 rounded-xl p-1 px-2 mx-2 text-center shadow-sm focus:outline-none transform hover:scale-110 hover:bg-black hover:text-white hover:shadow-xl"  > Purchase Dog foods/Bones </button>
             <button className="bg bg-gray-300 rounded-xl p-1 px-2 mx-2 text-center shadow-sm focus:outline-none transform hover:scale-110 hover:bg-black hover:text-white hover:shadow-xl"  > Purchase Dogs </button>
-            <button className="bg bg-gray-300 rounded-xl p-1 px-2 mx-2 text-center shadow-sm focus:outline-none transform hover:scale-110 hover:bg-black hover:text-white hover:shadow-xl"  > Buy Best Dog foods/Bones</button>
-            <button className="bg bg-gray-300 rounded-xl p-1 px-2 mx-2 text-center shadow-sm focus:outline-none transform hover:scale-110 hover:bg-black hover:text-white hover:shadow-xl"  > Buy Best Dog Peripherals/ Toys </button>
+            <button className="bg bg-gray-300 rounded-xl p-1 px-2 mx-2 text-center shadow-sm focus:outline-none transform hover:scale-110 hover:bg-black hover:text-white hover:shadow-xl"  > Purchase Dog Peripherals/ Toys </button>
          
             </div>
 
