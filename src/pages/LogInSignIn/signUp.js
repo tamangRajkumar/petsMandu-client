@@ -4,7 +4,8 @@ import axios from "axios";
 import { Redirect } from "react-router-dom";
 import { signUpUser } from "../../actions/authActions";
 import { useDispatch, Selector, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
+import coverImage from "../../images/signInLogIn/signUpCoverImage.jpg";
 
 // Import Image
 
@@ -44,10 +45,10 @@ const SignUp = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <h1 className="text-white"> Sign Up </h1>
-
         <div className="flex justify-around items-center">
-          <div></div>
+          <div className="flex justify-center items-center mt-40">
+            <img className="rounded-3xl " src={coverImage} alt="" />
+          </div>
 
           <div className="mt-40 flex flex-col items-center justify-center text-center  ">
             <h1 className="font-bold text-3xl">Sign Up</h1>
@@ -84,10 +85,18 @@ const SignUp = () => {
 
               <button
                 type="submit"
-                className="border border-yellow-300 bg-gradient-to-r from-purple-300 to-purple-400 rounded-2xl shadow-xl px-9   py-2 font-bold m-3 hover: transform hover:scale-110  hover:shadow-xl "
+                className="border focus:outline-none bg-gradient-to-r from-purple-300 to-purple-400 rounded-2xl shadow-xl px-9   py-2 font-bold m-3 hover: transform hover:scale-110  hover:shadow-xl "
               >
-                Submit
+                Sign up
               </button>
+              <div className="flex gap-2">
+                <h1 className="text-md">Already Signed up?</h1>{" "}
+                <Link to="/login">
+                  <p className="underline underline-offset-8 text-red-600 text-md">
+                    Log in
+                  </p>
+                </Link>
+              </div>
             </>
           </div>
         </div>

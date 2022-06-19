@@ -1,8 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { logInUser } from "../../actions/authActions";
+import coverImage from "../../images/signInLogIn/signUpCoverImage.jpg";
 function LogIn() {
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
@@ -27,14 +28,16 @@ function LogIn() {
     dispatch(logInUser(userLogInData, history));
   };
 
+
+  
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <h1 className="text-white"> Log In </h1>
 
         <div className="flex justify-around items-center">
-          <div>
-            <h1 className="font-bold ">Website Logo</h1>
+          <div className="flex justify-center items-center mt-40">
+            <img className="rounded-3xl " src={coverImage} alt="" />
           </div>
 
           <div className="mt-40 flex flex-col items-center justify-center text-center  ">
@@ -62,10 +65,18 @@ function LogIn() {
             <button
               type="submit"
               onClick={handleSubmit}
-              className="bg-black text-white rounded-2xl shadow-xl p-1.5 font-bold m-3 hover:text-gray-100 transform hover:scale-110  hover:shadow-xl"
+              className="border focus:outline-none bg-gradient-to-r from-purple-300 to-purple-400 rounded-2xl shadow-xl px-9   py-2 font-bold m-3 hover: transform hover:scale-110  hover:shadow-xl "
             >
               Log In
             </button>
+            <div className="flex gap-2">
+              <h1 className="text-md">Not yet Signed up?</h1>{" "}
+              <Link to="/signup">
+                <p className="underline underline-offset-4 text-red-600 text-md">
+                  sign up
+                </p>
+              </Link>
+            </div>
           </div>
         </div>
       </form>

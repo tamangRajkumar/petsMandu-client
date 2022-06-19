@@ -1,6 +1,6 @@
 {
   "name": "web-dev",
-  "homepage": "https://rajkumar182.github.io/hotelwebsite",
+  "homepage": "https://rajkumar182.github.io/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -20,6 +20,7 @@
     "react-scripts": "4.0.3",
     "react-slick": "^0.29.0",
     "redux": "^4.2.0",
+    "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
     "slick-carousel": "^1.8.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.2",

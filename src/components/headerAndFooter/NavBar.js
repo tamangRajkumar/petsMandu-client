@@ -1,5 +1,7 @@
-import React from "react";
-import { Link, Redirect } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import { Link, useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import {
   ViewListIcon,
   SearchIcon,
@@ -8,7 +10,34 @@ import {
   MenuIcon,
 } from "@heroicons/react/solid";
 
-function NavBar() {
+import DropDownModal from "../modal/DropDownModal";
+const NavBar = () => {
+  const [menuClicked, setMenuClicked] = useState(false);
+  const menuBtnRef = useRef();
+  const history = useHistory();
+
+  const isAuthenticated = useSelector(
+    (state) => state.authUser.isAuthenticated
+  );
+
+  useEffect(() => {
+    const closeDropdownOnClick = (e) => {
+      // console.log(e);
+      if (e.path[0] !== menuBtnRef.current) {
+        setMenuClicked(false);
+        // console.log(e);
+      }
+    };
+    document.body.addEventListener("click", closeDropdownOnClick);
+
+    return () =>
+      document.body.removeEventListener("click", closeDropdownOnClick);
+  }, []);
+
+  const hanldeMenuClicked = () => {
+    setMenuClicked((prev) => !prev);
+  };
+
   return (
     <div className="container max-w-full  rounded-md fixed  z-50  ">
       <div className="flex justify-between items-center px-5 mb-5 shadow-lg rounded-xl  bg-gray-50 ">
@@ -21,11 +50,11 @@ function NavBar() {
             </Link>
           </div>
           <div>
-          <Link to="/" className=" mr-4  rounded-xl font-bold ">
-            <span href="#" className="ml-2 ">
-              pets<span className="text-xl">Mandu</span>
-            </span>
-          </Link>
+            <Link to="/" className=" mr-4  rounded-xl font-bold ">
+              <span href="#" className="ml-2 ">
+                pets<span className="text-xl">Mandu</span>
+              </span>
+            </Link>
           </div>
         </div>
 
@@ -47,20 +76,21 @@ function NavBar() {
               <Link to="/parrots_birds"> Parrots/ Birds </Link>
             </div> */}
 
-
-            <div className=" rounded-xl py-2 px-3 font-bold text-base shadow-md bg-gradient-to-r from-purple-300 to-purple-400 transform hover:scale-110 hover:shadow-xl duration-150">
+            <div className=" rounded-xl py-2 px-3  font-bold text-base shadow-md bg-gradient-to-r from-purple-300 to-purple-400 transform hover:scale-110 hover:shadow-xl duration-150">
               <Link to="/adopt_pets"> Adopt Pets </Link>
-            </div> 
+            </div>
 
-            <div className=" rounded-xl py-2 px-3 font-bold text-base shadow-md bg-gradient-to-r from-purple-300 to-purple-400 transform hover:scale-110 hover:shadow-xl duration-150">
-              <Link to="/pets_problems_and_solutions"> Pets Problems & Solutions </Link>
-            </div> 
+            <div className=" rounded-xl py-2 px-3   font-bold text-base shadow-md bg-gradient-to-r from-purple-300 to-purple-400 transform hover:scale-110 hover:shadow-xl duration-150">
+              <Link to="/pets_problems_and_solutions">
+                {" "}
+                Pets Problems & Solutions{" "}
+              </Link>
+            </div>
 
-
-            <div className=" rounded-xl py-2 px-3 font-bold text-base shadow-md bg-gradient-to-r from-purple-300 to-purple-400 transform hover:scale-110 hover:shadow-xl duration-150">
+            <div className=" rounded-xl py-2 px-3  font-bold text-base shadow-md bg-gradient-to-r from-purple-300 to-purple-400 transform hover:scale-110 hover:shadow-xl duration-150">
               <Link to="/nearest_vetnaries"> Nearest Vetneries </Link>
             </div>
-            <div className=" rounded-xl py-2 px-3 font-bold text-base shadow-md bg-gradient-to-r from-purple-300 to-purple-400 transform hover:scale-110 hover:shadow-xl duration-150">
+            <div className=" rounded-xl py-2 px-3  font-bold text-base shadow-md bg-gradient-to-r from-purple-300 to-purple-400 transform hover:scale-110 hover:shadow-xl duration-150">
               <Link to="/lost_found_pets"> Lost & Found Pets </Link>
             </div>
             {/* <div className=" rounded-xl p-1 px-1.5 shadow-md bg-gradient-to-r from-purple-300 to-purple-400 transform hover:scale-110 hover:shadow-xl duration-150">
@@ -86,37 +116,45 @@ function NavBar() {
           </div>
         </div>
 
-        {/* <div className="flex items-center space-x-4 hidden md:hidden lg:flex"> */}
-        {/* Log in & Sign up menu */}
-
-        {/* <div className=" rounded-xl p-1 shadow-md bg-gradient-to-r from-purple-300 to-purple-400 transform hover:scale-110 hover:shadow-xl duration-150">
-            <Link to="/log_in" > Log In </Link>
+        {/* Nav Bar Toggler */}
+        <div>
+          <button
+            ref={menuBtnRef}
+            onClick={hanldeMenuClicked}
+            className="flex items-center focus:outline-none p-2 text-gray-600  absolute z-50  h-12 w-20 ml-0.5 rounded-full  "
+          ></button>
+          <div className=" bg-white rounded-full shadow-lg justify-center items-center px-2 py-1.5 transform hover:scale-105 duration-150 hover:shadow-xl ">
+            <div className=" flex  ">
+              <MenuIcon className="h-7 w-8 mt-1  " />
+              <UserCircleIcon className="h-9 w-9 text-gray-600 " />
+            </div>
+          </div>
+          {/* onClick={menuClicked} */}
         </div>
-        <div className="rounded-xl p-1 shadow-md bg-gradient-to-r from-purple-300 to-purple-400 transform hover:scale-110 hover:bg-opacity-10 hover:shadow-xl duration-150 ">
-            <Link to="sign_up"> Sign Up </Link>
-        </div>        
-         */}
 
-        {/* <div className=" rounded-xl p-2 shadow-xl bg-yellow-300 transform hover:scale-110  hover:shadow-xl duration-150">
-            <a href="#"> Sign Up with G+ </a>
-        </div> */}
-
-        {/* </div> */}
-
-        <div className=" bg-white rounded-full shadow-lg  transform hover:scale-105 duration-150 hover:shadow-xl ">
-          {/* Nav Bar Toggler */}
-
-          <button className="flex items-center focus:outline-none p-2 text-gray-600 ">
-            <Link
-              to="/signUp"
-              className="text-gray-600 flex justify-center items-center"
-            >
-              <MenuIcon className="h-6 w-8  " />
-              <UserCircleIcon className="h-8 w-8 text-gray-600" />
-            </Link>
-          </button>
-          {/* //onClick={menuClicked} */}
-        </div>
+        {isAuthenticated ? (
+          //if logged in pass dropdown to set margin top
+          <>
+            {menuClicked ? (
+              <div className=" absolute right-0  mr-5 mt-36 pt-3">
+                <DropDownModal history={history} />
+              </div>
+            ) : (
+              ""
+            )}
+          </>
+        ) : (
+          //if Not logged in pass drop down to set margin top
+          <>
+            {menuClicked ? (
+              <div className=" absolute right-0  mr-5 mt-48">
+                <DropDownModal history={history} />
+              </div>
+            ) : (
+              ""
+            )}
+          </>
+        )}
 
         {/* <div>
             <h1>{menuItems.logIn}</h1>
@@ -126,6 +164,6 @@ function NavBar() {
       </div>
     </div>
   );
-}
+};
 
 export default NavBar;

@@ -16,9 +16,14 @@ import {
 
 import { Link, Redirect } from "react-router-dom";
 import SliderCarousel from "../../components/sliderCarousel/SliderCarousel";
+import { useSelector } from "react-redux";
 
-function homeRoute() {
+function HomeRoute() {
   // const history = useHistory();
+  const isAuthenticated = useSelector(
+    (state) => state.authUser.isAuthenticated
+  );
+  console.log(isAuthenticated);
 
   return (
     <>
@@ -32,14 +37,20 @@ function homeRoute() {
             {" "}
             //hover:shadow-2xl rounded-3xl
             <div>
-              <button className="absolute right-20 md:right-40 mt-80 animate-spin outline-none   rounded-2xl bg-blue-300 px-2 pb-1  hover:bg-black transform hover:scale-110  hover:border-gray-700 duration-150">
-                <Link
-                  to="/signUp"
-                  className="text-xl px-5 text-black font-bold hover:text-gray-200 outline-none"
-                >
-                  Sign Up to Post
-                </Link>
-              </button>
+
+            {/* Sign to post button */}
+              {isAuthenticated ? (
+                <></>
+              ) : (
+                <button className="absolute right-20 md:right-40 mt-80 animate-spin outline-none   rounded-2xl bg-blue-300 px-2 pb-1  hover:bg-black transform hover:scale-110  hover:border-gray-700 duration-150">
+                  <Link
+                    to="/signUp"
+                    className="text-xl px-5 text-black font-bold hover:text-gray-200 outline-none"
+                  >
+                    Sign Up to Post
+                  </Link>
+                </button>
+              )}
             </div>
             <img src={petsGroupImg} alt="" className=" h-96   rounded-3xl " />
           </div>
@@ -101,4 +112,4 @@ function homeRoute() {
     </>
   );
 }
-export default homeRoute;
+export default HomeRoute;

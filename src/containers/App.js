@@ -13,17 +13,12 @@ import { Route, Switch, Link } from "react-router-dom";
 // import Nav Bar Component
 import NavBar from "../components/headerAndFooter/NavBar";
 
-import homeRoute from "../pages/homeRoute/homeRoute";
-import annapurnaHotel from "../components/petsPageRoute/annapurnaHotel";
-
-import boudhaHotel from "../components/petsPageRoute/boudhaHotel";
-import kathmanduHotel from "../components/petsPageRoute/kathmanduHotel";
+import HomeRoute from "../pages/homeRoute/HomeRoute";
 import SignUp from "../pages/LogInSignIn/signUp";
 
 import LogIn from "../pages/LogInSignIn/LogIn";
 
-import favoritesList from "../components/yourFavorites/favoritesList";
-import fishAndAquariums from "../components/fishAndAquarium/fishAndAquarium";
+import favoritesList from "../pages/yourFavorites/favoritesList";
 import PetsProblemsAndSolutions from "../pages/petsProblemsAndSolutions/petsProblemsAndSolutions";
 import lostAndFoundPets from "../pages/lostAndFound/lostAndFound";
 import cats from "../components/cats/cats";
@@ -63,15 +58,9 @@ function App() {
 
       <div>
         {/*Header Page Routing */}
-        {/* <Route path="/" exact content={Annapurna_hotel} />  */}
         <Switch>
-          <Route path="/" exact component={homeRoute} />
-          <Route path="/hotelwebsite" component={homeRoute} />
-
-          <Route path="/Annapurna_hotel" component={annapurnaHotel} />
-
-          <Route path="/boudha_hotel" component={boudhaHotel} />
-          <Route path="/kathmandu_hotel" component={kathmanduHotel} />
+          <Route path="/" exact component={HomeRoute} />
+          {/* <Route path="/" component={homeRoute} /> */}
 
           <Route path="/signUp" component={SignUp} />
           <Route path="/logIn" component={LogIn} />
@@ -84,19 +73,20 @@ function App() {
 
           <Route path="/cats" component={cats} />
           <Route path="/lost_found_pets" component={lostAndFoundPets} />
-          <Route path="/fish_aquariums" component={fishAndAquariums} />
-          <Route path="/pets_problems_and_solutions" component={PetsProblemsAndSolutions} />
+          <Route
+            path="/pets_problems_and_solutions"
+            component={PetsProblemsAndSolutions}
+          />
           <Route path="/favorites_list" component={favoritesList} />
           <Route path="/adopt_pets" component={AdoptPets} />
 
           {/* individual pets page routing using params */}
           <Route path="/pets/:indexNumber" component={IndividualRoute} />
-          <Route path="/user/dashboard" component={UserDashboard}/>
+          <Route path="/user-dashboard" component={UserDashboard} />
         </Switch>
       </div>
 
-    <Footer/>
-      
+      <Footer />
     </>
   );
 }

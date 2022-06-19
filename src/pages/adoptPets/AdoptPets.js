@@ -26,7 +26,7 @@ function AdoptPets() {
           </button>
         </div> */}
 
-        <div className="mx-32 mt-5 space-y-10">
+        <div className="mx-40 mt-5 space-y-10">
           {/* All Instruments Lists  */}
           {allPetsLists.map(function (list) {
             return (

@@ -21,7 +21,7 @@ function CardsVerticalAligned(props) {
 
             <p className="text-left"> {props.place} </p>
 
-            <p className=" text-right font-bold"> {props.cost} </p>
+            {/* <p className=" text-right font-bold"> {props.cost} </p> */}
           </div>
         </div>
       </Link>
