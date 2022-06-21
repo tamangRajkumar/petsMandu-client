@@ -14,9 +14,11 @@ import { Route, Switch, Link } from "react-router-dom";
 import NavBar from "../components/headerAndFooter/NavBar";
 
 import HomeRoute from "../pages/homeRoute/HomeRoute";
-import SignUp from "../pages/LogInSignIn/signUp";
-
+import SignUp from "../pages/LogInSignIn/SignUp";
 import LogIn from "../pages/LogInSignIn/LogIn";
+import ForgotPassword from "../pages/LogInSignIn/forgotPassword/ForgotPassword";
+import VerifyCode from "../pages/LogInSignIn/forgotPassword/VerifyCode";
+import ResetPassword from "../pages/LogInSignIn/forgotPassword/ResetPassword";
 
 import favoritesList from "../pages/yourFavorites/favoritesList";
 import PetsProblemsAndSolutions from "../pages/petsProblemsAndSolutions/petsProblemsAndSolutions";
@@ -62,8 +64,11 @@ function App() {
           <Route path="/" exact component={HomeRoute} />
           {/* <Route path="/" component={homeRoute} /> */}
 
-          <Route path="/signUp" component={SignUp} />
-          <Route path="/logIn" component={LogIn} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/login" component={LogIn} />
+          <Route path="/forgot-password" component={ForgotPassword} />
+          <Route path="/verify-code" component={VerifyCode} />
+          <Route path="/reset-password" component={ResetPassword} />
 
           <Route path="/all_pets" component={allPets} />
 

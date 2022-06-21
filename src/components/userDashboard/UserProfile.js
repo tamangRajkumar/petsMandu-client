@@ -1,15 +1,19 @@
 import React from "react";
+import Avatar from "../../images/Avatar.png";
 
 const UserProfile = () => {
   return (
-    <div className=" w-1/3 bg-red-200  text-center ">
-      <h1>User profile</h1>
-      <h1>image</h1>
+    <div className=" w-1/3 ml-10 bg-gray-50  text-center justify-center items-center">
+      <div className="pt-1 pb-5 mt-4 border-b-1 border-gray-200  mx-10  ">
+        <img src={Avatar} alt="" className="h-32  m-auto" />
+      </div>
 
-      <h1>name</h1>
-      <h1>email</h1>
-      <div>
-        <h1>phone</h1>
+      <div className="mt-4 mb-8 space-y-3">
+        <h1 className="text-lg font-semibold text-gray-500">Name</h1>
+
+        <h1 className="text-lg font-semibold text-gray-500">Email</h1>
+
+        <h1 className="text-lg font-semibold text-gray-500">Phone</h1>
       </div>
     </div>
   );

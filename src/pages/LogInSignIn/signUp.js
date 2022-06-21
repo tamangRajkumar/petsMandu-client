@@ -39,7 +39,7 @@ const SignUp = () => {
   };
 
   if (signUpData.confirmedSignUp === "true") {
-    return <Redirect to="/logIn" />;
+    return <Redirect to="/login" />;
   }
 
   return (

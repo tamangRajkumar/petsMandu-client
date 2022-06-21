@@ -8,9 +8,13 @@ import {
   HomeIcon,
   UserCircleIcon,
   MenuIcon,
+  PlusIcon,
 } from "@heroicons/react/solid";
 
 import DropDownModal from "../modal/DropDownModal";
+
+import NavbarPostModal from "./NavbarPostModal";
+
 const NavBar = () => {
   const [menuClicked, setMenuClicked] = useState(false);
   const menuBtnRef = useRef();
@@ -39,7 +43,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="container max-w-full  rounded-md fixed  z-50  ">
+    <div className="container max-w-full  rounded-md fixed  z-30  ">
       <div className="flex justify-between items-center px-5 mb-5 shadow-lg rounded-xl  bg-gray-50 ">
         {/* Nav Bar Items */}
         <div className=" flex-column justify-center items-center space-x-0 my-5 ">
@@ -115,6 +119,14 @@ const NavBar = () => {
             </div>
           </div>
         </div>
+
+        {/* Add new post Icon  */}
+        {isAuthenticated && <NavbarPostModal />}
+     
+
+        {/* <div className=" shadow-lg bg-white rounded-md mr-4">
+          <PlusIcon className="h-8 w-8 text-gray-600" />
+        </div> */}
 
         {/* Nav Bar Toggler */}
         <div>

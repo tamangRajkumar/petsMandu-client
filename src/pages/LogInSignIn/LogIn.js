@@ -28,8 +28,6 @@ function LogIn() {
     dispatch(logInUser(userLogInData, history));
   };
 
-
-  
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -69,7 +67,20 @@ function LogIn() {
             >
               Log In
             </button>
-            <div className="flex gap-2">
+
+            {/* Forgot Password */}
+            <div className="flex gap-2 mt-5">
+              <h1 className="text-md">Forgot Password?</h1>{" "}
+              <Link to="/forgot-password">
+                <p className="underline underline-offset-4 text-red-600 text-md">
+                  click here
+                </p>
+              </Link>
+            </div>
+
+
+              {/* Sign up Link */}
+            <div className="flex gap-2 mt-1">
               <h1 className="text-md">Not yet Signed up?</h1>{" "}
               <Link to="/signup">
                 <p className="underline underline-offset-4 text-red-600 text-md">
@@ -77,6 +88,8 @@ function LogIn() {
                 </p>
               </Link>
             </div>
+
+            
           </div>
         </div>
       </form>
