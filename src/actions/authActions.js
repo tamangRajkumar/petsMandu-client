@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT } from "./types";
+import { LOGIN, LOGOUT, POSTSUBMIT } from "./types";
 import * as api from "../api/index";
 
 //Sign Up User
@@ -39,9 +39,6 @@ export const logInUser = (userLogInData, history) => async (dispatch) => {
     console.log("ERROR=> ", error);
   }
 };
-
-
-
 
 //Log Out User From Browser when clicked Log Out
 export const logOutUser = (userLogOut) => {

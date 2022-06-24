@@ -64,7 +64,7 @@ const NavBar = () => {
 
         <div>
           {/* All Categories links */}
-          <div className="flex flex-wrap justify-center items-center space-x-3 ml-8 py-7 mt-2">
+          <div className="hidden md:flex flex-wrap justify-center items-center space-x-3 ml-8 py-7 mt-2">
             {/* <div className=" rounded-xl py-2 px-3 font-bold text-base shadow-md bg-gradient-to-r from-purple-300 to-purple-400 transform hover:scale-110 hover:shadow-xl duration-150">
               <Link to="/dogs"> Dogs </Link>
             </div>
