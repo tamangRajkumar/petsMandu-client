@@ -15,10 +15,9 @@ const PostModal = ({ handlePostModal, dashboardTrue }) => {
 
   // console.log(postSubmitData);
 
-
   // get token from state
   const token = useSelector((state) => state.authUser.currentUser.token);
-  console.log(token)
+  // console.log(token);
 
   // Handle Image
   const handleImage = async (e) => {
@@ -45,7 +44,14 @@ const PostModal = ({ handlePostModal, dashboardTrue }) => {
   // handle Post Submit
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { data } = await postSubmit(postSubmitData, token);
+    try {
+      const { data } = await postSubmit(postSubmitData, token);
+      console.log(postSubmitData);
+      console.log(token);
+      console.log(data);
+    } catch (error) {
+      console.log("Error =>", error);
+    }
   };
 
   return (

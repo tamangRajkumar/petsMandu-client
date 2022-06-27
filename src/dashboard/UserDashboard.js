@@ -29,6 +29,11 @@ const UserDashboard = () => {
   // };
 
   const authUser = useSelector((state) => state.authUser.isAuthenticated);
+  const user = useSelector((state) => state.authUser.currentUser.user);
+
+  // console.log(user.name);
+  // console.log(user.email);
+  
   const history = useHistory();
   if (!authUser) {
     history.push("/login");
@@ -43,7 +48,7 @@ const UserDashboard = () => {
 
   const handlePostModal = () => {
     setPostModal(false);
-    console.log("Clicked");
+    // console.log("Clicked");
   };
 
   return (
@@ -53,7 +58,7 @@ const UserDashboard = () => {
           <h2 className="text-2xl font-bold">Dashboard</h2>
         </div>
         <div className="pt-10 flex gap-x-5 sm:flex-col md:flex-col  lg:flex-row justify-center items-center  ">
-          <UserProfile />
+          <UserProfile userName={user.name} userEmail={user.email}  />
 
           <div className="flex-auto bg-blue-100 justify-center items-center">
             {/* Add New Post  */}
@@ -62,11 +67,12 @@ const UserDashboard = () => {
 
             {/* Show Modal */}
 
-
             {postModal ? (
               <>
-                
-                <PostModal handlePostModal={handlePostModal} dashboardTrue={true} />{" "}
+                <PostModal
+                  handlePostModal={handlePostModal}
+                  dashboardTrue={true}
+                />{" "}
               </>
             ) : (
               ""

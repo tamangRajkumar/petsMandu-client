@@ -1,8 +1,6 @@
-import { LOGIN,LOGOUT } from "../actions/types";
+import { LOGIN, LOGOUT } from "../actions/types";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
-
-
+// import { useHistory } from "react-router-dom";
 
 const initialState = {
   // isAuthenticated: false,
@@ -19,12 +17,13 @@ axios.interceptors.response.use(
     return response;
   },
   function (error) {
-    const history = useHistory();
+    // const history = useHistory();
+
     console.log("token expired", error);
     let res = error.response;
     if (res == 401 && res.config && !res.config.__isRetryRequest) {
       window.localStorage.removeItem("authUser");
-      history.push("/login");
+      // history.push("/login");
     }
   }
 );
@@ -41,12 +40,12 @@ export const authUser = (state = initialState, action) => {
         isAuthenticated: true,
         currentUser: action.payload,
       };
-      case LOGOUT:
-        return{
-          ...state,
-          isAuthenticated:false,
-          currentUser: action.payload
-        }
+    case LOGOUT:
+      return {
+        ...state,
+        isAuthenticated: false,
+        currentUser: action.payload,
+      };
     default:
       return state;
   }
