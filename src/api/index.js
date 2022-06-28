@@ -23,3 +23,12 @@ export const postSubmit = (postSubmitData, token) => {
     },
   });
 };
+
+// fetch Posts
+export const fetchPosts = (token) => {
+  return axios.get("http://localhost:9000/api/user-posts", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};

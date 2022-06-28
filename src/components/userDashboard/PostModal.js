@@ -5,6 +5,7 @@ import Avatar from "../../images/Avatar.png";
 import BackgroundGray from "./backgroundGray";
 import { uploadImage, postSubmit } from "../../api";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 const PostModal = ({ handlePostModal, dashboardTrue }) => {
   const [postSubmitData, setPostSubmitData] = useState({
@@ -14,6 +15,8 @@ const PostModal = ({ handlePostModal, dashboardTrue }) => {
   });
 
   // console.log(postSubmitData);
+
+  const history = useHistory();
 
   // get token from state
   const token = useSelector((state) => state.authUser.currentUser.token);
@@ -46,9 +49,14 @@ const PostModal = ({ handlePostModal, dashboardTrue }) => {
     e.preventDefault();
     try {
       const { data } = await postSubmit(postSubmitData, token);
-      console.log(postSubmitData);
-      console.log(token);
+      // console.log(postSubmitData);
+      // console.log(token);
       console.log(data);
+      
+      if (data.saved == "true") {
+        history.push("/user-dashboard");
+        handlePostModal();
+      }
     } catch (error) {
       console.log("Error =>", error);
     }
