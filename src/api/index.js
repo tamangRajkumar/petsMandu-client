@@ -32,3 +32,12 @@ export const fetchPosts = (token) => {
     },
   });
 };
+
+// Delete Post
+export const deletePost = (postId, token) => {
+  return axios.delete(`http://localhost:9000/api/delete-post/${postId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};

@@ -17,7 +17,7 @@ const AddNewPostButton = ({ handlePost, NavBarPostButton }) => {
         </div>
       ) : (
         <div className="flex-col ">
-          <div className="flex justify-center items-center">AddNewPostForm</div>
+          {/* <div className="flex justify-center items-center text-lg font-bold">Add New Post </div> */}
           <div>
             <div className="flex justify-center items-center">
               <div className="flex justify-center items-center border-2 border-gray-400 px-5 py-1 rounded-md">

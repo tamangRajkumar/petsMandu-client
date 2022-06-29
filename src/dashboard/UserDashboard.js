@@ -51,23 +51,18 @@ const UserDashboard = () => {
     // console.log("Clicked");
   };
 
-
-
-
-
-  
   return (
     <>
       <div className="pt-32">
-        <div className="flex justify-center ">
-          <h2 className="text-2xl font-bold">Dashboard</h2>
+        <div className="flex justify-center items-center  ">
+          <h2 className="text-2xl font-bold ">Dashboard</h2>
         </div>
-        <div className="pt-10 flex gap-x-5 sm:flex-col md:flex-col  lg:flex-row justify-center overflow-hidden  ">
-        
-          <UserProfile userName={user.name} userEmail={user.email} />
-   
+        <div className="pt-10 flex gap-x-5 sm:flex-col md:flex-col  lg:flex-row justify-center  ">
+          <div className="mr-10   z-0">
+            <UserProfile userName={user.name} userEmail={user.email} />
+          </div>
 
-          <div className="flex-auto bg-blue-100 justify-center items-center ">
+          <div className="lg:ml-80 flex-auto  bg-gray-50 justify-center items-center   ">
             {/* Add New Post  */}
 
             <AddNewPostForm handlePost={handlePost} />
