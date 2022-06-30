@@ -50,7 +50,7 @@ const NavBar = () => {
           <div className="flex justify-center items-center">
             {/* Logo of app */}
             <Link to="/">
-              <HomeIcon className="h-6 w-6 mt-1.5 mr-1 rounded-xl text-gray-500 flex items-center justify-center  transform hover:scale-125 hover:bg-opacity-60 hover:text-opacity-70 hover:shadow-xl duration-150 " />
+              <HomeIcon className="h-6 w-6 mt-1.5 mr-1 rounded-xl text-gray-500 flex items-center justify-center   hover:bg-opacity-60 hover:text-opacity-70 hover:shadow-xl duration-150 " />
             </Link>
           </div>
           <div>

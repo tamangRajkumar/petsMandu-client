@@ -22,7 +22,7 @@ const PostedContent = () => {
     try {
       const { data } = await fetchPosts(token);
       setPosts(data);
-      console.log(posts);
+      // console.log(posts);
       // console.log(data);
 
       {
@@ -89,6 +89,13 @@ const PostedContent = () => {
                     <span className="text-base text-blue-700">
                       {" "}
                       {post.address}
+                    </span>
+                  </p>
+                  <p className="mt-1 mb-2 text-base font-medium">
+                    <span className="text-lg">Category:</span>
+                    <span className="text-base text-blue-700">
+                      {" "}
+                      {post.category}
                     </span>
                   </p>
 

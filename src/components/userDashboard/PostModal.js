@@ -11,10 +11,11 @@ const PostModal = ({ handlePostModal, dashboardTrue }) => {
   const [postSubmitData, setPostSubmitData] = useState({
     description: "",
     address: "",
+    category: "",
     image: {},
   });
 
-  // console.log(postSubmitData);
+  console.log(postSubmitData);
 
   const history = useHistory();
 
@@ -52,7 +53,7 @@ const PostModal = ({ handlePostModal, dashboardTrue }) => {
       // console.log(postSubmitData);
       // console.log(token);
       console.log(data);
-      
+
       if (data.saved == "true") {
         history.push("/user-dashboard");
         handlePostModal();
@@ -81,7 +82,7 @@ const PostModal = ({ handlePostModal, dashboardTrue }) => {
         <div className="mt-5 mx-8 ">
           <textarea
             type="text"
-            className=" h-36 w-full focus:outline-none rounded-xl p-4 border-2 border-gray-200 "
+            className=" h-36 w-full focus:outline-none rounded-xl p-4 border-2 border-gray-300 "
             placeholder="Write descriptions............"
             value={postSubmitData.description}
             onChange={(e) =>
@@ -95,12 +96,38 @@ const PostModal = ({ handlePostModal, dashboardTrue }) => {
         <input
           type="text"
           placeholder="Enter Your Address"
-          className="outline-none border-2 border-gray-200 rounded-md ml-8 p-2  m-2  "
+          className="outline-none border-2 border-gray-300 rounded-md ml-8 p-2  m-2  "
           value={postSubmitData.address}
           onChange={(e) =>
             setPostSubmitData({ ...postSubmitData, address: e.target.value })
           }
         />
+
+        {/* Select Category  */}
+
+        <div className="ml-8 mt-4">
+          <p className="text-base font-medium text-gray-500 mb-1.5">
+            Categories
+          </p>
+          <select
+            value={postSubmitData.category}
+            onChange={(e) => {
+              setPostSubmitData({
+                ...postSubmitData,
+                category: e.target.value,
+              });
+            }}
+            className="px-1 py-1 focus:outline-none border-2 border-gray-300 rounded-md  "
+          >
+            <option value="adoptPets">Select</option>
+            <option value="petsProblemsAndSolutions">
+              Pets Problems And Solutions
+            </option>
+            <option value="nearestVetneries">Nearest Vetneries</option>
+            <option value="lostAndFound">Lost and Found</option>
+          </select>
+        </div>
+
         <div className="flex justify-between ml-8 mt-2 items-center mr-10">
           <div className="ml-2">
             <label className="flex flex-col shadow-md bg-gray-100 cursor-pointer rounded-md h-24 w-32  justify-center items-center">
