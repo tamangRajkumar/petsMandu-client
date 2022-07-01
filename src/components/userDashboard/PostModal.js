@@ -7,7 +7,7 @@ import { uploadImage, postSubmit } from "../../api";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-const PostModal = ({ handlePostModal, dashboardTrue }) => {
+const PostModal = ({ handlePostModal, dashboardTrue, getUserPosts }) => {
   const [postSubmitData, setPostSubmitData] = useState({
     description: "",
     address: "",
@@ -57,6 +57,7 @@ const PostModal = ({ handlePostModal, dashboardTrue }) => {
       if (data.saved == "true") {
         history.push("/user-dashboard");
         handlePostModal();
+        getUserPosts();
       }
     } catch (error) {
       console.log("Error =>", error);
@@ -69,9 +70,9 @@ const PostModal = ({ handlePostModal, dashboardTrue }) => {
       <BackgroundGray dashboardTrue={dashboardTrue} />
       <div
         style={{ width: "40rem" }}
-        className="absolute ml-auto mr-auto left-0 right-0 bg-white  top-8 z-50 rounded-lg"
+        className="fixed ml-auto mr-auto left-0 right-0 bg-white  top-3 z-50 rounded-lg"
       >
-        <div className="flex  justify-between  mx-10 mt-5">
+        <div className="flex  justify-between  mx-10 mt-3">
           <div className="mt-2 text-xl font-semibold ">Post</div>
           <div className="">
             <button onClick={handlePostModal} className="focus:outline-none">
@@ -82,7 +83,7 @@ const PostModal = ({ handlePostModal, dashboardTrue }) => {
         <div className="mt-5 mx-8 ">
           <textarea
             type="text"
-            className=" h-36 w-full focus:outline-none rounded-xl p-4 border-2 border-gray-300 "
+            className=" h-28 w-full focus:outline-none rounded-xl p-4 border-2 border-gray-300 "
             placeholder="Write descriptions............"
             value={postSubmitData.description}
             onChange={(e) =>
@@ -93,10 +94,12 @@ const PostModal = ({ handlePostModal, dashboardTrue }) => {
             }
           ></textarea>
         </div>
+
+        {/* Enter Address */}
         <input
           type="text"
           placeholder="Enter Your Address"
-          className="outline-none border-2 border-gray-300 rounded-md ml-8 p-2  m-2  "
+          className="outline-none border-2 border-gray-300 rounded-md ml-8 py-1 pl-2  m-2  "
           value={postSubmitData.address}
           onChange={(e) =>
             setPostSubmitData({ ...postSubmitData, address: e.target.value })
@@ -105,7 +108,7 @@ const PostModal = ({ handlePostModal, dashboardTrue }) => {
 
         {/* Select Category  */}
 
-        <div className="ml-8 mt-4">
+        <div className="ml-8 mt-2">
           <p className="text-base font-medium text-gray-500 mb-1.5">
             Categories
           </p>
@@ -128,7 +131,7 @@ const PostModal = ({ handlePostModal, dashboardTrue }) => {
           </select>
         </div>
 
-        <div className="flex justify-between ml-8 mt-2 items-center mr-10">
+        <div className="flex justify-between ml-8 mt-1 items-center mr-10">
           <div className="ml-2">
             <label className="flex flex-col shadow-md bg-gray-100 cursor-pointer rounded-md h-24 w-32  justify-center items-center">
               <input
@@ -165,7 +168,7 @@ const PostModal = ({ handlePostModal, dashboardTrue }) => {
               <img
                 src={postSubmitData.image.url}
                 alt=""
-                className="h-40 w-40"
+                className="h-36 w-36"
               />
             ) : (
               <img src={Avatar} alt="" className="h-40 w-40" />
@@ -176,7 +179,7 @@ const PostModal = ({ handlePostModal, dashboardTrue }) => {
             </p>
           </div>
         </div>
-        <div className="flex justify-center items-center mt-6">
+        <div className="flex justify-center items-center mt-0.5 ">
           <button
             type="submit"
             onClick={handleSubmit}

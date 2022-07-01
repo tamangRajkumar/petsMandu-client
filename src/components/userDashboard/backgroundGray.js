@@ -10,15 +10,15 @@ const BackgroundGray = ({ dashboardTrue }) => {
         <button
           //   onClick={handlePostModal}
           style={{
-            position: "absolute",
+            position: "fixed",
             padding: "0",
             margin: "0",
             top: "0",
             left: "0",
             width: "100%",
-            height: "120%",
+            height: "100%",
           }}
-          className="absolute z-40 bg-gray-500 opacity-70  top-4 "
+          className=" z-40 bg-gray-500 opacity-70  top-4 "
         ></button>
       ) : (
         <button

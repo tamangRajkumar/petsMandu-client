@@ -8,6 +8,7 @@ import AddNewPostForm from "../components/userDashboard/AddNewPostButton";
 import { useSelector } from "react-redux";
 import PostModal from "../components/userDashboard/PostModal";
 import BackgroundGray from "../components/userDashboard/backgroundGray";
+import { fetchPosts } from "../api";
 
 const UserDashboard = () => {
   //   getCurrentUser();
@@ -30,6 +31,8 @@ const UserDashboard = () => {
 
   const authUser = useSelector((state) => state.authUser.isAuthenticated);
   const user = useSelector((state) => state.authUser.currentUser.user);
+  const token = useSelector((state) => state.authUser.currentUser.token);
+  const currentUser = useSelector((state) => state.authUser.currentUser);
 
   // console.log(user.name);
   // console.log(user.email);
@@ -40,6 +43,7 @@ const UserDashboard = () => {
   }
 
   const [postModal, setPostModal] = useState(false);
+  const [posts, setPosts] = useState();
 
   const handlePost = () => {
     setPostModal(true);
@@ -49,6 +53,27 @@ const UserDashboard = () => {
   const handlePostModal = () => {
     setPostModal(false);
     // console.log("Clicked");
+  };
+
+  //get user posts
+  useEffect(() => {
+    if (currentUser && token) getUserPosts();
+  }, [currentUser, token]);
+
+  // Fetch user Posts
+  const getUserPosts = async () => {
+    try {
+      const { data } = await fetchPosts(token);
+      setPosts(data);
+      // console.log(posts);
+      console.log(data[1]._id);
+
+      {
+        // posts && console.log(posts[0]._id);
+      }
+    } catch (error) {
+      console.log("Error => ", error);
+    }
   };
 
   return (
@@ -74,6 +99,7 @@ const UserDashboard = () => {
                 <PostModal
                   handlePostModal={handlePostModal}
                   dashboardTrue={true}
+                  getUserPosts={getUserPosts}
                 />{" "}
               </>
             ) : (
@@ -82,7 +108,11 @@ const UserDashboard = () => {
 
             {/* Posted Contents */}
             <div>
-              <PostedContent />
+              <PostedContent
+                getUserPosts={getUserPosts}
+                posts={posts}
+                setPosts={setPosts}
+              />
             </div>
           </div>
         </div>
