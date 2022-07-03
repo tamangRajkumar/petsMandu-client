@@ -34,6 +34,7 @@ const UserDashboard = () => {
   const token = useSelector((state) => state.authUser.currentUser.token);
   const currentUser = useSelector((state) => state.authUser.currentUser);
 
+  console.log(token)
   // console.log(user.name);
   // console.log(user.email);
 
@@ -112,6 +113,7 @@ const UserDashboard = () => {
                 getUserPosts={getUserPosts}
                 posts={posts}
                 setPosts={setPosts}
+                token={token}
               />
             </div>
           </div>

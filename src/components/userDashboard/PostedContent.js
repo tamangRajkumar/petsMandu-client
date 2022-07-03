@@ -4,7 +4,7 @@ import { Selector, useSelector } from "react-redux";
 import Avatar from "../../images/Avatar.png";
 import { TrashIcon, XIcon, PencilIcon } from "@heroicons/react/solid";
 
-const PostedContent = ({ getUserPosts, posts, setPosts }) => {
+const PostedContent = ({ getUserPosts, posts, setPosts, token }) => {
   // const currentUserId = useSelector(
   //   (state) => state.authUser.currentUser.user._id
   // );
@@ -12,7 +12,8 @@ const PostedContent = ({ getUserPosts, posts, setPosts }) => {
   // console.log(currentUser.user._id);
 
   // Handle Delete Post
-  const handleDeletePost = async (post, token) => {
+
+  const handleDeletePost = async (post) => {
     try {
       const answer = window.confirm("Are you sure to delete?");
       if (!answer) return;

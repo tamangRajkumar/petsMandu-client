@@ -78,8 +78,7 @@ function LogIn() {
               </Link>
             </div>
 
-
-              {/* Sign up Link */}
+            {/* Sign up Link */}
             <div className="flex gap-2 mt-1">
               <h1 className="text-md">Not yet Signed up?</h1>{" "}
               <Link to="/signup">
@@ -88,8 +87,6 @@ function LogIn() {
                 </p>
               </Link>
             </div>
-
-            
           </div>
         </div>
       </form>
