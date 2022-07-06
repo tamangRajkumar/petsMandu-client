@@ -41,3 +41,8 @@ export const deletePost = (postId, token) => {
     },
   });
 };
+
+// Fetch Adopt Pets Posts
+export const adoptPets = () => {
+  return axios.get("http://localhost:9000/api/adoptpets");
+};
