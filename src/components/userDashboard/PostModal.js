@@ -123,12 +123,12 @@ const PostModal = ({ handlePostModal, dashboardTrue, getUserPosts }) => {
             className="px-1 py-1 focus:outline-none border-2 border-gray-300 rounded-md  "
           >
             <option value="">Select</option>
-            <option value="adoptpets">Adopt Pets</option>
-            <option value="petsProblemsAndSolutions">
+            <option value="adopt_pets">Adopt Pets</option>
+            <option value="pets_problems_and_solutions">
               Pets Problems And Solutions
             </option>
-            <option value="nearestVetneries">Nearest Vetneries</option>
-            <option value="lostAndFound">Lost and Found</option>
+            <option value="nearest_vetneries">Nearest Vetneries</option>
+            <option value="lost_and_found">Lost and Found</option>
           </select>
         </div>
 

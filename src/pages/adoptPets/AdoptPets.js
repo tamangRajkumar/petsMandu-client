@@ -15,8 +15,7 @@ function AdoptPets() {
 
   const fetchPosts = async () => {
     try {
-      const category = { category: "adoptpets" };
-
+      const category = "adopt_pets";
       const { data } = await fetchPostsByCategory(category);
       setPosts(data);
       console.log(data);

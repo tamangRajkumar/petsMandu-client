@@ -44,5 +44,5 @@ export const deletePost = (postId, token) => {
 
 // Fetch Adopt Pets Posts
 export const fetchPostsByCategory = (category) => {
-  return axios.get("http://localhost:9000/api/fetchpostsbycategory", category);
+  return axios.post("http://localhost:9000/api/fetchpostsbycategory", {category});
 };
