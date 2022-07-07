@@ -61,13 +61,13 @@ const UserDashboard = () => {
     if (currentUser && token) getUserPosts();
   }, [currentUser, token]);
 
-  // Fetch user Posts
+  // Fetch user Posts in dashboard
   const getUserPosts = async () => {
     try {
       const { data } = await fetchPosts(token);
       setPosts(data);
       // console.log(posts);
-      console.log(data[1]._id);
+      // console.log(data[1]._id);
 
       {
         // posts && console.log(posts[0]._id);
@@ -85,7 +85,7 @@ const UserDashboard = () => {
         </div>
         <div className="pt-10 flex gap-x-5 sm:flex-col md:flex-col  lg:flex-row justify-center  ">
           <div className="mr-10   z-0">
-            <UserProfile userName={user.name} userEmail={user.email} />
+            <UserProfile fName={user.fname} lName={user.lname} userEmail={user.email} />
           </div>
 
           <div className="lg:ml-80 flex-auto  bg-gray-50 justify-center items-center   ">
@@ -112,7 +112,7 @@ const UserDashboard = () => {
               <PostedContent
                 getUserPosts={getUserPosts}
                 posts={posts}
-                setPosts={setPosts}
+                
                 token={token}
               />
             </div>

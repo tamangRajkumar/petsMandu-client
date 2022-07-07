@@ -2,27 +2,24 @@ import React, { useEffect, useState } from "react";
 import { fetchPosts } from "../../api";
 import allPetsLists from "../../components/AllPetsLists/allPetsList";
 import Cards from "../../components/CardsVerticalAligned";
-import { adoptPets } from "../../api";
+import { fetchPostsByCategory } from "../../api";
 
 function AdoptPets() {
   const [posts, setPosts] = useState(null);
 
   useEffect(() => {
-    if (!posts) {
+    if (posts == null) {
       fetchPosts();
     }
-  }, [!posts]);
+  }, [posts == null]);
 
   const fetchPosts = async () => {
     try {
-      if (posts == null) {
-        const { data } = await adoptPets();
-        console.log(data);
-        setPosts(data);
-        {
-          posts && console.log(posts);
-        }
-      }
+      const category = { category: "adoptpets" };
+
+      const { data } = await fetchPostsByCategory(category);
+      setPosts(data);
+      console.log(data);
     } catch (error) {
       console.log("Error => ", error);
     }
@@ -53,22 +50,38 @@ function AdoptPets() {
           </button>
         </div> */}
 
-          <div className="mx-40 mt-5 space-y-10">
-            {/* All Instruments Lists  */}
-            {allPetsLists.map(function (list) {
+          {/* <div className="mx-40 mt-5 space-y-10">
+              (
+            <div>
+              <pre>{JSON.stringify(posts, null, 2)}</pre>
+            </div> ) 
+            {
+              posts.map((post) => {
+                return (
+                  <Cards
+                    key={post._id}
+                    description={post.description}
+                    image={post.image.url}
+                    address={post.address}
+                    // rating={list.rating}
+                    // cost={list.cost}
+                    // href={list.forHref}
+                  />
+                );
+              })}
+          </div> */}
+
+          {posts &&
+            posts.map((post) => {
               return (
                 <Cards
-                  key={list.id}
-                  name={list.name}
-                  img={list.imgURL}
-                  place={list.place}
-                  rating={list.rating}
-                  cost={list.cost}
-                  href={list.forHref}
+                  key={post._id}
+                  description={post.description}
+                  image={post.image.url}
+                  address={post.address}
                 />
               );
             })}
-          </div>
         </div>
       </div>
     </>

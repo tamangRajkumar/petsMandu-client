@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import axios from "axios";
+
 import { Redirect } from "react-router-dom";
 import { signUpUser } from "../../actions/authActions";
 import { useDispatch, Selector, useSelector } from "react-redux";
@@ -14,7 +14,8 @@ const SignUp = () => {
   const dispatch = useDispatch();
 
   const [signUpData, setSignUpData] = useState({
-    name: "",
+    fname: "",
+    lname:"",
     email: "",
     password: "",
     confirmedSignUp: "false",
@@ -54,25 +55,47 @@ const SignUp = () => {
             <h1 className="font-bold text-3xl">Sign Up</h1>
 
             <>
+              {/* First name */}
               <input
                 type="text"
-                placeholder="Enter Your Full Name"
+                placeholder="First Name"
                 className="outline-none border border-gray-50 rounded-3xl p-2 px-10 m-2 shadow-lg text-center"
-                value={signUpData.name}
-                onChange={(e) =>
-                  setSignUpData({ ...signUpData, name: e.target.value })
-                }
+                value={signUpData.fname}
+                onChange={(e) => {
+                  let nameText1 = e.target.value;
+                  //capitalize first letter
+                  let nameText2 =
+                    nameText1.charAt(0).toUpperCase() + nameText1.slice(1);
+                  setSignUpData({ ...signUpData, fname: nameText2 });
+                }}
               />
 
+              {/* Last Name */}
+              <input
+                type="text"
+                placeholder="Last Name"
+                className="outline-none border border-gray-50 rounded-3xl p-2 px-10 m-2 shadow-lg text-center"
+                value={signUpData.lname}
+                onChange={(e) => {
+                  let nameText1 = e.target.value;
+                  //capitalize first letter
+                  let nameText2 =
+                    nameText1.charAt(0).toUpperCase() + nameText1.slice(1);
+                  setSignUpData({ ...signUpData, lname: nameText2 });
+                }}
+              />
+
+              {/* Email */}
               <input
                 type="email"
-                placeholder="Enter Your Email"
+                placeholder="Enter Email"
                 className="outline-none border border-gray-50 rounded-3xl p-2 px-10 m-2 shadow-lg text-center"
                 value={signUpData.email}
                 onChange={(e) =>
                   setSignUpData({ ...signUpData, email: e.target.value })
                 }
               />
+              {/* Enter Password */}
               <input
                 type="password"
                 placeholder="Enter password"
@@ -82,6 +105,18 @@ const SignUp = () => {
                   setSignUpData({ ...signUpData, password: e.target.value })
                 }
               />
+
+              {/* Retype Password */}
+              {/* <input
+                type="password"
+                placeholder="Retype password"
+                className="outline-none border border-gray-50 rounded-3xl p-2 m-2 shadow-lg text-center"
+                value={signUpData.password}
+                onChange={(e) =>
+                  setSignUpData({ ...signUpData, password: e.target.value })
+                }
+              /> */}
+
 
               <button
                 type="submit"

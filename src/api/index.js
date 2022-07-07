@@ -43,6 +43,6 @@ export const deletePost = (postId, token) => {
 };
 
 // Fetch Adopt Pets Posts
-export const adoptPets = () => {
-  return axios.get("http://localhost:9000/api/adoptpets");
+export const fetchPostsByCategory = (category) => {
+  return axios.get("http://localhost:9000/api/fetchpostsbycategory", category);
 };

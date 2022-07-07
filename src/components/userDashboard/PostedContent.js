@@ -4,7 +4,7 @@ import { Selector, useSelector } from "react-redux";
 import Avatar from "../../images/Avatar.png";
 import { TrashIcon, XIcon, PencilIcon } from "@heroicons/react/solid";
 
-const PostedContent = ({ getUserPosts, posts, setPosts, token }) => {
+const PostedContent = ({ getUserPosts, posts, token }) => {
   // const currentUserId = useSelector(
   //   (state) => state.authUser.currentUser.user._id
   // );
