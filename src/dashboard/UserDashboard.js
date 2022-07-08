@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 import PostModal from "../components/userDashboard/PostModal";
 import BackgroundGray from "../components/userDashboard/backgroundGray";
 import { fetchPosts } from "../api";
+import { PencilIcon } from "@heroicons/react/solid";
 
 const UserDashboard = () => {
   //   getCurrentUser();
@@ -34,7 +35,7 @@ const UserDashboard = () => {
   const token = useSelector((state) => state.authUser.currentUser.token);
   const currentUser = useSelector((state) => state.authUser.currentUser);
 
-  console.log(token)
+  console.log(token);
   // console.log(user.name);
   // console.log(user.email);
 
@@ -84,8 +85,15 @@ const UserDashboard = () => {
           <h2 className="text-2xl font-bold ">Dashboard</h2>
         </div>
         <div className="pt-10 flex gap-x-5 sm:flex-col md:flex-col  lg:flex-row justify-center  ">
+        
+            {/* User Profile */}
           <div className="mr-10   z-0">
-            <UserProfile fName={user.fname} lName={user.lname} userEmail={user.email} />
+           
+            <UserProfile
+              fName={user.fname}
+              lName={user.lname}
+              userEmail={user.email}
+            />
           </div>
 
           <div className="lg:ml-80 flex-auto  bg-gray-50 justify-center items-center   ">
@@ -112,7 +120,6 @@ const UserDashboard = () => {
               <PostedContent
                 getUserPosts={getUserPosts}
                 posts={posts}
-                
                 token={token}
               />
             </div>
