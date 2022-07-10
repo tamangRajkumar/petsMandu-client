@@ -22,7 +22,7 @@ const DropDownModal = ({ history }) => {
       {" "}
       <div className="flex flex-col bg-gray-100 w-48   shadow-lg shadow-indigo-500/50 rounded-xl font-medium">
         {isAuthenticated ? (
-          <Link to="user-dashboard">
+          <Link to="/user/dashboard">
             <div className="text-base hover:text-xl pl-3 pb-2 pt-4 border-b-2 border-gray-300 hover:bg-gray-300 rounded-t-xl py-2  ">
               Dashboard
             </div>

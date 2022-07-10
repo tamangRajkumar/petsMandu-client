@@ -3,11 +3,8 @@ import { deletePost, fetchPosts } from "../../api";
 import { Selector, useSelector } from "react-redux";
 import Avatar from "../../images/Avatar.png";
 import { TrashIcon, XIcon, PencilIcon } from "@heroicons/react/solid";
-import { useHistory } from "react-router-dom";
 
-const PostedContent = ({ getUserPosts, posts, token }) => {
-  const history = useHistory();
-  console.log("history=> ", history);
+const PostedContent = ({ getUserPosts, posts, token, singlePostView }) => {
   // const currentUserId = useSelector(
   //   (state) => state.authUser.currentUser.user._id
   // );
@@ -54,11 +51,7 @@ const PostedContent = ({ getUserPosts, posts, token }) => {
                   {/* Edit Post button and Icon */}
                   <div className="flex justify-end mr-5">
                     <button
-                      onClick={() =>
-                        history.push(
-                          `/userPosts/postEdit/singleViewPost/${post._id}`
-                        )
-                      }
+                      onClick={() => singlePostView(post)}
                       className="focus:outline-none"
                     >
                       <PencilIcon className="h-8 w-8 text-gray-400 bg-white shadow-md p-1.5 rounded-full " />

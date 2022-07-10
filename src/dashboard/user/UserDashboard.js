@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-// import { useHistory } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import UserProfile from "../components/userDashboard/UserProfile";
-import PostedContent from "../components/userDashboard/PostedContent";
-import AddNewPostForm from "../components/userDashboard/AddNewPostButton";
+import UserProfile from "../../components/userDashboard/UserProfile";
+import PostedContent from "../../components/userDashboard/PostedContent";
+import AddNewPostForm from "../../components/userDashboard/AddNewPostButton";
 import { useSelector } from "react-redux";
-import PostModal from "../components/userDashboard/PostModal";
-import BackgroundGray from "../components/userDashboard/backgroundGray";
-import { fetchPosts } from "../api";
+import PostModal from "../../components/userDashboard/PostModal";
+import BackgroundGray from "../../components/userDashboard/backgroundGray";
+import { fetchPosts } from "../../api";
 import { PencilIcon } from "@heroicons/react/solid";
 
 const UserDashboard = () => {
@@ -78,6 +77,10 @@ const UserDashboard = () => {
     }
   };
 
+  const singlePostView = (post) => {
+    history.push(`/user/viewpost/${post._id}`);
+  };
+
   return (
     <>
       <div className="pt-32">
@@ -85,10 +88,8 @@ const UserDashboard = () => {
           <h2 className="text-2xl font-bold ">Dashboard</h2>
         </div>
         <div className="pt-10 flex gap-x-5 sm:flex-col md:flex-col  lg:flex-row justify-center  ">
-        
-            {/* User Profile */}
+          {/* User Profile */}
           <div className="mr-10   z-0">
-           
             <UserProfile
               fName={user.fname}
               lName={user.lname}
@@ -121,6 +122,7 @@ const UserDashboard = () => {
                 getUserPosts={getUserPosts}
                 posts={posts}
                 token={token}
+                singlePostView={singlePostView}
               />
             </div>
           </div>

@@ -30,7 +30,8 @@ import allPets from "../pages/searchAllPets/allPets";
 import IndividualRoute from "../components/individualRouteUsingParams/individualRoute";
 import Footer from "../components/headerAndFooter/Footer";
 import AdoptPets from "../pages/adoptPets/AdoptPets";
-import UserDashboard from "../dashboard/UserDashboard";
+import UserDashboard from "../dashboard/user/UserDashboard";
+import SinglePostView from "../dashboard/user/viewpost/[_id]";
 
 function App() {
   //  const {menuHandle, menuHandlePass}= useState(false);
@@ -87,7 +88,9 @@ function App() {
 
           {/* individual pets page routing using params */}
           <Route path="/pets/:indexNumber" component={IndividualRoute} />
-          <Route path="/user-dashboard" component={UserDashboard} />
+          <Route path="/user/dashboard" component={UserDashboard} />
+          <Route path="/user/viewpost/:params" component={SinglePostView} />
+
         </Switch>
       </div>
 
