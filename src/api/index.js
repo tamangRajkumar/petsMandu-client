@@ -46,3 +46,9 @@ export const deletePost = (postId, token) => {
 export const fetchPostsByCategory = (category) => {
   return axios.post("http://localhost:9000/api/fetchpostsbycategory", {category});
 };
+
+
+//Get individual post 
+export const fetchIndividualPost = (postId)=>{
+  return axios.get(`http://localhost:9000/api/fetchindividualpost/${postId}`, )
+}

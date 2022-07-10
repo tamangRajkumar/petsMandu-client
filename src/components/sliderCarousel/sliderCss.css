@@ -1,4 +1,15 @@
-.slick-prev {
+/* Slick Image Design   */
+.slick-slide img {
+  display: block;
+  height: 200px !important;
+}
+
+
+.slick-next {
+  display: none !important;
+  /* cursor: default !important; */
+}
+/* .slick-prev {
   left: -7% !important;
   z-index: 1;
 }
@@ -6,10 +17,9 @@
   right: -7% !important;
   z-index: 1;
  
-}
+} */
 
-
-.slick-arrow {
+/* .slick-arrow {
   background-color: #a9a9a9 !important;
   height: 35px !important;
   width: 35px !important;
@@ -17,13 +27,7 @@
   z-index: 1 !important;
   padding-top: 1px !important;
   margin: 0 50px !important;
-}
-
-/* Slick Image Design  */
-.slick-slide img {
-    display: block;
-    height: 200px !important;
-}
+} */
 
 /* Margin Between Items */
 /* the slides */

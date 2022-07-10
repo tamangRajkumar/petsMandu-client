@@ -51,7 +51,7 @@ const PostedContent = ({ getUserPosts, posts, token, singlePostView }) => {
                   {/* Edit Post button and Icon */}
                   <div className="flex justify-end mr-5">
                     <button
-                      onClick={() => singlePostView(post)}
+                      // onClick={() => singlePostView(post)}
                       className="focus:outline-none"
                     >
                       <PencilIcon className="h-8 w-8 text-gray-400 bg-white shadow-md p-1.5 rounded-full " />
@@ -63,14 +63,15 @@ const PostedContent = ({ getUserPosts, posts, token, singlePostView }) => {
                   </div>
 
                   {post.image ? (
-                    <img
-                      src={post.image && post.image.url}
-                      className="flex  m-auto h-80 object-contain"
-                      alt=""
-                    />
-                  ) : (
-                    ""
-                  )}
+                    <div  className="cursor-pointer"
+                    onClick={() => singlePostView(post)} >
+                      <img
+                        src={post.image && post.image.url}
+                        className="flex  m-auto h-96 w-96 object-contain"
+                        alt=""
+                      />
+                    </div>
+                  ) : null}
 
                   {/* Post Descriptions */}
                   <p className="mt-1 mb-2 text-base font-medium">

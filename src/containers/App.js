@@ -31,7 +31,7 @@ import IndividualRoute from "../components/individualRouteUsingParams/individual
 import Footer from "../components/headerAndFooter/Footer";
 import AdoptPets from "../pages/adoptPets/AdoptPets";
 import UserDashboard from "../dashboard/user/UserDashboard";
-import SinglePostView from "../dashboard/user/viewpost/[_id]";
+import SinglePostView from "../dashboard/user/viewpost/SinglePostView";
 
 function App() {
   //  const {menuHandle, menuHandlePass}= useState(false);
