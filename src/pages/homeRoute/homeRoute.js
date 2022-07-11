@@ -12,19 +12,24 @@ import {
   apptarIcon,
 } from "@heroicons/react/solid";
 // import ourFeatured from "../ourFeatured";
-// import {useHistory} from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 import { Link, Redirect } from "react-router-dom";
 import SliderCarousel from "../../components/sliderCarousel/SliderCarousel";
 import { useSelector } from "react-redux";
 
 function HomeRoute() {
-  // const history = useHistory();
+  const history = useHistory();
   const isAuthenticated = useSelector(
     (state) => state.authUser.isAuthenticated
   );
   console.log(isAuthenticated);
 
+  // Handle Post Route to indicidual post page on click
+  const handlePostRouteIndividual = (post) => {
+    const postId = post.id;
+    history.push(`/user/viewpost/${postId}`);
+  };
   return (
     <>
       <div>
@@ -37,8 +42,7 @@ function HomeRoute() {
             {" "}
             //hover:shadow-2xl rounded-3xl
             <div>
-
-            {/* Sign to post button */}
+              {/* Sign to post button */}
               {isAuthenticated ? (
                 <></>
               ) : (
@@ -65,19 +69,29 @@ function HomeRoute() {
           autoplay={true}
           autoplaySpeed={6000}
           pauseOnHover={true}
+          handlePostRouteIndividual={handlePostRouteIndividual} 
         />
       </div>
 
       <div>
-        <SliderCarousel title={"Adop Pets"} />
+        <SliderCarousel
+          title={"Adop Pets"}
+          handlePostRouteIndividual={handlePostRouteIndividual}
+        />
       </div>
 
       <div>
-        <SliderCarousel title={"Find Vetneries"} />
+        <SliderCarousel
+          title={"Find Vetneries"}
+          handlePostRouteIndividual={handlePostRouteIndividual}
+        />
       </div>
 
       <div>
-        <SliderCarousel title={"Lost and Found Pets"} />
+        <SliderCarousel
+          title={"Lost and Found Pets"}
+          handlePostRouteIndividual={handlePostRouteIndividual}
+        />
       </div>
 
       {/*      

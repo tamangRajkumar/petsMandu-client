@@ -45,14 +45,16 @@ const UserDashboard = () => {
 
   const [postModal, setPostModal] = useState(false);
   const [posts, setPosts] = useState();
+  const [editPost, setEditPost] = useState();
 
-  const handlePost = () => {
-    setPostModal(true);
-    // console.log(postModal)
-  };
-
-  const handlePostModal = () => {
-    setPostModal(false);
+  const handlePostModal = (value) => {
+    if (value.editPost) {
+      setPostModal(value.setPostModalTrue);
+      setEditPost(value.editPost);
+    } else {
+      setPostModal(value);
+      setEditPost(false)
+    }
     // console.log("Clicked");
   };
 
@@ -100,7 +102,7 @@ const UserDashboard = () => {
           <div className="lg:ml-80 flex-auto  bg-gray-50 justify-center items-center   ">
             {/* Add New Post  */}
 
-            <AddNewPostForm handlePost={handlePost} />
+            <AddNewPostForm handlePostModal={handlePostModal} />
 
             {/* Show Modal */}
 
@@ -110,11 +112,10 @@ const UserDashboard = () => {
                   handlePostModal={handlePostModal}
                   dashboardTrue={true}
                   getUserPosts={getUserPosts}
+                  editPost={editPost}
                 />{" "}
               </>
-            ) : (
-              ""
-            )}
+            ) : null}
 
             {/* Posted Contents */}
             <div>
@@ -123,6 +124,7 @@ const UserDashboard = () => {
                 posts={posts}
                 token={token}
                 singlePostView={singlePostView}
+                handlePostModal={handlePostModal}
               />
             </div>
           </div>

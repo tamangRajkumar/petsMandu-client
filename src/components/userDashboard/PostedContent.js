@@ -4,7 +4,13 @@ import { Selector, useSelector } from "react-redux";
 import Avatar from "../../images/Avatar.png";
 import { TrashIcon, XIcon, PencilIcon } from "@heroicons/react/solid";
 
-const PostedContent = ({ getUserPosts, posts, token, singlePostView }) => {
+const PostedContent = ({
+  getUserPosts,
+  posts,
+  token,
+  singlePostView,
+  handlePostModal,
+}) => {
   // const currentUserId = useSelector(
   //   (state) => state.authUser.currentUser.user._id
   // );
@@ -51,7 +57,7 @@ const PostedContent = ({ getUserPosts, posts, token, singlePostView }) => {
                   {/* Edit Post button and Icon */}
                   <div className="flex justify-end mr-5">
                     <button
-                      // onClick={() => singlePostView(post)}
+                      onClick={()=>handlePostModal({setPostModalTrue:true, editPost:true})}
                       className="focus:outline-none"
                     >
                       <PencilIcon className="h-8 w-8 text-gray-400 bg-white shadow-md p-1.5 rounded-full " />
@@ -63,8 +69,10 @@ const PostedContent = ({ getUserPosts, posts, token, singlePostView }) => {
                   </div>
 
                   {post.image ? (
-                    <div  className="cursor-pointer"
-                    onClick={() => singlePostView(post)} >
+                    <div
+                      className="cursor-pointer"
+                      onClick={() => singlePostView(post)}
+                    >
                       <img
                         src={post.image && post.image.url}
                         className="flex  m-auto h-96 w-96 object-contain"

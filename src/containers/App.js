@@ -90,7 +90,6 @@ function App() {
           <Route path="/pets/:indexNumber" component={IndividualRoute} />
           <Route path="/user/dashboard" component={UserDashboard} />
           <Route path="/user/viewpost/:params" component={SinglePostView} />
-
         </Switch>
       </div>
 

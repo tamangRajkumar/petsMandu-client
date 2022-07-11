@@ -3,9 +3,11 @@ import { fetchPosts } from "../../api";
 import allPetsLists from "../../components/AllPetsLists/allPetsList";
 import Cards from "../../components/CardsVerticalAligned";
 import { fetchPostsByCategory } from "../../api";
+import { useHistory } from "react-router-dom";
 
 function AdoptPets() {
   const [posts, setPosts] = useState(null);
+  const history = useHistory();
 
   useEffect(() => {
     if (posts == null) {
@@ -22,6 +24,12 @@ function AdoptPets() {
     } catch (error) {
       console.log("Error => ", error);
     }
+  };
+
+  // Handle Route to view invidual post
+  const handleViewPostRoute = (post) => {
+    const postId = post._id;
+    history.push(`/user/viewpost/${postId}`);
   };
 
   return (
@@ -78,6 +86,8 @@ function AdoptPets() {
                   description={post.description}
                   image={post.image.url}
                   address={post.address}
+                  handleViewPostRoute={handleViewPostRoute}
+                  post={post}
                 />
               );
             })}

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { PlusIcon } from "@heroicons/react/solid";
 
-const AddNewPostButton = ({ handlePost, NavBarPostButton }) => {
+const AddNewPostButton = ({ handlePostModal, NavBarPostButton }) => {
   return (
     <>
       {NavBarPostButton ? (
         <div className="flex justify-center items-center mt-5 mb-5 ml-5">
           <button
-            onClick={handlePost}
+            onClick={()=>handlePostModal(true)}
             className="bg-gray-400 focus:outline-none   rounded-lg"
           >
             <div className="shadow-lg bg-white rounded-md">
@@ -26,7 +26,7 @@ const AddNewPostButton = ({ handlePost, NavBarPostButton }) => {
 
               <div className="flex justify-center items-center mt-5 mb-5 ml-5">
                 <button
-                  onClick={handlePost}
+                  onClick={()=>handlePostModal(true)}
                   className="bg-gray-400 focus:outline-none   rounded-lg"
                 >
                   <div className="shadow-lg bg-white rounded-md">

@@ -9,11 +9,15 @@ import {
 } from "@heroicons/react/solid";
 // export default class Responsive extends Component
 
-const SliderCarousel = ({ title, autoplay, autoplaySpeed, pauseOnHover }) => {
+const SliderCarousel = ({
+  title,
+  autoplay,
+  autoplaySpeed,
+  pauseOnHover,
+  handlePostRouteIndividual,
+}) => {
   {
-    
-    var  settings = {
-      
+    var settings = {
       dots: false,
       infinite: true,
       speed: 2000,
@@ -59,11 +63,9 @@ const SliderCarousel = ({ title, autoplay, autoplaySpeed, pauseOnHover }) => {
     // console.log(sliderRef.current.slickNext)
     // console.log(sliderRef.current.slickPlay);
 
-   
-
     return (
       <>
-        <div className="mt-12">
+        <div className="mt-20">
           <div className="flex justify-between items-center ">
             <h1 className="font-bold text-4xl ml-40 ">{title}</h1>
             <div className="flex space-x-2 absolute right-32 justify-around items-center  cursor-pointer">
@@ -80,12 +82,30 @@ const SliderCarousel = ({ title, autoplay, autoplaySpeed, pauseOnHover }) => {
 
           {/* Mapping data in slider */}
           <div className="ml-20 mr-20 mt-5  bg-contain">
-            <Slider  {...settings} ref={sliderRef}   >
-              {allPets.map((i) => {
+            <Slider {...settings} ref={sliderRef}>
+              {allPets.map((post) => {
                 return (
                   <>
-                    <div key={i} className="mr-5 ml-5">
-                      <img src={i.imgURL} alt={i.name} />
+                    <div key={post} className="mr-5 ml-5">
+                      <div
+                        className="cursor-pointer"
+                        onClick={() => handlePostRouteIndividual(post)}
+                      >
+                        <img src={post.imgURL} alt={post.name} className="rounded-lg" />
+                      </div>
+
+                      {/* View Post Button */}
+                      <div
+                        className=" text-center  cursor-pointer w-32  m-auto mt-2"
+                        onClick={() => handlePostRouteIndividual(post)}
+                      >
+                        
+                          {" "}
+                          <p className="border border-blue-300 bg-gray-400 rounded-lg  py-1  transform  hover:shadow-xl hover:bg-gray-300  ">
+                            View Details
+                          </p>
+                     
+                      </div>
                     </div>
                   </>
                 );

@@ -7,7 +7,7 @@ import { uploadImage, postSubmit } from "../../api";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-const PostModal = ({ handlePostModal, dashboardTrue, getUserPosts }) => {
+const PostModal = ({ handlePostModal, dashboardTrue, getUserPosts, editPost }) => {
   const [postSubmitData, setPostSubmitData] = useState({
     description: "",
     address: "",
@@ -55,7 +55,7 @@ const PostModal = ({ handlePostModal, dashboardTrue, getUserPosts }) => {
       console.log(data);
 
       if (data.saved == "true") {
-        history.push("/user-dashboard");
+        history.push("/user/dashboard");
         handlePostModal();
         getUserPosts();
       }
@@ -73,9 +73,10 @@ const PostModal = ({ handlePostModal, dashboardTrue, getUserPosts }) => {
         className="fixed ml-auto mr-auto left-0 right-0 bg-white  top-3 z-50 rounded-lg"
       >
         <div className="flex  justify-between  mx-10 mt-3">
-          <div className="mt-2 text-xl font-semibold ">Post</div>
+          {editPost?<div className="mt-2 text-xl font-semibold ">Edit Post</div> : <div className="mt-2 text-xl font-semibold ">Post</div> }
+          
           <div className="">
-            <button onClick={handlePostModal} className="focus:outline-none">
+            <button onClick={()=>handlePostModal(false)} className="focus:outline-none">
               <XIcon className="h-8 w-8 text-gray-400 bg-white shadow-md p-1 rounded-full " />
             </button>
           </div>

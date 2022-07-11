@@ -32,7 +32,7 @@ export const logInUser = (userLogInData, history) => async (dispatch) => {
       window.localStorage.setItem("authUser", JSON.stringify(data));
 
       if (data.ok == "true") {
-        history.push("/user-dashboard");
+        history.push("/user/dashboard");
       }
     }
   } catch (error) {

@@ -3,7 +3,14 @@ import React from "react";
 import { HeartIcon, PhoneIcon, StarIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
 
-const CardsVerticalAligned = ({ key, description, image, address }) => {
+const CardsVerticalAligned = ({
+  key,
+  post,
+  description,
+  image,
+  address,
+  handleViewPostRoute,
+}) => {
   return (
     <div
       key={key}
@@ -12,16 +19,26 @@ const CardsVerticalAligned = ({ key, description, image, address }) => {
       {/* body Hotel lists */}
 
       <div className="flex mx-10 ">
-        <div>
-          <img className=" h-60 w-60 rounded-xl" src={image} alt="" />
+        <div onClick={() => handleViewPostRoute(post)}>
+          <img
+            className=" h-60 w-60 rounded-xl cursor-pointer"
+            src={image}
+            alt=""
+          />
         </div>
 
-        <div className="flex-grow space-y-10   ml-6">
+        <div className="flex-grow space-y-12   ml-6">
           <HeartIcon className="h-12 w-12 p-1 text-red-500  float-right    rounded-full" />
 
-          <h1 className="font-bold  text-left text-xl"> {description} </h1>
+          <h1 className="font-bold cursor-pointer text-left text-xl" onClick={()=>handleViewPostRoute(post)}>
+      
+            Title{" "}
+          </h1>
 
-          <p className="text-left"> {address} </p>
+          <div>
+            <p className="text-left"> {description} </p>
+            <p className="text-left"> {address} </p>
+          </div>
 
           {/* <p className=" text-right font-bold"> {props.cost} </p> */}
         </div>
