@@ -3,6 +3,7 @@ import { deletePost, fetchPosts } from "../../api";
 import { Selector, useSelector } from "react-redux";
 import Avatar from "../../images/Avatar.png";
 import { TrashIcon, XIcon, PencilIcon } from "@heroicons/react/solid";
+import PostModal from "./PostModal";
 
 const PostedContent = ({
   getUserPosts,
@@ -44,6 +45,7 @@ const PostedContent = ({
           Your Posted Contents{" "}
         </h1>
       </div>
+
       <div className="flex-col justify-center itmes-center  text-center ">
         {/* <pre> {JSON.stringify(posts, null, 4)}</pre> */}
         {posts &&
@@ -57,7 +59,13 @@ const PostedContent = ({
                   {/* Edit Post button and Icon */}
                   <div className="flex justify-end mr-5">
                     <button
-                      onClick={()=>handlePostModal({setPostModalTrue:true, editPost:true})}
+                      onClick={() =>
+                        handlePostModal({
+                          setPostModalTrue: true,
+                          editPost: true,
+                          post,
+                        })
+                      }
                       className="focus:outline-none"
                     >
                       <PencilIcon className="h-8 w-8 text-gray-400 bg-white shadow-md p-1.5 rounded-full " />

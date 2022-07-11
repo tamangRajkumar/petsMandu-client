@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, POSTSUBMIT } from "./types";
+import { LOGIN, LOGOUT } from "./types";
 import * as api from "../api/index";
 
 //Sign Up User
@@ -22,7 +22,7 @@ export const signUpUser = (signUpData, history) => async (dispatch) => {
 export const logInUser = (userLogInData, history) => async (dispatch) => {
   try {
     const { data } = await api.userLogIn(userLogInData);
-    console.log(data);
+    // console.log(data);
     if (data) {
       dispatch({
         type: LOGIN,

@@ -4,11 +4,12 @@ import { useHistory } from "react-router-dom";
 import UserProfile from "../../components/userDashboard/UserProfile";
 import PostedContent from "../../components/userDashboard/PostedContent";
 import AddNewPostForm from "../../components/userDashboard/AddNewPostButton";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import PostModal from "../../components/userDashboard/PostModal";
 import BackgroundGray from "../../components/userDashboard/backgroundGray";
-import { fetchPosts } from "../../api";
+import { fetchPosts, fetchPostToEdit } from "../../api";
 import { PencilIcon } from "@heroicons/react/solid";
+import { postEditModalPreData } from "../../actions/postEditPreData";
 
 const UserDashboard = () => {
   //   getCurrentUser();
@@ -28,13 +29,16 @@ const UserDashboard = () => {
   //     console.log(error);
   //   }
   // };
+  const dispatch = useDispatch();
 
   const authUser = useSelector((state) => state.authUser.isAuthenticated);
   const user = useSelector((state) => state.authUser.currentUser.user);
   const token = useSelector((state) => state.authUser.currentUser.token);
   const currentUser = useSelector((state) => state.authUser.currentUser);
+  // const postEditModalData = useSelector((state) => state.postEditModalPreData);
+  // console.log(postEditModalData);
 
-  console.log(token);
+  // console.log(token);
   // console.log(user.name);
   // console.log(user.email);
 
@@ -45,15 +49,24 @@ const UserDashboard = () => {
 
   const [postModal, setPostModal] = useState(false);
   const [posts, setPosts] = useState();
-  const [editPost, setEditPost] = useState();
+  const [editPost, setEditPost] = useState(false);
+  // const [postEditData, setPostEditData] = useState();
 
-  const handlePostModal = (value) => {
+  const handlePostModal = async (value) => {
+    // console.log(value);
+
     if (value.editPost) {
+      console.log(value.post._id);
+      const postId = value.post._id;
       setPostModal(value.setPostModalTrue);
       setEditPost(value.editPost);
+      // const { data } = await fetchPostToEdit(postId);
+      // console.log(data);
+      dispatch(postEditModalPreData(postId));
+      // setPostEditData(data);
     } else {
       setPostModal(value);
-      setEditPost(false)
+      setEditPost(false);
     }
     // console.log("Clicked");
   };
