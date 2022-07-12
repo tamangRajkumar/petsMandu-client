@@ -3,7 +3,7 @@ import { XIcon, TrashIcon } from "@heroicons/react/solid";
 import { PlusIcon } from "@heroicons/react/solid";
 import Avatar from "../../images/Avatar.png";
 import BackgroundGray from "./backgroundGray";
-import { uploadImage, postSubmit } from "../../api";
+import { uploadImage, postSubmit, fetchPostToEdit } from "../../api";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
@@ -12,8 +12,8 @@ const PostModal = ({
   dashboardTrue,
   getUserPosts,
   editPost,
+  postId,
 }) => {
-
   const postEditModalDataFound = useSelector(
     (state) => state.postEditModalPreData.post
   );
@@ -21,8 +21,7 @@ const PostModal = ({
   const postEditModalData = useSelector(
     (state) => state.postEditModalPreData.postEditData
   );
-  // console.log(postEditModalData)
-
+  console.log(postEditModalDataFound);
 
   const [postSubmitData, setPostSubmitData] = useState({
     description: "",
@@ -31,17 +30,40 @@ const PostModal = ({
     image: {},
   });
 
+  // useEffect( () => {
+  //   if (postEditModalDataFound)  preLoadPost();
+  // }, [postEditModalDataFound]);
 
-  
-  
-    // console.log(postEditModalData.description);
-    // const preDescription = postEditModalData.description;
-  
-    
-    const  preDescription  = postEditModalData.description;
-    console.log(preDescription, "called")
-    // setPostSubmitData({  description: preDescription });
-  
+  // const preLoadPost =  () => {
+  //   const preDescription =  postEditModalData.description;
+  //   const preAddress =  postEditModalData.address;
+  //   const preCategory =  postEditModalData.category;
+  //   console.log(preDescription);
+  //   setPostSubmitData({
+  //     ...postSubmitData,
+  //     description: preDescription,
+  //     address: preAddress,
+  //     category: preCategory,
+  //   });
+  // };
+
+  useEffect(() => {
+    if (editPost) fetchPostPreData(postId);
+  }, []);
+
+  const fetchPostPreData = async (postId) => {
+    const { data } = await fetchPostToEdit(postId);
+    console.log(data);
+    setPostSubmitData({
+      ...postSubmitData,
+      description: data.description,
+      address: data.address,
+      category: data.category,
+    });
+  };
+  // const  preDescription  = postEditModalData.description;
+  // console.log(preDescription, "called")
+  // setPostSubmitData({  description: preDescription });
 
   // if (editPost && postEditData) {
   //   const { description, address, image } = postEditData;

@@ -51,6 +51,7 @@ const UserDashboard = () => {
   const [posts, setPosts] = useState();
   const [editPost, setEditPost] = useState(false);
   // const [postEditData, setPostEditData] = useState();
+  const[postId, setPostId]= useState();
 
   const handlePostModal = async (value) => {
     // console.log(value);
@@ -62,8 +63,9 @@ const UserDashboard = () => {
       setEditPost(value.editPost);
       // const { data } = await fetchPostToEdit(postId);
       // console.log(data);
-      dispatch(postEditModalPreData(postId));
+      // dispatch(postEditModalPreData(postId));
       // setPostEditData(data);
+      setPostId(postId)
     } else {
       setPostModal(value);
       setEditPost(false);
@@ -126,6 +128,7 @@ const UserDashboard = () => {
                   dashboardTrue={true}
                   getUserPosts={getUserPosts}
                   editPost={editPost}
+                  postId={postId}
                 />{" "}
               </>
             ) : null}
