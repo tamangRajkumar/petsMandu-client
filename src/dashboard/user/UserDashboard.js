@@ -57,7 +57,7 @@ const UserDashboard = () => {
     // console.log(value);
 
     if (value.editPost) {
-      console.log(value.post._id);
+      // console.log(value.post._id);
       const postId = value.post._id;
       setPostModal(value.setPostModalTrue);
       setEditPost(value.editPost);

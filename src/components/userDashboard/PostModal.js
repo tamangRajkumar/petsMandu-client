@@ -3,7 +3,12 @@ import { XIcon, TrashIcon } from "@heroicons/react/solid";
 import { PlusIcon } from "@heroicons/react/solid";
 import Avatar from "../../images/Avatar.png";
 import BackgroundGray from "./backgroundGray";
-import { uploadImage, postSubmit, fetchPostToEdit } from "../../api";
+import {
+  uploadImage,
+  postSubmit,
+  fetchPostToEdit,
+  updatePost,
+} from "../../api";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
@@ -21,7 +26,7 @@ const PostModal = ({
   const postEditModalData = useSelector(
     (state) => state.postEditModalPreData.postEditData
   );
-  console.log(postEditModalDataFound);
+  // console.log(postEditModalDataFound);
 
   const [postSubmitData, setPostSubmitData] = useState({
     description: "",
@@ -52,13 +57,15 @@ const PostModal = ({
   }, []);
 
   const fetchPostPreData = async (postId) => {
+    // console.log(postId)
     const { data } = await fetchPostToEdit(postId);
-    console.log(data);
+    // console.log(data);
     setPostSubmitData({
       ...postSubmitData,
       description: data.description,
       address: data.address,
       category: data.category,
+      image: data.image,
     });
   };
   // const  preDescription  = postEditModalData.description;
@@ -87,7 +94,7 @@ const PostModal = ({
     // console.log([...formData]);
     try {
       const { data } = await uploadImage(formData);
-      // console.log(data)
+      console.log(data);
       setPostSubmitData({ ...postSubmitData, image: data });
       console.log(postSubmitData.image);
     } catch (error) {
@@ -118,6 +125,14 @@ const PostModal = ({
     } catch (error) {
       console.log("Error =>", error);
     }
+  };
+
+  const handleUpdatePost = async (postId) => {
+    // e.preventDefault();
+    console.log("clicked");
+    console.log(postId);
+
+    const { data } = await updatePost(postId);
   };
 
   return (
@@ -244,15 +259,27 @@ const PostModal = ({
             </p>
           </div>
         </div>
-        <div className="flex justify-center items-center mt-0.5 ">
-          <button
-            type="submit"
-            onClick={handleSubmit}
-            className="border focus:outline-none bg-gradient-to-r from-purple-300 to-purple-400 rounded-2xl shadow-xl px-6   py-3 font-bold m-3 hover: transform hover:scale-110  hover:shadow-xl "
-          >
-            Submit Post
-          </button>
-        </div>
+        {editPost ? (
+          <div className="flex justify-center items-center mt-0.5 ">
+            <button
+              type="submit"
+              onClick={handleUpdatePost}
+              className="border focus:outline-none bg-gradient-to-r from-purple-300 to-purple-400 rounded-2xl shadow-xl px-6   py-3 font-bold m-3 hover: transform hover:scale-110  hover:shadow-xl "
+            >
+              Update Post
+            </button>
+          </div>
+        ) : (
+          <div className="flex justify-center items-center mt-0.5 ">
+            <button
+              type="submit"
+              onClick={handleSubmit}
+              className="border focus:outline-none bg-gradient-to-r from-purple-300 to-purple-400 rounded-2xl shadow-xl px-6   py-3 font-bold m-3 hover: transform hover:scale-110  hover:shadow-xl "
+            >
+              Submit Post
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Post Form  End*/}

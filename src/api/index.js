@@ -58,3 +58,8 @@ export const fetchIndividualPost = (postId) => {
 export const fetchPostToEdit = (postId) => {
   return axios.post("http://localhost:9000/api/fetchposttoedit", { postId });
 };
+
+// Update post
+export const updatePost = (postId) => {
+  return axios.put(`http://localhost:9000/api/updatepost/${postId}`);
+};

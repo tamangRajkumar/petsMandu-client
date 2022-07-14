@@ -5,21 +5,21 @@ import PostModal from "../userDashboard/PostModal";
 const NavbarPostModal = () => {
   const [postModal, setPostModal] = useState(false);
 
-  const handlePost = () => {
-    setPostModal(true);
-    // console.log(postModal)
-  };
-
-  const handlePostModal = () => {
-    setPostModal(false);
+  const handlePostModal = (value) => {
+    setPostModal(value);
     console.log("Clicked");
   };
 
   return (
     <div className="mr-4">
-      <AddNewPostButton handlePost={handlePost} NavBarPostButton={true} />
+      <AddNewPostButton
+        handlePostModal={handlePostModal}
+        NavBarPostButton={true}
+      />
 
-      {postModal && <PostModal dashboard={true} handlePostModal={handlePostModal} />}
+      {postModal && (
+        <PostModal dashboard={true} handlePostModal={handlePostModal} />
+      )}
     </div>
   );
 };
