@@ -6,7 +6,7 @@ const UserProfile = ({ fName, lName, userEmail }) => {
   return (
     <div className=" w-1/4 h-full  fixed top-28 z-0 left-0 sm:hidden md:hidden  lg:grid pt-10  mr-20 bg-gray-50  text-center justify-center items-center  overflow-y-scroll ">
       {/* Edit Post button and Icon */}
-      <div className="flex  mr-5 absolute  top-8 right-12">
+      <div className="flex  mr-12 absolute  top-10 right-12">
         <label className="flex flex-col  bg-gray-100 cursor-pointer rounded-full  justify-center items-center">
           <input
             type="file"
@@ -15,9 +15,8 @@ const UserProfile = ({ fName, lName, userEmail }) => {
             // value={postSubmitData.image}
             // onChange={handleImage}
           />
-          
-            <PencilIcon className="h-8 w-8 text-gray-400 bg-white shadow-md p-1.5 rounded-full " />
-         
+
+          <PencilIcon className="h-8 w-8 text-gray-400 bg-white shadow-md p-1.5 rounded-full " />
         </label>
       </div>
 

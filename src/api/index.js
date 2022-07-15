@@ -60,6 +60,11 @@ export const fetchPostToEdit = (postId) => {
 };
 
 // Update post
-export const updatePost = (postId) => {
-  return axios.put(`http://localhost:9000/api/updatepost/${postId}`);
+export const updatePost = (postSubmitData, postId) => {
+  // return console.log({postSubmitData, postId});
+
+  return axios.put(
+    `http://localhost:9000/api/updatepost/${postId}`,
+    postSubmitData
+  );
 };

@@ -53,11 +53,11 @@ const PostModal = ({
   // };
 
   useEffect(() => {
-    if (editPost) fetchPostPreData(postId);
+    if (editPost) fetchPostPreData();
   }, []);
 
-  const fetchPostPreData = async (postId) => {
-    // console.log(postId)
+  const fetchPostPreData = async () => {
+    // console.log(postId);
     const { data } = await fetchPostToEdit(postId);
     // console.log(data);
     setPostSubmitData({
@@ -118,8 +118,8 @@ const PostModal = ({
       console.log(data);
 
       if (data.saved == "true") {
-        history.push("/user/dashboard");
-        handlePostModal();
+        // history.push("/user/dashboard");
+        handlePostModal(false);
         getUserPosts();
       }
     } catch (error) {
@@ -127,12 +127,20 @@ const PostModal = ({
     }
   };
 
-  const handleUpdatePost = async (postId) => {
-    // e.preventDefault();
-    console.log("clicked");
-    console.log(postId);
-
-    const { data } = await updatePost(postId);
+  const handleUpdatePost = async (e) => {
+    e.preventDefault();
+    // console.log("clicked");
+    // console.log(postId);
+    try {
+      const { data } = await updatePost(postSubmitData, postId);
+      console.log(data);
+      if (data.updated == "true") {
+        handlePostModal(false);
+        getUserPosts();
+      }
+    } catch (error) {
+      console.log("Error=> ", error);
+    }
   };
 
   return (

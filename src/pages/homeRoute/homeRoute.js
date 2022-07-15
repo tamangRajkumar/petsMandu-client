@@ -38,9 +38,8 @@ function HomeRoute() {
         <div className="flex   justify-center items-center ">
           {/* <ChevronDoubleLeftIcon className="w-20 h-20 text-gray-500 cursor-pointer"/>    */}
 
-          <div className="mx-20  mt-20  ">
-            {" "}
-            //hover:shadow-2xl rounded-3xl
+          <div className="mx-20    ">
+            {/* hover:shadow-2xl rounded-3xl */}
             <div>
               {/* Sign to post button */}
               {isAuthenticated ? (
@@ -69,7 +68,7 @@ function HomeRoute() {
           autoplay={true}
           autoplaySpeed={6000}
           pauseOnHover={true}
-          handlePostRouteIndividual={handlePostRouteIndividual} 
+          handlePostRouteIndividual={handlePostRouteIndividual}
         />
       </div>
 

@@ -1,9 +1,24 @@
-import React from 'react'
+import React from "react";
 
-const SinglePostComponent = () => {
+import { PhoneIcon, StarIcon } from "@heroicons/react/solid";
+
+const SinglePostComponent = ({ post }) => {
+  console.log(post);
+  // post && console.log(post.image)
+
+  if (post) {
+    const { description, address, image } = post;
+    console.log(image.url);
+  }
+
   return (
-    <div>SinglePostComponent</div>
-  )
-}
+    <>
+      <p>Hello</p>
+      {/* <img src={image.url} /> */}
+    </>
+  );
+  // return (
+  //    // );
+};
 
-export default SinglePostComponent
+export default SinglePostComponent;

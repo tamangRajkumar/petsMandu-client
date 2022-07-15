@@ -83,7 +83,7 @@ const PostedContent = ({
                     >
                       <img
                         src={post.image && post.image.url}
-                        className="flex  m-auto h-96 w-96 object-contain"
+                        className="flex  m-auto  w-96 object-contain mt-0"
                         alt=""
                       />
                     </div>

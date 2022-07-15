@@ -3,11 +3,9 @@ import { fetchPosts } from "../../api";
 import allPetsLists from "../../components/AllPetsLists/allPetsList";
 import Cards from "../../components/CardsVerticalAligned";
 import { fetchPostsByCategory } from "../../api";
-import { useHistory } from "react-router-dom";
 
 function AdoptPets() {
   const [posts, setPosts] = useState(null);
-  const history = useHistory();
 
   useEffect(() => {
     if (posts == null) {
@@ -26,22 +24,14 @@ function AdoptPets() {
     }
   };
 
-  // Handle Route to view invidual post
-  const handleViewPostRoute = (post) => {
-    const postId = post._id;
-    history.push(`/user/viewpost/${postId}`);
-  };
-
   return (
     <>
       {" "}
       <div>
-        {/* adopt pets section */}
-        <h1 className="text-white">Hello world</h1>
-
+       
         {/* Search Filters */}
         <div className="text-center">
-          <h1 className="mt-24 font-bold  text-2xl">Search By Filters</h1>
+          <h1 className="mt-10 font-bold  text-2xl">Search By Filters</h1>
           {/* <div className="flex m-3 justify-center ">
           <button className="bg bg-gray-300 rounded-xl p-1 px-2 mx-2 text-center shadow-sm focus:outline-none transform hover:scale-110 hover:bg-black hover:text-white hover:shadow-xl">
             {" "}
@@ -86,7 +76,6 @@ function AdoptPets() {
                   description={post.description}
                   image={post.image.url}
                   address={post.address}
-                  handleViewPostRoute={handleViewPostRoute}
                   post={post}
                 />
               );
