@@ -39,7 +39,7 @@ const PostedContent = ({
 
   return (
     <div className="flex-col  ">
-      <div className="flex justify-center itmes-center mt-10">
+      <div className="flex justify-center itmes-center mt-5">
         <h1 className="text-2xl font-bold text-gray-500">
           {" "}
           Your Posted Contents{" "}
@@ -54,7 +54,7 @@ const PostedContent = ({
               <>
                 <div
                   key={post._id}
-                  className="mt-10 mb-20 md:mx-40 py-3 border-2 border-gray-200 shadow-md shadow-red-500 rounded-xl "
+                  className="mt-10 mb-20 md:mx-40 py-3 bg-white border-1 border-gray-200 shadow-md shadow-red-500 rounded-xl "
                 >
                   {/* Edit Post button and Icon */}
                   <div className="flex justify-end mr-5">

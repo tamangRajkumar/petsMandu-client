@@ -118,7 +118,8 @@ const PostModal = ({
       console.log(data);
 
       if (data.saved == "true") {
-        // history.push("/user/dashboard");
+        console.log("Called");
+        history.push("/user/dashboard");
         handlePostModal(false);
         getUserPosts();
       }

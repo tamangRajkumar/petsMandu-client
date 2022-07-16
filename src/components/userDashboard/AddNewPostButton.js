@@ -7,7 +7,7 @@ const AddNewPostButton = ({ handlePostModal, NavBarPostButton }) => {
       {NavBarPostButton ? (
         <div className="flex justify-center items-center mt-5 mb-5 ml-5">
           <button
-            onClick={()=>handlePostModal(true)}
+            onClick={() => handlePostModal(true)}
             className="bg-gray-400 focus:outline-none   rounded-lg"
           >
             <div className="shadow-lg bg-white rounded-md">
@@ -19,8 +19,11 @@ const AddNewPostButton = ({ handlePostModal, NavBarPostButton }) => {
         <div className="flex-col ">
           {/* <div className="flex justify-center items-center text-lg font-bold">Add New Post </div> */}
           <div>
-            <div className="flex justify-center items-center">
-              <div className="flex justify-center items-center border-2 border-gray-400 px-5 py-1 rounded-md">
+            <div
+              className="flex justify-center items-center  bg-white shadow-md rounded-xl mx-28 mt-5"
+              
+            >
+              <div onClick={() => handlePostModal(true)} className="flex justify-center items-center cursor-pointer border-2 border-gray-400 px-5 py-1 rounded-md">
                 <p>Create a Post</p>
               </div>
 

@@ -51,7 +51,7 @@ const UserDashboard = () => {
   const [posts, setPosts] = useState();
   const [editPost, setEditPost] = useState(false);
   // const [postEditData, setPostEditData] = useState();
-  const[postId, setPostId]= useState();
+  const [postId, setPostId] = useState();
 
   const handlePostModal = async (value) => {
     // console.log(value);
@@ -65,7 +65,7 @@ const UserDashboard = () => {
       // console.log(data);
       // dispatch(postEditModalPreData(postId));
       // setPostEditData(data);
-      setPostId(postId)
+      setPostId(postId);
     } else {
       setPostModal(value);
       setEditPost(false);
@@ -100,13 +100,10 @@ const UserDashboard = () => {
 
   return (
     <>
-      <div className="pt-32">
-        <div className="flex justify-center items-center  ">
-          <h2 className="text-2xl font-bold ">Dashboard</h2>
-        </div>
-        <div className="pt-10 flex gap-x-5 sm:flex-col md:flex-col  lg:flex-row justify-center  ">
+      <div>
+        <div className="pt-5 flex gap-x-5 sm:flex-col md:flex-col  lg:flex-row justify-center  ">
           {/* User Profile */}
-          <div className="mr-10   z-0">
+          <div className="  ml-10 mr-3   z-0">
             <UserProfile
               fName={user.fname}
               lName={user.lname}
@@ -114,7 +111,7 @@ const UserDashboard = () => {
             />
           </div>
 
-          <div className="lg:ml-80 flex-auto  bg-gray-50 justify-center items-center   ">
+          <div className=" flex-auto   bg-gray-50 justify-center items-center  rounded-t-lg ">
             {/* Add New Post  */}
 
             <AddNewPostForm handlePostModal={handlePostModal} />

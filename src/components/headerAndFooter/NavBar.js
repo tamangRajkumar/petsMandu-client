@@ -42,6 +42,8 @@ const NavBar = () => {
     setMenuClicked((prev) => !prev);
   };
 
+
+
   return (
     <>
       <div className="container max-w-full  rounded-md sticky top-0   z-30  ">

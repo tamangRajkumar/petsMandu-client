@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchIndividualPost } from "../../../api";
+import { fetchIndividualPost } from "../../api";
 // import { Router, useHistory } from "react-router-dom";
-import SinglePostComponent from "../../../components/singleViewPost/PostSingleView";
+import SinglePostComponent from "../../components/singleViewPost/PostSingleView";
 
 const SinglePostView = () => {
   const { params } = useParams();
