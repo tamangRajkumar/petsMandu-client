@@ -12,6 +12,8 @@ const SinglePostView = () => {
   // console.log(postId)
 
   const [post, setPost] = useState();
+  const [postComment, setPostComment] = useState();
+  console.log(postComment);
 
   useEffect(() => {
     fetchPosts();
@@ -100,6 +102,10 @@ const SinglePostView = () => {
                   type="text"
                   className="w-full rounded-lg px-5 py-1 focus:outline-none  "
                   placeholder="Type Your Comment"
+                  value={postComment}
+                  onChange={(e) => {
+                    setPostComment(e.target.value);
+                  }}
                 />
               </div>
             </div>

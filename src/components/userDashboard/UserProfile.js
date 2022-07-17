@@ -1,24 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "../../images/Avatar.png";
 import { PencilIcon } from "@heroicons/react/solid";
+import UpdateUserProfileModal from "./UpdateUserProfileModal";
 
 const UserProfile = ({ fName, lName, userEmail }) => {
+  const [profileUpdateModal, setProfileUpdateModal] = useState(false);
+
+  const handleProfileImage = (value) => {
+    setProfileUpdateModal(value);
+  };
+
   return (
     <div className="  sticky  top-32 overflow-y-scroll w-96 h-screen  bg-gray-50  text-center  ">
       {/* Edit Post button and Icon */}
       <div className=" absolute z-50    top-6 right-28">
-        <label className=" bg-gray-100 cursor-pointer rounded-full  justify-center items-center">
-          <input
+        <label
+          onClick={() => handleProfileImage(true)}
+          className=" bg-gray-100 cursor-pointer rounded-full  justify-center items-center"
+        >
+          {/* <input
             type="file"
             accept="images/*"
             hidden
             // value={postSubmitData.image}
             // onChange={handleImage}
-          />
+          /> */}
 
           <PencilIcon className="h-8 w-8  text-gray-400 bg-white shadow-md p-1.5 rounded-full " />
         </label>
       </div>
+
+        {/* Profile Update Modal */}
+        {profileUpdateModal && <UpdateUserProfileModal /> }
+        
 
       <div className=" pb-5 mt-5  border-b-1 border-gray-200  mx-10  ">
         <img src={Avatar} alt="" className="h-32  m-auto rounded-full" />
@@ -47,22 +61,13 @@ const UserProfile = ({ fName, lName, userEmail }) => {
         <h1 className="text-lg font-semibold text-gray-500">{userEmail}</h1>
         <h1 className="text-lg font-semibold text-gray-500">{userEmail}</h1>
         <h1 className="text-lg font-semibold text-gray-500">{userEmail}</h1>
-
         <h1 className="text-lg font-semibold text-gray-500">{userEmail}</h1>
-
         <h1 className="text-lg font-semibold text-gray-500">{userEmail}</h1>
-
         <h1 className="text-lg font-semibold text-gray-500">{userEmail}</h1>
-
         <h1 className="text-lg font-semibold text-gray-500">{userEmail}</h1>
-
         <h1 className="text-lg font-semibold text-gray-500">{userEmail}</h1>
-
         <h1 className="text-lg font-semibold text-gray-500">{userEmail}</h1>
-
         <h1 className="text-lg font-semibold text-gray-500">{userEmail}</h1>
-
-
         {/* <h1 className="text-lg font-semibold text-gray-500">Phone</h1> */}
       </div>
     </div>
