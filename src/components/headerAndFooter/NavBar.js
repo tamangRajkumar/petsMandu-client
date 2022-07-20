@@ -46,7 +46,7 @@ const NavBar = () => {
 
   return (
     <>
-      <div className="container max-w-full  rounded-md sticky top-0   z-30  ">
+      <div className="container max-w-full  rounded-md sticky top-0     z-30  ">
         <div className="flex justify-between items-center px-5 mb-5 shadow-lg rounded-xl  bg-gray-50 ">
           {/* Nav Bar Items */}
           <div className=" flex-column justify-center items-center space-x-0 my-5 ">
@@ -112,7 +112,7 @@ const NavBar = () => {
               <div className="transform hover:scale-105 duration-300 hover:shadow rounded-3xl  ">
                 {/* Search Icon */}
                 <Link to="/all_pets">
-                  <SearchIcon class="h-6 w-6 text-gray-500 absolute ml-52 mt-2.5 z-50  " />
+                  <SearchIcon class="h-6 w-6 text-gray-500 absolute ml-52 mt-2.5 z-40  " />
                 </Link>
                 <input
                   className="text-center  border border-gray-50 shadow-md outline-none rounded-3xl flex-1 px-10 py-2 "

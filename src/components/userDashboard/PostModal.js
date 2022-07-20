@@ -153,6 +153,7 @@ const PostModal = ({
         className="fixed ml-auto mr-auto left-0 right-0 bg-white  top-3 z-50 rounded-lg"
       >
         <div className="flex  justify-between  mx-10 mt-3">
+          {/* check if post is to be edited or not */}
           {editPost ? (
             <div className="mt-2 text-xl font-semibold ">Edit Post</div>
           ) : (
@@ -195,7 +196,6 @@ const PostModal = ({
         />
 
         {/* Select Category  */}
-
         <div className="ml-8 mt-2">
           <p className="text-base font-medium text-gray-500 mb-1.5">
             Categories
@@ -208,7 +208,7 @@ const PostModal = ({
                 category: e.target.value,
               });
             }}
-            className="px-1 py-1 focus:outline-none border-2 border-gray-300 rounded-md  "
+            className="px-1 py-1 focus:outline-none border-2 border-gray-300 rounded-md cursor-pointer"
           >
             <option value="">Select</option>
             <option value="adopt_pets">Adopt Pets</option>

@@ -68,3 +68,16 @@ export const updatePost = (postSubmitData, postId) => {
     postSubmitData
   );
 };
+
+// Update User Profile
+export const updateUserProfile = (postSubmitData, token) => {
+  return axios.put(
+    "http://localhost:9000/api/update-user-profile",
+    postSubmitData,
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};

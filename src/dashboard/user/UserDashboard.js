@@ -10,6 +10,7 @@ import BackgroundGray from "../../components/userDashboard/backgroundGray";
 import { fetchPosts, fetchPostToEdit } from "../../api";
 import { PencilIcon } from "@heroicons/react/solid";
 import { postEditModalPreData } from "../../actions/postEditPreData";
+import UpdateUserProfileModal from "../../components/userDashboard/UpdateUserProfileModal";
 
 const UserDashboard = () => {
   //   getCurrentUser();
@@ -52,6 +53,11 @@ const UserDashboard = () => {
   const [editPost, setEditPost] = useState(false);
   // const [postEditData, setPostEditData] = useState();
   const [postId, setPostId] = useState();
+  const [profileUpdateModal, setProfileUpdateModal] = useState(false);
+  const handleProfileImage = (value) => {
+    setProfileUpdateModal(value);
+  };
+
 
   const handlePostModal = async (value) => {
     // console.log(value);
@@ -103,13 +109,24 @@ const UserDashboard = () => {
       <div>
         <div className="pt-5 flex gap-x-5 sm:flex-col md:flex-col  lg:flex-row justify-center  ">
           {/* User Profile */}
-          <div className="  ml-10 mr-3   z-0">
+          <div className="  ml-10 mr-3   ">
             <UserProfile
               fName={user.fname}
               lName={user.lname}
               userEmail={user.email}
+              handleProfileImage={handleProfileImage}
             />
           </div>
+        {/* Update User Profile Modal */}
+          <div className="z-50">
+            {profileUpdateModal && (
+              <div className="">
+                <UpdateUserProfileModal dashboardTrue={true} handleProfileImage={handleProfileImage} />
+              </div>
+            )}
+          </div>
+
+
 
           <div className=" flex-auto   bg-gray-50 justify-center items-center  rounded-t-lg ">
             {/* Add New Post  */}
