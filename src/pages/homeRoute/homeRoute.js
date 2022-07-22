@@ -2,7 +2,7 @@ import React from "react";
 import allPetsLists from "../../components/AllPetsLists/allPetsList";
 
 import Cards from "../../components/Cards";
-import petsGroupImg from "./petsGroupImg.jpg";
+import { petsGroupImg, puppyGroupImg } from "../../assets/images";
 
 import {
   ChevronDoubleLeftIcon,
@@ -62,6 +62,7 @@ function HomeRoute() {
         </div>
       </div>
 
+      {/* Featured Posts */}
       <div>
         <SliderCarousel
           title={"Our Featured Posts"}
@@ -72,6 +73,7 @@ function HomeRoute() {
         />
       </div>
 
+      {/* Adopt Pets */}
       <div>
         <SliderCarousel
           title={"Adop Pets"}
@@ -79,16 +81,38 @@ function HomeRoute() {
         />
       </div>
 
+      {/* About petsMandu */}
+      <div className=" flex my-28 py-20  bg-gray-200 shadow-md px-20   ">
+        <img
+          className="h-96 w-auto rounded-xl  shadow-xl "
+          src={puppyGroupImg}
+          alt=""
+        ></img>
+
+        <div className="flex justify-center items-center ml-10  ">
+          <div>
+            <p className="text-3xl font-bold my-5   "> About petsMandu</p>
+            <p className="text-lg font-medium text-justify">
+              petsMandu is an online plateform for those who wants to post lost
+              and found pets, find nearest vetnery, and share pets related
+              problems and answer other people pets problems
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Lost and found pets */}
       <div>
         <SliderCarousel
-          title={"Find Vetneries"}
+          title={"Lost and Found Pets"}
           handlePostRouteIndividual={handlePostRouteIndividual}
         />
       </div>
 
+      {/* Find Vetneries */}
       <div>
         <SliderCarousel
-          title={"Lost and Found Pets"}
+          title={"Find Vetneries"}
           handlePostRouteIndividual={handlePostRouteIndividual}
         />
       </div>

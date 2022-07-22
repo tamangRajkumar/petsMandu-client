@@ -9,7 +9,7 @@ import {
   fetchPostToEdit,
   updateUserProfile,
 } from "../../api";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 const UpdateUserProfileModal = ({
@@ -80,6 +80,7 @@ const UpdateUserProfileModal = ({
   // console.log(postSubmitData);
 
   const history = useHistory();
+  const dispatch = useDispatch();
 
   // get token from state
   const token = useSelector((state) => state.authUser.currentUser.token);
@@ -93,9 +94,9 @@ const UpdateUserProfileModal = ({
     // console.log([...formData]);
     try {
       const { data } = await uploadImage(formData);
-      console.log(data);
+      console.log("Image Details from Cloudinary=> ", data);
       setPostSubmitData({ ...postSubmitData, image: data });
-      console.log(postSubmitData.image);
+      // console.log(postSubmitData.image);
     } catch (error) {
       console.log("Error=> ", error);
     }
@@ -134,10 +135,14 @@ const UpdateUserProfileModal = ({
     try {
       const { data } = await updateUserProfile(postSubmitData, token);
       console.log(data);
-      // if (data.updated == "true") {
-      //   handlePostModal(false);
-      //   getUserPosts();
-      // }
+      if (data.profileImage == "true") {
+        handleProfileImage(false);
+
+        // Update Redux User Profile Store
+        dispatch()
+        
+      
+      }
     } catch (error) {
       console.log("Error=> ", error);
     }
@@ -215,7 +220,7 @@ const UpdateUserProfileModal = ({
               <img
                 src={postSubmitData.image.url}
                 alt=""
-                className="h-36 w-36"
+                className="h-36 w-36 rounded-full"
               />
             ) : (
               <img src={Avatar} alt="" className="h-40 w-40" />
