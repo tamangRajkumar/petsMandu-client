@@ -2,8 +2,14 @@ import React, { useState } from "react";
 import Avatar from "../../images/Avatar.png";
 import { PencilIcon } from "@heroicons/react/solid";
 import UpdateUserProfileModal from "./UpdateUserProfileModal";
+import { useSelector } from "react-redux";
 
 const UserProfile = ({ fName, lName, userEmail, handleProfileImage }) => {
+  // get user image url from store
+  const userProfileImageUrlfromStore = useSelector(
+    (state) => state.updateUserProfile.userProfileData.url
+  );
+
   return (
     <div className="  sticky  top-32 overflow-y-scroll w-96 h-screen  bg-gray-50  text-center  ">
       {/* Profile Update Modal */}
@@ -26,9 +32,23 @@ const UserProfile = ({ fName, lName, userEmail, handleProfileImage }) => {
         </label>
       </div>
 
-      <div className=" pb-5 mt-5  border-b-1 border-gray-200  mx-10  ">
-        <img src={Avatar} alt="" className="h-32  m-auto rounded-full" />
-      </div>
+      {/* User Profile Image */}
+      {userProfileImageUrlfromStore ? (
+       <div className="flex  justify-center items-center mt-5 object-contain">
+          <img
+          style={{borderRadius:"100%"}}
+            src={userProfileImageUrlfromStore}
+            alt=""
+            className="h-36 w-36 shadow-lg"
+           
+          />
+          </div>
+        
+      ) : (
+        <div className=" pb-5 mt-5  border-b-1 border-gray-200  mx-10  ">
+          <img src={Avatar} alt="" className="h-32  m-auto rounded-full" />
+        </div>
+      )}
 
       <div className="mt-4  space-y-3 pb-60">
         <div className="flex space-x-1.5 text-center justify-center items-center">

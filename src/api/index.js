@@ -50,8 +50,12 @@ export const fetchPostsByCategory = (category) => {
 };
 
 //Get individual post
-export const fetchIndividualPost = (postId) => {
-  return axios.get(`http://localhost:9000/api/fetchindividualpost/${postId}`);
+export const fetchIndividualPost = (postId, token) => {
+  return axios.get(`http://localhost:9000/api/fetchindividualpost/${postId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 };
 
 //fetch post to edit in Modal

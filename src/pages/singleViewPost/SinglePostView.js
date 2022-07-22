@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { fetchIndividualPost } from "../../api";
 // import { Router, useHistory } from "react-router-dom";
 import SinglePostComponent from "../../components/singleViewPost/PostSingleView";
+import { useSelector } from "react-redux";
 
 const SinglePostView = () => {
   const { params } = useParams();
@@ -12,18 +13,25 @@ const SinglePostView = () => {
   // console.log(postId)
 
   const [post, setPost] = useState();
-  const [postComment, setPostComment] = useState();
-  console.log(postComment);
+  const [user, setUser] = useState();
+  const [postComment, setPostComment] = useState("No Comments");
+  // console.log(postComment);
+
+  const token = useSelector((state) => state.authUser.currentUser.token);
+  // console.log(token);
 
   useEffect(() => {
     fetchPosts();
+    
   }, []);
 
   const fetchPosts = async () => {
     try {
-      const { data } = await fetchIndividualPost(postId);
+      const { data } = await fetchIndividualPost(postId, token);
       console.log(data);
-      setPost(data);
+      setPost(data.post);
+      setPostComment(data.post.comments)
+      setUser(data.user);
     } catch (error) {
       console.log("Error=> ", error);
     }
@@ -87,12 +95,20 @@ const SinglePostView = () => {
                       <p className="">Name</p>
                       <p className="">Time</p>
                     </div>
-                    {/* Typed Comments */}
-                    <div></div>
+                   
                   </div>
                 </div>
+
+                {/* Typed Comment */}
                 <div className="mx-10 mt-3 bg-gray-300 rounded-lg px-5 py-2 ">
-                  <p>nvadfngandnva</p>
+                  {/* <p>{}</p> */}
+
+                {/* {postComments.map((comment)=>{
+
+                })} */}
+
+
+
                 </div>
               </div>
 

@@ -12,10 +12,12 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
+import { userProfileUpdate } from "../../actions/userProfileUpdate";
+
 const UpdateUserProfileModal = ({
   handlePostModal,
   dashboardTrue,
-  getUserPosts,
+
   editPost,
   postId,
   handleProfileImage,
@@ -29,55 +31,16 @@ const UpdateUserProfileModal = ({
   );
   // console.log(postEditModalDataFound);
 
+  // get user profile image url from store
+  const userProfileImageUrlfromStore = useSelector(
+    (state) => state.updateUserProfile.userProfileData.url
+  );
+  // console.log(userProfileImageUrlfromStore);
+
   const [postSubmitData, setPostSubmitData] = useState({
     description: "",
     image: {},
   });
-
-  // useEffect( () => {
-  //   if (postEditModalDataFound)  preLoadPost();
-  // }, [postEditModalDataFound]);
-
-  // const preLoadPost =  () => {
-  //   const preDescription =  postEditModalData.description;
-  //   const preAddress =  postEditModalData.address;
-  //   const preCategory =  postEditModalData.category;
-  //   console.log(preDescription);
-  //   setPostSubmitData({
-  //     ...postSubmitData,
-  //     description: preDescription,
-  //     address: preAddress,
-  //     category: preCategory,
-  //   });
-  // };
-
-  useEffect(() => {
-    if (editPost) fetchPostPreData();
-  }, []);
-
-  const fetchPostPreData = async () => {
-    // console.log(postId);
-    const { data } = await fetchPostToEdit(postId);
-    // console.log(data);
-    setPostSubmitData({
-      ...postSubmitData,
-      description: data.description,
-      address: data.address,
-
-      image: data.image,
-    });
-  };
-  // const  preDescription  = postEditModalData.description;
-  // console.log(preDescription, "called")
-  // setPostSubmitData({  description: preDescription });
-
-  // if (editPost && postEditData) {
-  //   const { description, address, image } = postEditData;
-  //   console.log(description, address, image.url);
-  //   setPostSubmitData({ ...postSubmitData, description:"description" });
-  // }
-
-  // console.log(postSubmitData);
 
   const history = useHistory();
   const dispatch = useDispatch();
@@ -108,40 +71,22 @@ const UpdateUserProfileModal = ({
     setPostSubmitData({ ...postSubmitData, image: {} });
   };
 
-  // handle Post Submit
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const { data } = await postSubmit(postSubmitData, token);
-      // console.log(postSubmitData);
-      // console.log(token);
-      console.log(data);
-
-      if (data.saved == "true") {
-        console.log("Called");
-        history.push("/user/dashboard");
-        handlePostModal(false);
-        getUserPosts();
-      }
-    } catch (error) {
-      console.log("Error =>", error);
-    }
-  };
-
   const handleUpdateProfile = async (e) => {
     e.preventDefault();
     // console.log("clicked");
     // console.log(postId);
+
     try {
       const { data } = await updateUserProfile(postSubmitData, token);
-      console.log(data);
+
       if (data.profileImage == "true") {
         handleProfileImage(false);
+        const userProfileImageData = data.userProfileImageData;
+        console.log(userProfileImageData);
+        // console.log(data.userProfileImageData);
 
         // Update Redux User Profile Store
-        dispatch()
-        
-      
+        dispatch(userProfileUpdate(userProfileImageData));
       }
     } catch (error) {
       console.log("Error=> ", error);
@@ -222,8 +167,18 @@ const UpdateUserProfileModal = ({
                 alt=""
                 className="h-36 w-36 rounded-full"
               />
+            ) : userProfileImageUrlfromStore ? (
+              <div>
+                <img
+                  src={userProfileImageUrlfromStore}
+                  alt=""
+                  className="h-36 w-36 rounded-full"
+                />
+              </div>
             ) : (
-              <img src={Avatar} alt="" className="h-40 w-40" />
+              <div>
+                <img src={Avatar} alt="" className="h-40 w-40" />{" "}
+              </div>
             )}
 
             <p className="font-semibold text-base text-gray-500 mt-2">

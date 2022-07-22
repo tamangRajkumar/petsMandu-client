@@ -4,7 +4,7 @@ import allHotelsList from "../../components/AllPetsLists/allPetsList";
 
 function allPets() {
   return (
-    <div>
+
       <div>
         {/* All pets List */}
         <h1 className="font-bold text-4xl  ml-20 text-center">
@@ -31,7 +31,7 @@ function allPets() {
           })}
         </div>
       </div>
-    </div>
+
   );
 }
 

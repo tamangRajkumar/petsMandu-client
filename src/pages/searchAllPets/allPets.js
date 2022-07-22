@@ -5,10 +5,10 @@ import allPetsList from "../../components/AllPetsLists/allPetsList";
 function allPets() {
   return (
     <div>
-      <h1 className="text-white"> Explore all pets</h1>
+     
       <div>
         {/* All Hotels List */}
-        <h1 className="font-bold text-4xl mt-24 ml-20 text-center">
+        <h1 className="font-bold text-4xl mt-10 ml-20 text-center">
           {" "}
           Explore Various Pets{" "}
         </h1>
