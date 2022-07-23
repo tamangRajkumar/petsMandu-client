@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logOutUser } from "../../actions/authActions";
+import { userProfileUpdate } from "../../actions/userProfileUpdate";
 
 const DropDownModal = ({ history }) => {
   const isAuthenticated = useSelector(
@@ -13,7 +14,10 @@ const DropDownModal = ({ history }) => {
   const userLogOut = {};
   const handleLogOut = () => {
     window.localStorage.removeItem("authUser");
+    console.log("userlog out called")
+    window.localStorage.removeItem("userProfileData");
     dispatch(logOutUser(userLogOut));
+    dispatch(userProfileUpdate(null));
     history.push("/login");
   };
 
