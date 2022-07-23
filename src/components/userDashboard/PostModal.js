@@ -29,11 +29,14 @@ const PostModal = ({
   // console.log(postEditModalDataFound);
 
   const [postSubmitData, setPostSubmitData] = useState({
+    title:"",
     description: "",
     address: "",
     category: "",
     image: {},
   });
+
+  console.log(postSubmitData)
 
   // useEffect( () => {
   //   if (postEditModalDataFound)  preLoadPost();
@@ -62,6 +65,7 @@ const PostModal = ({
     // console.log(data);
     setPostSubmitData({
       ...postSubmitData,
+      title:data.title,
       description: data.description,
       address: data.address,
       category: data.category,
@@ -135,7 +139,9 @@ const PostModal = ({
     try {
       const { data } = await updatePost(postSubmitData, postId);
       console.log(data);
+      console.log("update called");
       if (data.updated == "true") {
+      
         handlePostModal(false);
         getUserPosts();
       }
@@ -169,10 +175,20 @@ const PostModal = ({
             </button>
           </div>
         </div>
-        <div className="mt-5 mx-8 ">
+         {/* Enter Title */}
+         <input
+          type="text"
+          placeholder="Enter Title"
+          className="outline-none border-2 border-gray-300 rounded-md ml-8 py-1 pl-2  mt-4  "
+          value={postSubmitData.title}
+          onChange={(e) =>
+            setPostSubmitData({ ...postSubmitData, title: e.target.value })
+          }
+        />
+        <div className="mt-3 mx-8 ">
           <textarea
             type="text"
-            className=" h-28 w-full focus:outline-none rounded-xl p-4 border-2 border-gray-300 "
+            className=" h-18 w-full focus:outline-none rounded-xl p-2 border-2 border-gray-300 "
             placeholder="Write descriptions............"
             value={postSubmitData.description}
             onChange={(e) =>
@@ -220,7 +236,7 @@ const PostModal = ({
           </select>
         </div>
 
-        <div className="flex justify-between ml-8 mt-1 items-center mr-10">
+        <div className="flex justify-between ml-8  items-center mr-10">
           <div className="ml-2">
             <label className="flex flex-col shadow-md bg-gray-100 cursor-pointer rounded-md h-24 w-32  justify-center items-center">
               <input

@@ -29,16 +29,16 @@ function LogIn() {
   };
 
   return (
-    <div>
+    <div >
       <form onSubmit={handleSubmit}>
-        <h1 className="text-white"> Log In </h1>
+       
 
-        <div className="flex justify-around items-center">
-          <div className="flex justify-center items-center mt-40">
+        <div className="flex justify-around items-center mt-20">
+          <div className="flex justify-center items-center ">
             <img className="rounded-3xl " src={coverImage} alt="" />
           </div>
 
-          <div className="mt-40 flex flex-col items-center justify-center text-center  ">
+          <div className=" flex flex-col items-center justify-center text-center  ">
             <h1 className="font-bold text-3xl">Log In</h1>
 
             <input

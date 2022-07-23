@@ -4,6 +4,7 @@ import { Selector, useSelector } from "react-redux";
 import Avatar from "../../images/Avatar.png";
 import { TrashIcon, XIcon, PencilIcon } from "@heroicons/react/solid";
 import PostModal from "./PostModal";
+import moment from "moment";
 
 const PostedContent = ({
   getUserPosts,
@@ -90,12 +91,12 @@ const PostedContent = ({
                   ) : null}
 
                   {/* Post Descriptions */}
-                  <p className="mt-1 mb-2 text-base font-medium">
+                  <p className="mt-1 mb-2 text-base font-medium text-gray-600  py-3 rounded-md mx-10">
                     {post.description}
                   </p>
 
                   {/* User Address  */}
-                  <p className="mt-1 mb-2 text-base font-medium">
+                  <p className="mt-1  text-base font-medium">
                     <span className="text-lg">Location:</span>
                     <span className="text-base text-blue-700">
                       {" "}
@@ -103,6 +104,13 @@ const PostedContent = ({
                     </span>
                   </p>
 
+                  {/* User Post created date  */}
+                  <p className="mt-1 mb-2 text-base font-medium">
+                    <span className="text-lg">Created: </span>
+                    <span className="text-base text-blue-700">
+                      {moment(post.createdAt).calendar()}
+                    </span>
+                  </p>
                   {/* Category  */}
                   {/* <p className="mt-1 mb-2 text-base font-medium">
                     <span className="text-lg">Category:</span>
@@ -118,7 +126,7 @@ const PostedContent = ({
                       onClick={() => handleDeletePost(post)}
                       className="focus:outline-none"
                     >
-                      <TrashIcon className="h-8 w-8 text-gray-400 bg-white shadow-md p-1 rounded-full " />
+                      <TrashIcon className="h-8 w-8 text-red-500 bg-white shadow-md p-1 rounded-full " />
                     </button>
                   </div>
                 </div>

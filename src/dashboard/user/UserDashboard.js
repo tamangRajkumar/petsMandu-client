@@ -40,7 +40,7 @@ const UserDashboard = () => {
   // console.log(postEditModalData);
 
   // console.log(token);
-  // console.log(user.name);
+  console.log(user);
   // console.log(user.email);
 
   const history = useHistory();
@@ -58,7 +58,6 @@ const UserDashboard = () => {
     setProfileUpdateModal(value);
   };
 
-
   const handlePostModal = async (value) => {
     // console.log(value);
 
@@ -72,6 +71,7 @@ const UserDashboard = () => {
       // dispatch(postEditModalPreData(postId));
       // setPostEditData(data);
       setPostId(postId);
+      
     } else {
       setPostModal(value);
       setEditPost(false);
@@ -115,18 +115,20 @@ const UserDashboard = () => {
               lName={user.lname}
               userEmail={user.email}
               handleProfileImage={handleProfileImage}
+              createdAt={user.createdAt}
             />
           </div>
-        {/* Update User Profile Modal */}
+          {/* Update User Profile Modal */}
           <div className="z-50">
             {profileUpdateModal && (
               <div className="">
-                <UpdateUserProfileModal dashboardTrue={true} handleProfileImage={handleProfileImage} />
+                <UpdateUserProfileModal
+                  dashboardTrue={true}
+                  handleProfileImage={handleProfileImage}
+                />
               </div>
             )}
           </div>
-
-
 
           <div className=" flex-auto   bg-gray-50 justify-center items-center  rounded-t-lg ">
             {/* Add New Post  */}

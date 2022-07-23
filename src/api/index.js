@@ -85,3 +85,44 @@ export const updateUserProfile = (postSubmitData, token) => {
     }
   );
 };
+
+// Handle comments in the post
+export const postCommentSubmit = (addComment, postId, token) => {
+  return axios.post(
+    "http://localhost:9000/api/submit-post-comment",
+    { addComment, postId },
+
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
+// Handle Delete Post Comment
+
+export const deletePostComment = (postId, commentId, token) => {
+  return axios.put(
+    "http://localhost:9000/api/delete-post-comment",
+    { postId, commentId },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
+
+// fetch post comments data only
+export const fetchPostCommentsDataOnly = (postId, token) => {
+  return axios.post(
+    "http://localhost:9000/api/post-comments-data",
+    { postId },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
