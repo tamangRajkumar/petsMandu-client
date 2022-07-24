@@ -58,7 +58,7 @@ const UserProfile = ({
         )}
 
         <div className="mt-4  space-y-3 pb-60  ml-5 text-center">
-          <div className="flex space-x-1.5  justify-center items-center">
+          <div className="flex space-x-2  justify-center items-center">
             <h1 className="text-lg font-semibold text-gray-500">{fName} </h1>
 
             <h1 className="text-lg font-semibold text-gray-500">{lName}</h1>
