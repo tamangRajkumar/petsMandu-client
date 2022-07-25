@@ -17,7 +17,7 @@ const LostAndFoundPets = () => {
     try {
       const category = "lost_and_found";
       const { data } = await fetchPostsByCategory(category);
-      setPosts(data);
+      setPosts(data.posts);
       console.log(data);
     } catch (error) {
       console.log("Error => ", error);

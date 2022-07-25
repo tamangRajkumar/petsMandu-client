@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import allPetsLists from "../../components/AllPetsLists/allPetsList";
 
 import Cards from "../../components/Cards";
 import { petsGroupImg, puppyGroupImg } from "../../assets/images";
+import { fetchPostsByCategory } from "../../api";
 
 import {
   ChevronDoubleLeftIcon,
@@ -23,13 +24,55 @@ function HomeRoute() {
   const isAuthenticated = useSelector(
     (state) => state.authUser.isAuthenticated
   );
-  console.log(isAuthenticated);
+  // console.log(isAuthenticated);
 
   // Handle Post Route to indicidual post page on click
   const handlePostRouteIndividual = (post) => {
     const postId = post.id;
     history.push(`/user/viewpost/${postId}`);
   };
+
+  const [posts, setPosts] = useState({
+    adoptPets: {},
+    petsProblemsAndSolutions: {},
+    nearestVetneriesPets: {},
+    lostAndFoundPets: {},
+  });
+
+  useEffect(() => {
+    getPostsByCategory("adopt_pets");
+    getPostsByCategory("pets_problems_and_solutions");
+    getPostsByCategory("nearest_vetneries");
+    getPostsByCategory("lost_and_found");
+
+    // fetchPetsProblemsAndSolutionsPetsPosts();
+    // fetchNearestVetneriesPetsPosts();
+    // fetchLostAndFoundPetsPosts();
+  }, []);
+
+  // Fetch Adopt pets data
+  const getPostsByCategory = async (category) => {
+    try {
+      console.log(category);
+
+      const { data } = await fetchPostsByCategory(category);
+      console.log(data);
+
+      // setPosts(data);
+      // switch (category) {
+      //   case "adopt_pets":
+      //     console.log(data);
+      // }
+
+      // setPosts({...posts, adoptPets:data.})
+
+    } catch (error) {
+      console.log("Error => ", error);
+    }
+  };
+
+  
+
   return (
     <>
       <div>

@@ -112,7 +112,7 @@ const SinglePostView = () => {
           {/* Informations and Descriptions  */}
           <div className="flex-col w-full mx-8 bg-gray-50 rounded-lg py-5">
             <div className="mx-5 border-b-2 pb-2 ">
-              <h1 className="text-3xl font-semibold pl-5">Title</h1>
+              <h1 className="text-3xl font-semibold pl-5">{post.title}</h1>
             </div>
             <div className="ml-10 border-b-2 border-black pl-5 w-32">
               <h1 className="'text-2xl font-normal mt-5 pb-1 ">Description</h1>

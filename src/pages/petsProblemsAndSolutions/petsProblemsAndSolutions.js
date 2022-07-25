@@ -17,20 +17,17 @@ const PetsProblemsAndSolutions = () => {
     try {
       let category = "pets_problems_and_solutions";
       const { data } = await fetchPostsByCategory(category);
-      setPosts(data);
+      setPosts(data.posts);
       console.log(data);
     } catch (error) {
       console.log("Error => ", error);
     }
   };
 
-
- 
   return (
     <>
       {" "}
       <div>
-      
         {/* Search Filters */}
         <div className="text-center">
           <h1 className="mt-10 font-bold  text-2xl">Search By Filters</h1>

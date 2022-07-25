@@ -17,8 +17,8 @@ function AdoptPets() {
     try {
       const category = "adopt_pets";
       const { data } = await fetchPostsByCategory(category);
-      setPosts(data);
-      console.log(data);
+      setPosts(data.posts);
+      // console.log(data);/
     } catch (error) {
       console.log("Error => ", error);
     }

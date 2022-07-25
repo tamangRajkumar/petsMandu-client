@@ -17,8 +17,8 @@ const NearestVetneries = () => {
     try {
       let category = "nearest_vetneries";
       const { data } = await fetchPostsByCategory(category);
-      setPosts(data);
-      console.log(data);
+      setPosts(data.posts);
+      // console.log(data);
     } catch (error) {
       console.log("Error => ", error);
     }
