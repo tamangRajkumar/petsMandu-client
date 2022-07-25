@@ -12,6 +12,11 @@ import { useSelector } from "react-redux";
 import moment from "moment";
 import { TrashIcon } from "@heroicons/react/solid";
 
+
+
+
+
+
 const SinglePostView = () => {
   const { params } = useParams();
   const postId = params;
@@ -133,7 +138,7 @@ const SinglePostView = () => {
                 <span>Post Date: {moment(post.createdAt).calendar()} </span>
               </p>
 
-              <p className="py-2" >
+              <p className="py-2">
                 <span>Post Expiry: Null </span>
               </p>
             </div>

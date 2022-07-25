@@ -33,10 +33,10 @@ function HomeRoute() {
   };
 
   const [posts, setPosts] = useState({
-    adoptPets: {},
-    petsProblemsAndSolutions: {},
-    nearestVetneriesPets: {},
-    lostAndFoundPets: {},
+    adoptPets: [],
+    petsProblemsAndSolutions: [],
+    nearestVetneriesPets: [],
+    lostAndFoundPets: [],
   });
 
   useEffect(() => {
@@ -53,25 +53,28 @@ function HomeRoute() {
   // Fetch Adopt pets data
   const getPostsByCategory = async (category) => {
     try {
-      console.log(category);
+      // console.log(category);
 
       const { data } = await fetchPostsByCategory(category);
-      console.log(data);
+      // console.log(data.posts);
 
       // setPosts(data);
-      // switch (category) {
-      //   case "adopt_pets":
-      //     console.log(data);
-      // }
-
-      // setPosts({...posts, adoptPets:data.})
-
+      switch (data.category) {
+        case "adopt_pets":
+          setPosts({ ...posts, adoptPets: data.posts });
+        case "pets_problems_and_solutions":
+          setPosts({ ...posts, petsProblemsAndSolutions: data.posts });
+        case "nearest_vetneries":
+          setPosts({ ...posts, nearest_vetneries: data.posts });
+        case "lost_and_found":
+          setPosts({ ...posts, lost_and_found: data.posts });
+      }
     } catch (error) {
       console.log("Error => ", error);
     }
   };
 
-  
+  // posts.adoptPets && console.log(posts.petsProblemsAndSolutions);
 
   return (
     <>
@@ -117,12 +120,15 @@ function HomeRoute() {
       </div>
 
       {/* Adopt Pets */}
-      <div>
-        <SliderCarousel
-          title={"Adop Pets"}
-          handlePostRouteIndividual={handlePostRouteIndividual}
-        />
-      </div>
+      {posts.adoptPets.length > 0 && (
+        <div>
+          <SliderCarousel
+            title={"Adop Pets"}
+            handlePostRouteIndividual={handlePostRouteIndividual}
+            adoptPets={posts.adoptPets}
+          />
+        </div>
+      )}
 
       {/* About petsMandu */}
       <div className=" flex my-28 py-20  bg-gray-200 shadow-md px-20   ">
@@ -145,20 +151,20 @@ function HomeRoute() {
       </div>
 
       {/* Lost and found pets */}
-      <div>
+      {/* <div>
         <SliderCarousel
           title={"Lost and Found Pets"}
           handlePostRouteIndividual={handlePostRouteIndividual}
         />
-      </div>
+      </div> */}
 
       {/* Find Vetneries */}
-      <div>
+      {/* <div>
         <SliderCarousel
           title={"Find Vetneries"}
           handlePostRouteIndividual={handlePostRouteIndividual}
         />
-      </div>
+      </div> */}
 
       {/*      
 

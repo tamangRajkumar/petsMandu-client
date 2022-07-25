@@ -29,14 +29,14 @@ const PostModal = ({
   // console.log(postEditModalDataFound);
 
   const [postSubmitData, setPostSubmitData] = useState({
-    title:"",
+    title: "",
     description: "",
     address: "",
     category: "",
     image: {},
   });
 
-  console.log(postSubmitData)
+  console.log(postSubmitData);
 
   // useEffect( () => {
   //   if (postEditModalDataFound)  preLoadPost();
@@ -65,7 +65,7 @@ const PostModal = ({
     // console.log(data);
     setPostSubmitData({
       ...postSubmitData,
-      title:data.title,
+      title: data.title,
       description: data.description,
       address: data.address,
       category: data.category,
@@ -141,7 +141,6 @@ const PostModal = ({
       console.log(data);
       console.log("update called");
       if (data.updated == "true") {
-      
         handlePostModal(false);
         getUserPosts();
       }
@@ -175,8 +174,8 @@ const PostModal = ({
             </button>
           </div>
         </div>
-         {/* Enter Title */}
-         <input
+        {/* Enter Title */}
+        <input
           type="text"
           placeholder="Enter Title"
           className="outline-none border-2 border-gray-300 rounded-md ml-8 py-1 pl-2  mt-4  "

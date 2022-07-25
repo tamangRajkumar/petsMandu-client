@@ -15,7 +15,13 @@ const SliderCarousel = ({
   autoplaySpeed,
   pauseOnHover,
   handlePostRouteIndividual,
+  adoptPets,
 }) => {
+
+
+  
+  adoptPets && console.log(adoptPets);
+
   {
     var settings = {
       dots: false,
@@ -83,33 +89,36 @@ const SliderCarousel = ({
           {/* Mapping data in slider */}
           <div className="ml-20 mr-20 mt-5  bg-contain">
             <Slider {...settings} ref={sliderRef}>
-              {allPets.map((post) => {
-                return (
-                  <>
-                    <div key={post} className="mr-5 ml-5">
-                      <div
-                        className="cursor-pointer"
-                        onClick={() => handlePostRouteIndividual(post)}
-                      >
-                        <img src={post.imgURL} alt={post.name} className="rounded-lg" />
-                      </div>
+              {adoptPets &&
+                adoptPets.map((post) => {
+                  return (
+                    <>
+                      <div key={post} className="mr-5 ml-5">
+                        <div
+                          className="cursor-pointer"
+                          // onClick={() => handlePostRouteIndividual(post)}
+                        >
+                          <img
+                            src={post.image.url}
+                            alt=""
+                            className="rounded-lg h-20 w-20"
+                          />
+                        </div>
 
-                      {/* View Post Button */}
-                      <div
-                        className=" text-center  cursor-pointer w-32  m-auto mt-2"
-                        onClick={() => handlePostRouteIndividual(post)}
-                      >
-                        
+                        {/* View Post Button */}
+                        <div
+                          className=" text-center  cursor-pointer w-32  m-auto mt-2"
+                          // onClick={() => handlePostRouteIndividual(post)}
+                        >
                           {" "}
                           <p className="border border-blue-300 bg-gray-400 rounded-lg  py-1  transform  hover:shadow-xl hover:bg-gray-300  ">
                             View Details
                           </p>
-                     
+                        </div>
                       </div>
-                    </div>
-                  </>
-                );
-              })}
+                    </>
+                  );
+                })}
             </Slider>
           </div>
         </div>
