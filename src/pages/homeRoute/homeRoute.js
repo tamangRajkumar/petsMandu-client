@@ -56,7 +56,7 @@ function HomeRoute() {
       // console.log(category);
 
       const { data } = await fetchPostsByCategory(category);
-      // console.log(data.posts);
+      console.log(data.posts);
 
       // setPosts(data);
       switch (data.category) {
