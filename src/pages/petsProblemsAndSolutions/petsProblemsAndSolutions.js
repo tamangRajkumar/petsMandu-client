@@ -41,6 +41,7 @@ const PetsProblemsAndSolutions = () => {
                   description={post.description}
                   image={post.image.url}
                   address={post.address}
+                  title={post.title}
                 />
               );
             })}

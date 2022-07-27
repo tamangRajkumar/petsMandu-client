@@ -28,53 +28,81 @@ function HomeRoute() {
 
   // Handle Post Route to indicidual post page on click
   const handlePostRouteIndividual = (post) => {
-    const postId = post.id;
+    const postId = post._id;
     history.push(`/user/viewpost/${postId}`);
   };
 
-  const [posts, setPosts] = useState({
-    adoptPets: [],
-    petsProblemsAndSolutions: [],
-    nearestVetneriesPets: [],
-    lostAndFoundPets: [],
-  });
+  const [adoptPetsPosts, setAdoptPetsPosts] = useState();
+  // const [petsProblemsAndSolutions, setPetsProblemsAndSolutions] = useState();
+  const [nearestVetneriesPetsPosts, setNearestVetneriesPetsPosts] = useState();
+  const [lostAndFoundPetsPosts, setLostAndFoundPetsPosts] = useState();
 
   useEffect(() => {
-    getPostsByCategory("adopt_pets");
-    getPostsByCategory("pets_problems_and_solutions");
-    getPostsByCategory("nearest_vetneries");
-    getPostsByCategory("lost_and_found");
+    fetchAdoptPetsPosts("adopt_pets");
+    // fetchPetsProblemsAndSolutions("pets_problems_and_solutions");
+    fetchNearestVetneriesPosts("nearest_vetneries");
+    fetchLostAndFoundPetsPosts("lost_and_found");
 
-    // fetchPetsProblemsAndSolutionsPetsPosts();
-    // fetchNearestVetneriesPetsPosts();
     // fetchLostAndFoundPetsPosts();
   }, []);
 
   // Fetch Adopt pets data
-  const getPostsByCategory = async (category) => {
+  const fetchAdoptPetsPosts = async (category) => {
     try {
       // console.log(category);
 
       const { data } = await fetchPostsByCategory(category);
-      console.log(data.posts);
+      // console.log(data.category);
 
       // setPosts(data);
-      switch (data.category) {
-        case "adopt_pets":
-          setPosts({ ...posts, adoptPets: data.posts });
-        case "pets_problems_and_solutions":
-          setPosts({ ...posts, petsProblemsAndSolutions: data.posts });
-        case "nearest_vetneries":
-          setPosts({ ...posts, nearest_vetneries: data.posts });
-        case "lost_and_found":
-          setPosts({ ...posts, lost_and_found: data.posts });
-      }
+      setAdoptPetsPosts(data.posts);
+    } catch (error) {
+      console.log("Error => ", error);
+    }
+  };
+
+  // Fetch Pets Problems and solutions data
+  // const fetchPetsProblemsAndSolutions = async (category) => {
+  //   try {
+  //     const { data } = await fetchPostsByCategory(category);
+  //     // console.log(data.category);
+
+  //     // setPosts(data);
+  //     setPetsProblemsAndSolutions(data);
+  //   } catch (error) {
+  //     console.log("Error => ", error);
+  //   }
+  // };
+
+  // Fetch Nearest vetneries  data
+  const fetchNearestVetneriesPosts = async (category) => {
+    try {
+      const { data } = await fetchPostsByCategory(category);
+      // console.log(data.category);
+
+      // setPosts(data);
+      setNearestVetneriesPetsPosts(data.posts);
+    } catch (error) {
+      console.log("Error => ", error);
+    }
+  };
+
+  // Fetch Lost and found pets  data
+  const fetchLostAndFoundPetsPosts = async (category) => {
+    try {
+      const { data } = await fetchPostsByCategory(category);
+      // console.log(data.category);
+
+      // setPosts(data);
+      setLostAndFoundPetsPosts(data.posts);
     } catch (error) {
       console.log("Error => ", error);
     }
   };
 
   // posts.adoptPets && console.log(posts.petsProblemsAndSolutions);
+  // posts.adoptPets.length>0 && console.log(posts.adoptPets);
+  // petsProblemsAndSolutions && console.log(petsProblemsAndSolutions);
 
   return (
     <>
@@ -116,16 +144,17 @@ function HomeRoute() {
           autoplaySpeed={6000}
           pauseOnHover={true}
           handlePostRouteIndividual={handlePostRouteIndividual}
+          posts={adoptPetsPosts}
         />
       </div>
 
       {/* Adopt Pets */}
-      {posts.adoptPets.length > 0 && (
+      {adoptPetsPosts && (
         <div>
           <SliderCarousel
             title={"Adop Pets"}
             handlePostRouteIndividual={handlePostRouteIndividual}
-            adoptPets={posts.adoptPets}
+            posts={adoptPetsPosts}
           />
         </div>
       )}
@@ -151,26 +180,32 @@ function HomeRoute() {
       </div>
 
       {/* Lost and found pets */}
-      {/* <div>
-        <SliderCarousel
-          title={"Lost and Found Pets"}
-          handlePostRouteIndividual={handlePostRouteIndividual}
-        />
-      </div> */}
+      {lostAndFoundPetsPosts && (
+        <div>
+          <SliderCarousel
+            title={"Lost and Found Pets"}
+            handlePostRouteIndividual={handlePostRouteIndividual}
+            posts={nearestVetneriesPetsPosts}
+          />
+        </div>
+      )}
 
       {/* Find Vetneries */}
-      {/* <div>
-        <SliderCarousel
-          title={"Find Vetneries"}
-          handlePostRouteIndividual={handlePostRouteIndividual}
-        />
-      </div> */}
+
+      {nearestVetneriesPetsPosts && (
+        <div>
+          <SliderCarousel
+            title={"Find Vetneries"}
+            handlePostRouteIndividual={handlePostRouteIndividual}
+            posts={nearestVetneriesPetsPosts}
+          />
+        </div>
+      )}
 
       {/*      
-
       <div>
         <div>
-          {/* List Of All Hotels */}
+          {/* List Of All Pets */}
       {/* <h1 className="font-bold text-4xl mt-10 ml-20"> */}
 
       {/* Toys And Peripherals */}

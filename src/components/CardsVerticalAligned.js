@@ -4,7 +4,14 @@ import { HeartIcon, PhoneIcon, StarIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
-const CardsVerticalAligned = ({ key, post, description, image, address }) => {
+const CardsVerticalAligned = ({
+  key,
+  post,
+  description,
+  image,
+  address,
+  title,
+}) => {
   // Handle Route to view invidual post
   const history = useHistory();
   const handleViewPostRoute = (post) => {
@@ -35,7 +42,7 @@ const CardsVerticalAligned = ({ key, post, description, image, address }) => {
             className="font-bold cursor-pointer text-left text-xl"
             onClick={() => handleViewPostRoute(post)}
           >
-            Title{" "}
+            {title}
           </h1>
 
           <div>

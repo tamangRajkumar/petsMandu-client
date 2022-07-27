@@ -76,6 +76,7 @@ function AdoptPets() {
                   description={post.description}
                   image={post.image.url}
                   address={post.address}
+                  title={post.title}
                   post={post}
                 />
               );

@@ -15,13 +15,8 @@ const SliderCarousel = ({
   autoplaySpeed,
   pauseOnHover,
   handlePostRouteIndividual,
-  adoptPets,
+  posts,
 }) => {
-
-
-  
-  adoptPets && console.log(adoptPets);
-
   {
     var settings = {
       dots: false,
@@ -68,6 +63,8 @@ const SliderCarousel = ({
     // console.log(sliderRef.current);
     // console.log(sliderRef.current.slickNext)
     // console.log(sliderRef.current.slickPlay);
+    // console.log("called")
+    // adoptPetsPosts && console.log(adoptPetsPosts)
 
     return (
       <>
@@ -89,21 +86,24 @@ const SliderCarousel = ({
           {/* Mapping data in slider */}
           <div className="ml-20 mr-20 mt-5  bg-contain">
             <Slider {...settings} ref={sliderRef}>
-              {adoptPets &&
-                adoptPets.map((post) => {
+              {posts &&
+                posts.map((post) => {
                   return (
                     <>
-                      <div key={post} className="mr-5 ml-5">
+                      <div key={post._id} className="mx-8 ">
                         <div
-                          className="cursor-pointer"
-                          // onClick={() => handlePostRouteIndividual(post)}
+                          className="cursor-pointer    "
+                          onClick={() => handlePostRouteIndividual(post)}
                         >
                           <img
                             src={post.image.url}
                             alt=""
-                            className="rounded-lg h-20 w-20"
+                            className="object-cover rounded-2xl  "
                           />
                         </div>
+                        <p className="text-center">
+                          {post.description}
+                        </p>
 
                         {/* View Post Button */}
                         <div
