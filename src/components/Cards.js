@@ -15,10 +15,10 @@ function Cards(props) {
         <p className=""> {props.place} </p>
 
         <div className="flex items-center justify-between ">
-          <div className="flex items-center">
+          {/* <div className="flex items-center">
             <StarIcon className="h-6 w-6 text-red-500 ml-1" />
             <span> {props.rating}</span>
-          </div>
+          </div> */}
 
           {/* <span className="mr-1"> {props.cost} </span> */}
         </div>

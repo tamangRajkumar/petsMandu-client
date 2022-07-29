@@ -185,7 +185,7 @@ function HomeRoute() {
           <SliderCarousel
             title={"Lost and Found Pets"}
             handlePostRouteIndividual={handlePostRouteIndividual}
-            posts={nearestVetneriesPetsPosts}
+            posts={nearestVetneriesPetsPosts  }
           />
         </div>
       )}

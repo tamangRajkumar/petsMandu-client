@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import { userProfileUpdate } from "../../actions/userProfileUpdate";
+import { toast } from "react-toastify";
 
 const UpdateUserProfileModal = ({
   handlePostModal,
@@ -84,6 +85,7 @@ const UpdateUserProfileModal = ({
         const userProfileImageData = data.userProfileImageData;
         console.log(userProfileImageData);
         // console.log(data.userProfileImageData);
+        toast.success("Your profile image image is updated");
 
         // Update Redux User Profile Store
         dispatch(userProfileUpdate(userProfileImageData));

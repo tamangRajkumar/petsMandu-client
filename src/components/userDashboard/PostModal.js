@@ -11,6 +11,7 @@ import {
 } from "../../api";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const PostModal = ({
   handlePostModal,
@@ -123,6 +124,7 @@ const PostModal = ({
 
       if (data.saved == "true") {
         console.log("Called");
+        toast.success("Your Post is created successfully");
         history.push("/user/dashboard");
         handlePostModal(false);
         getUserPosts();
@@ -143,6 +145,7 @@ const PostModal = ({
       if (data.updated == "true") {
         handlePostModal(false);
         getUserPosts();
+        toast.success("Your post is updated successfully");
       }
     } catch (error) {
       console.log("Error=> ", error);

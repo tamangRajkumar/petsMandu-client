@@ -22,14 +22,14 @@ const CardsVerticalAligned = ({
   return (
     <div
       key={key}
-      className=" border border-gray-100 shadow-lg rounded-2xl  my-20 mx-20  py-6 px-4 hover:shadow-xl transform  duration-150 "
+      className=" border border-gray-100 shadow-lg rounded-2xl  my-10 mx-20  py-6 px-4 hover:shadow-xl transform  duration-150 "
     >
-      {/* body Hotel lists */}
+      {/* body pets lists */}
 
       <div className="flex mx-10 ">
         <div onClick={() => handleViewPostRoute(post)}>
           <img
-            className=" h-60 w-60 rounded-xl cursor-pointer"
+            className=" h-60 w-60 rounded-xl cursor-pointer object-cover"
             src={image}
             alt=""
           />

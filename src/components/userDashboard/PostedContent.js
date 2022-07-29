@@ -5,6 +5,7 @@ import Avatar from "../../images/Avatar.png";
 import { TrashIcon, XIcon, PencilIcon } from "@heroicons/react/solid";
 import PostModal from "./PostModal";
 import moment from "moment";
+import { toast } from "react-toastify";
 
 const PostedContent = ({
   getUserPosts,
@@ -32,6 +33,7 @@ const PostedContent = ({
       console.log(data);
       if (data.deleted == "true") {
         getUserPosts();
+        toast.success("Your post has been deleted successfully");
       }
     } catch (error) {
       console.log("Error=> ", error);
@@ -73,8 +75,27 @@ const PostedContent = ({
                     </button>
                   </div>
 
-                  <div className="mt-1 mb-4">
-                    <img src={Avatar} className="flex m-auto h-10 w-10" />
+                  <div className="mt-1 mb-4 flex  pl-10 items-center">
+                    {post.postedBy.image.url ? (
+                      <img
+                        src={post.postedBy.image.url}
+                        className=" h-10 w-10 rounded-full"
+                      />
+                    ) : (
+                      <img src={Avatar} className=" h-10 w-10" />
+                    )}
+
+                    <div className="flex-col">
+                      <div className="flex">
+                        <p className="ml-2">{post.postedBy.fname}</p>
+                        <p className="ml-1">{post.postedBy.lname}</p>
+                      </div>
+                    
+                    <p className="ml-2">{moment(post.createdAt).calendar()}</p>
+                    {/* <p>{post.createdAt}</p> */}
+
+                    </div>
+
                   </div>
 
                   {post.image ? (
@@ -105,12 +126,12 @@ const PostedContent = ({
                   </p>
 
                   {/* User Post created date  */}
-                  <p className="mt-1 mb-2 text-base font-medium">
+                  {/* <p className="mt-1 mb-2 text-base font-medium">
                     <span className="text-lg">Created: </span>
                     <span className="text-base text-blue-700">
                       {moment(post.createdAt).calendar()}
                     </span>
-                  </p>
+                  </p> */}
                   {/* Category  */}
                   {/* <p className="mt-1 mb-2 text-base font-medium">
                     <span className="text-lg">Category:</span>

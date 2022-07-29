@@ -30,7 +30,7 @@ const LostAndFoundPets = () => {
       <div>
         {/* Search Filters */}
         <div className="text-center">
-          <h1 className="mt-10 font-bold  text-2xl">Search By Filters</h1>
+          <h1 className="mt-10 font-bold  text-2xl">Lost And Found Pets</h1>
 
           {posts &&
             posts.map((post) => {

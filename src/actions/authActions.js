@@ -1,5 +1,7 @@
 import { LOGIN, LOGOUT, USERPROFILEDATA } from "./types";
 import * as api from "../api/index";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 //Sign Up User
 export const signUpUser = (signUpData, history) => async (dispatch) => {
@@ -11,6 +13,7 @@ export const signUpUser = (signUpData, history) => async (dispatch) => {
     //   payload: data,
     // });
     if (data.ok == "true") {
+      toast.success("Signed up successfully, Please log in.");
       history.push("/login");
     }
   } catch (error) {
@@ -21,8 +24,10 @@ export const signUpUser = (signUpData, history) => async (dispatch) => {
 //Log In User
 export const logInUser = (userLogInData, history) => async (dispatch) => {
   try {
-    const { data } = await api.userLogIn(userLogInData);
-    // console.log(data.user.image);
+    const { data } = await axios.post(
+      "http://localhost:9000/api/login",
+      userLogInData
+    );
     if (data) {
       dispatch({
         type: LOGIN,
@@ -45,6 +50,7 @@ export const logInUser = (userLogInData, history) => async (dispatch) => {
 
       if (data.ok == "true") {
         history.push("/user/dashboard");
+        toast.success("Welcome, You have logged in successfully.");
       }
     }
   } catch (error) {

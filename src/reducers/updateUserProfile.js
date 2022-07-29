@@ -3,7 +3,10 @@ import { USERPROFILEDATA } from "../actions/types";
 const initialState = {
   userProfileData: window.localStorage.getItem("userProfileData")
     ? JSON.parse(window.localStorage.getItem("userProfileData"))
-    : null,
+    : {
+        url: "",
+        public_key: "",
+      },
 };
 
 export const updateUserProfile = (state = initialState, action) => {

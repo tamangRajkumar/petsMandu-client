@@ -7,7 +7,7 @@ const NavbarPostModal = () => {
 
   const handlePostModal = (value) => {
     setPostModal(value);
-    console.log("Clicked");
+    // console.log("Clicked");
   };
 
   return (

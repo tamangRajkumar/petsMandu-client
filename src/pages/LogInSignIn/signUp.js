@@ -15,9 +15,13 @@ const SignUp = () => {
 
   const [signUpData, setSignUpData] = useState({
     fname: "",
-    lname:"",
+    lname: "",
     email: "",
     password: "",
+    image: {
+      url: "",
+      public_key: "",
+    },
     confirmedSignUp: "false",
   });
 
@@ -116,7 +120,6 @@ const SignUp = () => {
                   setSignUpData({ ...signUpData, password: e.target.value })
                 }
               /> */}
-
 
               <button
                 type="submit"

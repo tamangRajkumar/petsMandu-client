@@ -31,7 +31,7 @@ function AdoptPets() {
        
         {/* Search Filters */}
         <div className="text-center">
-          <h1 className="mt-10 font-bold  text-2xl">Search By Filters</h1>
+          <h1 className="mt-10 font-bold  text-2xl">Adopt Pets</h1>
           {/* <div className="flex m-3 justify-center ">
           <button className="bg bg-gray-300 rounded-xl p-1 px-2 mx-2 text-center shadow-sm focus:outline-none transform hover:scale-110 hover:bg-black hover:text-white hover:shadow-xl">
             {" "}

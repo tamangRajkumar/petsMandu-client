@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logOutUser } from "../../actions/authActions";
 import { userProfileUpdate } from "../../actions/userProfileUpdate";
+import { toast } from "react-toastify";
 
 const DropDownModal = ({ history }) => {
   const isAuthenticated = useSelector(
@@ -18,6 +19,7 @@ const DropDownModal = ({ history }) => {
     window.localStorage.removeItem("userProfileData");
     dispatch(logOutUser(userLogOut));
     dispatch(userProfileUpdate(null));
+    toast.success("Logged out successfully")
     history.push("/login");
   };
 

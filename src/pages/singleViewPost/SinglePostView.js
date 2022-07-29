@@ -45,7 +45,7 @@ const SinglePostView = () => {
 
   const fetchPosts = async () => {
     try {
-      const { data } = await fetchIndividualPost(postId, token);
+      const { data } = await fetchIndividualPost(postId);
       // console.log("Fetch posts called");
 
       // data && console.log(data.comments);

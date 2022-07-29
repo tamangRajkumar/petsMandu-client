@@ -3,9 +3,9 @@ import React from "react";
 function ForgotPassword() {
   return (
     <>
-      <div>
-        <h1>Forgot Password</h1>
-        <div className="mt-40 text-center">
+      <div className="my-28">
+   
+        <div className="text-center">
           <h1 className="text-base font-semibold my-4">
             {" "}
             Reset code will be sent to Your Email

@@ -11,9 +11,9 @@ function allPets() {
           {" "}
           Explore Various Pets{" "}
         </h1>
-        <p className="ml-20 flex justify-center">
+        {/* <p className="ml-20 flex justify-center">
           Add filters by place/ price/ location
-        </p>
+        </p> */}
 
         <div className="flex flex-wrap items-center justify-center text-center">
           {allHotelsList.map(function (lists) {

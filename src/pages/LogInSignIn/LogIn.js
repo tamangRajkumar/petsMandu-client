@@ -5,6 +5,8 @@ import { useHistory, Link } from "react-router-dom";
 import { logInUser } from "../../actions/authActions";
 import { userProfileUpdate } from "../../actions/userProfileUpdate";
 import coverImage from "../../images/signInLogIn/signUpCoverImage.jpg";
+import axios from "axios";
+import { toast } from "react-toastify";
 function LogIn() {
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
@@ -17,6 +19,9 @@ function LogIn() {
     history.push("/");
   }
 
+
+  console.log(authUser)
+
   const [userLogInData, setUserLogInData] = useState({
     email: "",
     password: "",
@@ -24,17 +29,23 @@ function LogIn() {
 
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(logInUser(userLogInData, history));
-    
+    try {
+      dispatch(logInUser(userLogInData, history));
+
+      // const { data } = await axios.post(
+      //   "http://localhost:9000/api/login",
+      //   userLogInData
+      // );
+    } catch (error) {
+      toast.error("Log in Error, Please try Again!");
+    }
   };
 
   return (
-    <div >
+    <div>
       <form onSubmit={handleSubmit}>
-       
-
         <div className="flex justify-around items-center mt-20">
           <div className="flex justify-center items-center ">
             <img className="rounded-3xl " src={coverImage} alt="" />

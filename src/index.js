@@ -8,6 +8,10 @@ import { BrowserRouter } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+// React Tostify
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 // import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
 import store from "./store";
@@ -15,6 +19,7 @@ const app = (
   <BrowserRouter>
     <Provider store={store}>
       <App />
+      <ToastContainer position="bottom-right" />
     </Provider>
   </BrowserRouter>
 );
