@@ -31,6 +31,8 @@ import AdoptPets from "../pages/adoptPets/AdoptPets";
 import UserDashboard from "../dashboard/user/UserDashboard";
 import SinglePostView from "../pages/singleViewPost/SinglePostView";
 import IndividualRoute from "../components/individualRouteUsingParams/individualRoute";
+import FavoritePostsList from "../pages/favoritePostsList/FavoritePostsList";
+import { useSelector } from "react-redux";
 
 function App() {
   //  const {menuHandle, menuHandlePass}= useState(false);
@@ -54,6 +56,11 @@ function App() {
   //         }
   //     }
 
+  console.log("Developed By: 'Rajkumar Tamang'");
+  const isAuthenticated = useSelector(
+    (state) => state.authUser.isAuthenticated
+  );
+  console.log(isAuthenticated);
   return (
     <>
       <NavBar />
@@ -89,6 +96,16 @@ function App() {
 
           {/* individual pets page routing using params */}
           <Route path="/user/viewpost/:params" component={SinglePostView} />
+
+          {/* User Favorite Posts Lists */}
+
+          {isAuthenticated ? (
+            <Route path="/favorite-posts-list" component={FavoritePostsList} />
+          ) : (
+            <div>
+              <p className="text-2xl my-[35vh]  text-center font-bold">Request Error......</p>
+            </div>
+          )}
         </Switch>
       </div>
 

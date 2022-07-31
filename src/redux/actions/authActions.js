@@ -18,6 +18,7 @@ export const signUpUser = (signUpData, history) => async (dispatch) => {
     }
   } catch (error) {
     console.log("Error=>", error);
+    toast.error("Sign up error, Please try again!");
   }
 };
 
@@ -55,6 +56,7 @@ export const logInUser = (userLogInData, history) => async (dispatch) => {
     }
   } catch (error) {
     console.log("ERROR=> ", error);
+    toast.error("Log in Error, Please try again to log in!");
   }
 };
 

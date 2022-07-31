@@ -3,9 +3,13 @@ import { fetchPosts } from "../../api";
 import allPetsLists from "../../components/AllPetsLists/allPetsList";
 import Cards from "../../components/cards/CardsVerticalAligned";
 import { fetchPostsByCategory } from "../../api";
+import { useSelector } from "react-redux";
+
 
 function AdoptPets() {
   const [posts, setPosts] = useState(null);
+
+  const userId = useSelector((state) => state.authUser.currentUser.user._id);
 
   useEffect(() => {
     if (posts == null) {
@@ -28,7 +32,6 @@ function AdoptPets() {
     <>
       {" "}
       <div>
-       
         {/* Search Filters */}
         <div className="text-center">
           <h1 className="mt-10 font-bold  text-2xl">Adopt Pets</h1>
@@ -67,20 +70,25 @@ function AdoptPets() {
                 );
               })}
           </div> */}
-
-          {posts &&
-            posts.map((post) => {
-              return (
-                <Cards
-                  key={post._id}
-                  description={post.description}
-                  image={post.image.url}
-                  address={post.address}
-                  title={post.title}
-                  post={post}
-                />
-              );
-            })}
+          <div className="flex flex-wrap justify-center">
+            {posts &&
+              posts.map((post) => {
+                return (
+                  <>
+                    <div key={post._id} className="flex">
+                      <Cards
+                        description={post.description}
+                        image={post.image.url}
+                        address={post.address}
+                        title={post.title}
+                        post={post}
+                        userId={userId}
+                      />
+                    </div>
+                  </>
+                );
+              })}
+          </div>
         </div>
       </div>
     </>

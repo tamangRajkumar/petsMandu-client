@@ -10,6 +10,7 @@ import {
   MenuIcon,
   PlusIcon,
   XIcon,
+  HeartIcon,
 } from "@heroicons/react/solid";
 
 import DropDownModal from "../modal/dropDownModal/DropDownModal";
@@ -148,6 +149,15 @@ const NavBar = () => {
               onClick={handleSmallScreenSerachIcon}
               className="block cursor-pointer md:hidden lg:hidden h-6 w-6 mt-1 text-gray-600 "
             />
+
+            {/* Favorite lists Show Icon */}
+            {isAuthenticated && (
+              <div>
+                <Link to="/favorite-posts-list">
+                  <HeartIcon className="h-8 w-8 text-red-600 cursor-pointer " />
+                </Link>
+              </div>
+            )}
 
             {/* Add new post Icon  */}
             {isAuthenticated && <NavbarPostModal />}

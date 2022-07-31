@@ -88,7 +88,7 @@ const SliderCarousel = ({
           </div>
 
           {/* Mapping data in slider */}
-          <div className="ml-10 mr-10 mt-5  bg-contain">
+          <div className="ml-10 mr-10 mt-5  bg-contain ">
             <Slider {...settings} ref={sliderRef}>
               {posts &&
                 posts.map((post) => {
@@ -96,7 +96,7 @@ const SliderCarousel = ({
                     <>
                       <div
                         key={post._id}
-                        className="mx-3 md:mx-3 lg:mx-5 py-1 "
+                        className="mx-3 md:mx-3 lg:mx-5 mb-8 pt-2 pb-5  shadow-md rounded-xl"
                       >
                         <div
                           className="cursor-pointer h-40 md:h-40 lg:h-48   "
@@ -105,11 +105,16 @@ const SliderCarousel = ({
                           <img
                             src={post.image.url}
                             alt=""
-                            className=" object-cover h-[100%] w-[100%] rounded-lg "
+                            className=" object-cover h-[100%] w-[100%] rounded-t-lg "
                           />
                         </div>
                         <div>
-                          <p className="text-center mt-2">{post.description}</p>
+                          <p className="text-center mt-2 px-3 ">
+                            {" "}
+                            {post.description.length > 25
+                              ? post.description.substring(0, 29) + "..."
+                              : post.description}
+                          </p>
                         </div>
 
                         {/* View Post Button */}

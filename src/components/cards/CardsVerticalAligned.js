@@ -1,53 +1,104 @@
-import React from "react";
+import React, { useState } from "react";
 // import App from "../containers/App.css";
 import { HeartIcon, PhoneIcon, StarIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addFavoritePostsList,
+  removeFavoritePostsList,
+} from "../../redux/actions/favoritePostsList";
+import { toast } from "react-toastify";
 
 const CardsVerticalAligned = ({
-  key,
   post,
   description,
   image,
   address,
   title,
+  userId,
 }) => {
   // Handle Route to view invidual post
   const history = useHistory();
-  const handleViewPostRoute = (post) => {
+  const dispatch = useDispatch();
+
+  const [heartIconClick, setHeartIconClick] = useState(false);
+
+  // const userId = useSelector((state) => state.authUser.currentUser.user._id);
+  // console.log(userId);
+
+  const handleHeartIconTrue = () => {
+    if (userId) {
+      setHeartIconClick(true);
+      dispatch(addFavoritePostsList(post));
+      toast.success("Post is added to favorite list successfully");
+    }
+    if (!userId) {
+      toast.error("Please log in to add to favorite list");
+    }
+    console.log("click");
+
+    console.log(post._id);
+  };
+
+  const handleHeartIconFalse = () => {
+    setHeartIconClick(false);
+    dispatch(removeFavoritePostsList(post._id));
+    toast.success("Post is removed from favorite list successfully ");
+  };
+
+  const handleViewPostRoute = () => {
     const postId = post._id;
     history.push(`/user/viewpost/${postId}`);
   };
 
   return (
-    <div
-      key={key}
-      className=" border border-gray-100 shadow-lg rounded-2xl  my-10 mx-20  py-6 px-4 hover:shadow-xl transform  duration-150 "
-    >
+    <div className=" w-[90vh] border border-gray-100 shadow-sm rounded-2xl  my-10 mx-5  py-6  hover:shadow-md transform  duration-150 ">
       {/* body pets lists */}
 
-      <div className="flex mx-10 ">
-        <div onClick={() => handleViewPostRoute(post)}>
+      <div className="flex mx-5 ">
+        <div className="ml-4 my-2 mr-2" onClick={handleViewPostRoute}>
           <img
-            className=" h-60 w-60 rounded-xl cursor-pointer object-cover"
+            className=" h-[35vh] w-[70vh] rounded-xl  cursor-pointer object-cover"
             src={image}
             alt=""
           />
         </div>
 
-        <div className="flex-grow space-y-12   ml-6">
-          <HeartIcon className="h-12 w-12 p-1 text-red-500  float-right    rounded-full" />
-
-          <h1
-            className="font-bold cursor-pointer text-left text-xl"
-            onClick={() => handleViewPostRoute(post)}
-          >
-            {title}
-          </h1>
-
+        <div className="flex-col  w-[55vh]  ml-6  ">
           <div>
-            <p className="text-left"> {description} </p>
-            <p className="text-left"> {address} </p>
+            {heartIconClick ? (
+              <div className="flex justify-end ">
+                <HeartIcon
+                  onClick={handleHeartIconFalse}
+                  className="h-8 w-8 p-1 text-red-500 cursor-pointer   rounded-full"
+                />
+              </div>
+            ) : (
+              <div className="flex justify-end ">
+                <HeartIcon
+                  onClick={handleHeartIconTrue}
+                  className="h-8 w-8 p-1 text-white bg-gray-400 shadow-sm cursor-pointer     rounded-full"
+                />
+              </div>
+            )}
+          </div>
+
+          <div className=" mt-5">
+            <h1
+              className="font-bold cursor-pointer text-left text-xl pt-2"
+              onClick={() => handleViewPostRoute(post)}
+            >
+              {title}
+            </h1>
+
+            <p className="text-left mt-4 text-gray-500">
+              {" "}
+              {description.length > 50
+                ? description.substring(0, 50) + "...."
+                : description}{" "}
+            </p>
+            <p className="text-left mt-4 text-gray-500"> Address: {address} </p>
           </div>
 
           {/* <p className=" text-right font-bold"> {props.cost} </p> */}

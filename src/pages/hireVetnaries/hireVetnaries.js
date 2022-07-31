@@ -32,19 +32,21 @@ const NearestVetneries = () => {
         <div className="text-center">
           <h1 className="mt-10 font-bold  text-2xl">Nearest Vetneries</h1>
 
-          {posts &&
-            posts.map((post) => {
-              return (
-                <Cards
-                  key={post._id}
-                  description={post.description}
-                  image={post.image.url}
-                  address={post.address}
-                  title={post.title}
-                  post={post}
-                />
-              );
-            })}
+          <div className="flex flex-wrap justify-center">
+            {posts &&
+              posts.map((post) => {
+                return (
+                  <Cards
+                    key={post._id}
+                    description={post.description}
+                    image={post.image.url}
+                    address={post.address}
+                    title={post.title}
+                    post={post}
+                  />
+                );
+              })}
+          </div>
         </div>
       </div>
     </>

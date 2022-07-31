@@ -15,7 +15,7 @@ function allPets() {
           Add filters by place/ price/ location
         </p> */}
 
-        <div className="flex flex-wrap items-center justify-center text-center">
+        <div className="flex flex-wrap items-center justify-center text-center ">
           {allPetsList.map(function (lists) {
             return (
               <Cards
