@@ -1,21 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import {
   fetchIndividualPost,
   postCommentSubmit,
   deletePostComment,
   fetchPostCommentsDataOnly,
 } from "../../api";
-// import { Router, useHistory } from "react-router-dom";
-import SinglePostComponent from "../../components/singleViewPost/PostSingleView";
 import { useSelector } from "react-redux";
 import moment from "moment";
 import { TrashIcon } from "@heroicons/react/solid";
-
-
-
-
-
+import { Avatar } from "../../assets/images";
+import { toast } from "react-toastify";
 
 const SinglePostView = () => {
   const { params } = useParams();
@@ -39,6 +34,11 @@ const SinglePostView = () => {
   const userId = useSelector((state) => state.authUser.currentUser.user._id);
   // console.log(userId)
 
+  const userImageUrl = useSelector(
+    (state) => state.updateUserProfile.userProfileData.url
+  );
+  console.log(userImageUrl);
+
   useEffect(() => {
     fetchPosts();
   }, []);
@@ -50,6 +50,7 @@ const SinglePostView = () => {
 
       // data && console.log(data.comments);
       setPost(data);
+      // console.log(data)
       setPostCommentsData(data.comments);
     } catch (error) {
       console.log("Error=> ", error);
@@ -65,6 +66,7 @@ const SinglePostView = () => {
         // console.log("Called here");
         setPostCommentsData(data.updatedPost.comments);
         setAddComment("");
+        toast.success("Your comment is posted successfully");
       }
       // console.log(data);
     } catch (error) {
@@ -94,6 +96,7 @@ const SinglePostView = () => {
       // console.log(data);
       if (data.postCommentDeleted == "true") {
         fetchCommentsOnly();
+        toast.success("Your comment is deleted successfully");
       }
     } catch (error) {
       console.log("Error=> ", error);
@@ -106,11 +109,29 @@ const SinglePostView = () => {
     <>
       {post && (
         <div className="flex md:flex lg:flex mt-12 mx-20 ">
-          <div className="sticky top-32 mt-10 flex-none h-96 w-96 bg-gray-50 p-5 rounded-lg">
+          <div className="sticky top-32 mt-10 flex-none h-[90vh] w-96 bg-gray-50 p-5 rounded-lg">
             <img src={post.image.url} alt="" className="object-contain w-96" />
-            <div className="flex justify-between mx-3">
+            {/* <div className="flex justify-between mx-3">
               <p>Views</p>
               <p>{post.category}</p>
+            </div> */}
+
+            <div className="flex mt-10 items-center bg-white shadow-md py-5 px-3 rounded-lg">
+              <img
+                src={post.postedBy.image.url}
+                className="h-20 w-20 object-cover rounded-full"
+                alt=""
+              />
+              <div className="ml-3">
+                Posted By:{" "}
+                <span className="font-medium">{post.postedBy.fname} </span>{" "}
+                <span className="font-medium">{post.postedBy.lname}</span>
+                <p>Mobile No: </p>
+                <p>
+                  Email:{" "}
+                  <span className="font-medium">{post.postedBy.email} </span>{" "}
+                </p>
+              </div>
             </div>
           </div>
 
@@ -126,25 +147,27 @@ const SinglePostView = () => {
               <p>{post.description}</p>
             </div>
             {/* Informations */}
-            <div className="bg-gray-200 my-5 mx-20 pt-5 mt-10 pl-10 pr-10  h-48  rounded-lg ">
-              <p className="border-b-2 border-gray-300 mr-5 pt-1 pb-2">
-                <span>Posted By: </span>
+            <div className="bg-white shadow-md my-5 mx-20 pt-5 mt-10 pl-10 pr-10  pb-3  rounded-lg ">
+              <p className="border-b-2 border-gray-300 mr-5 pt-1 pb-2 ">
+                Posted By:{" "}
+                <span className="font-medium">{post.postedBy.fname} </span>{" "}
+                <span className="font-medium">{post.postedBy.lname}</span>
               </p>
 
               <p className="border-b-2 border-gray-300 mr-5 py-2">
                 <span>Location: {post.address} </span>
               </p>
-              <p className="border-b-2 border-gray-300 mr-5 py-2">
+              <p className=" border-gray-300 mr-5 py-2">
                 <span>Post Date: {moment(post.createdAt).calendar()} </span>
               </p>
 
-              <p className="py-2">
+              {/* <p className="py-2">
                 <span>Post Expiry: Null </span>
-              </p>
+              </p> */}
             </div>
 
             {/* Comments section */}
-            <div className="bg-gray-300 my-5 mx-10 mt-20 pt-5 px-5  py-10 rounded-lg">
+            <div className="bg-white shadow-md my-5 mx-10 mt-20 pt-5 px-5  py-10 rounded-lg">
               <p className="text-2xl font-semibold ">Comments:</p>
               <div>
                 {/* Check whether has comments or not */}
@@ -209,28 +232,56 @@ const SinglePostView = () => {
               </div>
 
               {/* input Comment */}
-              <div className="mt-8 flex ">
-                <input
-                  type="text"
-                  className="w-full rounded-lg px-5 py-1 focus:outline-none  "
-                  placeholder="Post Your Comment"
-                  value={addComment}
-                  onChange={(e) => {
-                    setAddComment(e.target.value);
-                  }}
-                />
+              {userId ? (
+                <div className="mt-8 flex  ">
+                  <div>
+                    {userImageUrl ? (
+                      <img
+                        src={userImageUrl}
+                        className="h-12 w-12 object-cover mx-2 rounded-full"
+                        alt=""
+                      />
+                    ) : (
+                      <img
+                        src={Avatar}
+                        className="h-12 w 12 object-cover mx-2"
+                        alt=""
+                      />
+                    )}
+                  </div>
+                  <input
+                    type="text"
+                    className="w-full bg-gray-200 shadow-sm rounded-full  px-7 py-1 ml-5 focus:outline-none  "
+                    placeholder="Post Your Comment"
+                    value={addComment}
+                    onChange={(e) => {
+                      setAddComment(e.target.value);
+                    }}
+                  />
 
-                <div className="ml-4">
-                  <button
-                    type="submit"
-                    onClick={handleAddComments}
-                    className=" rounded-xl py-2 px-3 my-1 focus:outline-none font-bold text-base shadow-md bg-gradient-to-r
+                  <div className="ml-4">
+                    <button
+                      type="submit"
+                      onClick={handleAddComments}
+                      className=" rounded-xl py-2 px-3 my-1 focus:outline-none font-bold text-base shadow-md bg-gradient-to-r
                      from-purple-300 to-purple-400 transform hover:scale-110 hover:shadow-xl duration-150"
-                  >
-                    <p> Post </p>
-                  </button>
+                    >
+                      <p> Post</p>
+                    </button>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <>
+                  <p className="text-lg font-base mt-4 mb-5 text-gray-600">
+                    Please log in to post your comment
+                  </p>
+                  <Link to="/login">
+                    <p className=" text-center py-3 my-4  bg-gray-400 hover:shadow-lg text-lg font-medium rounded-md">
+                      Log in
+                    </p>
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>

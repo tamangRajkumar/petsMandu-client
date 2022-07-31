@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { XIcon, TrashIcon } from "@heroicons/react/solid";
 import { PlusIcon } from "@heroicons/react/solid";
-import Avatar from "../../images/Avatar.png";
+import {Avatar} from "../../../assets/images";
 import BackgroundGray from "./backgroundGray";
 import {
   uploadImage,
   postSubmit,
   fetchPostToEdit,
   updatePost,
-} from "../../api";
+} from "../../../api";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";

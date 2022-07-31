@@ -9,14 +9,16 @@ import {
   UserCircleIcon,
   MenuIcon,
   PlusIcon,
+  XIcon,
 } from "@heroicons/react/solid";
 
-import DropDownModal from "../modal/DropDownModal";
+import DropDownModal from "../modal/dropDownModal/DropDownModal";
 
 import NavbarPostModal from "./NavbarPostModal";
 
 const NavBar = () => {
   const [menuClicked, setMenuClicked] = useState(false);
+  const [searchInputShowHide, setSearchInputShowHide] = useState(false);
   const menuBtnRef = useRef();
   const history = useHistory();
 
@@ -42,6 +44,9 @@ const NavBar = () => {
     setMenuClicked((prev) => !prev);
   };
 
+  const handleSmallScreenSerachIcon = () => {
+    setSearchInputShowHide((prev) => !prev);
+  };
 
   return (
     <>
@@ -105,44 +110,68 @@ const NavBar = () => {
             </div>
           </div>
 
-          <div className="hidden md:flex flex-1  justify-center items-center ">
+          <div
+            className={
+              searchInputShowHide
+                ? "block absolute right-5 z-50  md:flex flex-1  justify-center items-center  "
+                : "hidden md:flex flex-1  justify-center items-center  "
+            }
+          >
             {/* Search Section */}
-            <div className="flex justify-between items-center ">
+
+            <div className="flex justify-between items-center py-5 ">
+              {searchInputShowHide && (
+                <XIcon
+                  onClick={handleSmallScreenSerachIcon}
+                  className="absolute cursor-pointer h-6   w-6 z-50 -right-1 -top-1.5 text-gray-500 rounded-full p-1 shadow-lg"
+                />
+              )}
               <div className="transform hover:scale-105 duration-300 hover:shadow rounded-3xl  ">
                 {/* Search Icon */}
                 <Link to="/all_pets">
-                  <SearchIcon class="h-6 w-6 text-gray-500 absolute ml-52 mt-2.5 z-40  " />
+                  <SearchIcon
+                    onClick={() => setSearchInputShowHide(false)}
+                    class="h-6 w-6 text-gray-500 absolute ml-52 mt-2.5 z-40  "
+                  />
                 </Link>
                 <input
-                  className="text-center  border border-gray-50 shadow-md outline-none rounded-3xl flex-1 px-10 py-2 "
+                  className="  border border-gray-50 shadow-md outline-none rounded-3xl  px-10 py-2 "
                   type="text"
-                  placeholder="Search any pet? "
+                  placeholder="Search "
                 />
               </div>
             </div>
           </div>
 
-          {/* Add new post Icon  */}
-          {isAuthenticated && <NavbarPostModal />}
+          <div className="flex justify-center items-center">
+            <SearchIcon
+              onClick={handleSmallScreenSerachIcon}
+              className="block cursor-pointer md:hidden lg:hidden h-6 w-6 mt-1 text-gray-600 "
+            />
 
-          {/* <div className=" shadow-lg bg-white rounded-md mr-4">
-          <PlusIcon className="h-8 w-8 text-gray-600" />
-        </div> */}
+            {/* Add new post Icon  */}
+            {isAuthenticated && <NavbarPostModal />}
 
-          {/* Nav Bar Toggler */}
-          <div>
-            <button
-              ref={menuBtnRef}
-              onClick={hanldeMenuClicked}
-              className="flex items-center focus:outline-none p-2 text-gray-600  absolute z-50  h-12 w-20 ml-0.5 rounded-full  "
-            ></button>
-            <div className=" bg-white rounded-full shadow-lg justify-center items-center px-2 py-1.5 transform hover:scale-105 duration-150 hover:shadow-xl ">
-              <div className=" flex  ">
-                <MenuIcon className="h-7 w-8 mt-1  " />
-                <UserCircleIcon className="h-9 w-9 text-gray-600 " />
+            {/* Nav Bar Toggler */}
+
+            {searchInputShowHide ? (
+              ""
+            ) : (
+              <div className="">
+                <button
+                  ref={menuBtnRef}
+                  onClick={hanldeMenuClicked}
+                  className="flex items-center focus:outline-none p-2 text-gray-600  absolute z-50  h-12 w-20 ml-0.5 rounded-full  "
+                ></button>
+                <div className=" bg-white rounded-full shadow-lg justify-center items-center px-2 py-1.5 transform hover:scale-105 duration-150 hover:shadow-xl ">
+                  <div className=" flex  ">
+                    <MenuIcon className="h-7 w-8 mt-1  " />
+                    <UserCircleIcon className="h-9 w-9 text-gray-600 " />
+                  </div>
+                </div>
+                {/* onClick={menuClicked} */}
               </div>
-            </div>
-            {/* onClick={menuClicked} */}
+            )}
           </div>
 
           {isAuthenticated ? (

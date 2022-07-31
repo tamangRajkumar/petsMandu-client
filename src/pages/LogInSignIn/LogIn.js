@@ -2,10 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
-import { logInUser } from "../../actions/authActions";
-import { userProfileUpdate } from "../../actions/userProfileUpdate";
-import coverImage from "../../images/signInLogIn/signUpCoverImage.jpg";
-import axios from "axios";
+import { logInUser } from "../../redux/actions/authActions";
+import { signUpLogiInCoverImage } from "../../assets/images";
 import { toast } from "react-toastify";
 function LogIn() {
   // const [email, setEmail] = useState("");
@@ -19,8 +17,7 @@ function LogIn() {
     history.push("/");
   }
 
-
-  console.log(authUser)
+  console.log(authUser);
 
   const [userLogInData, setUserLogInData] = useState({
     email: "",
@@ -48,7 +45,7 @@ function LogIn() {
       <form onSubmit={handleSubmit}>
         <div className="flex justify-around items-center mt-20">
           <div className="flex justify-center items-center ">
-            <img className="rounded-3xl " src={coverImage} alt="" />
+            <img className="rounded-3xl " src={signUpLogiInCoverImage} alt="" />
           </div>
 
           <div className=" flex flex-col items-center justify-center text-center  ">

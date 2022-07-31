@@ -1,6 +1,6 @@
 import React from "react";
 import Cards from "../../components/Cards";
-import allHotelsList from "../../components/AllPetsLists/allPetsList";
+import allPetsList from "../../components/AllPetsLists/allPetsList";
 
 function allPets() {
   return (
@@ -16,7 +16,7 @@ function allPets() {
         </p> */}
 
         <div className="flex flex-wrap items-center justify-center text-center">
-          {allHotelsList.map(function (lists) {
+          {allPetsList.map(function (lists) {
             return (
               <Cards
                 key={lists.id}

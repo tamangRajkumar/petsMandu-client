@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 
 function IndividualRoute() {
   const { indexNumber } = useParams();
-//   console.log(indexNumber);
+  console.log(indexNumber);
 
   return (
     <>

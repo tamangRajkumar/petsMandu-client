@@ -1,26 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { XIcon, TrashIcon } from "@heroicons/react/solid";
 import { PlusIcon } from "@heroicons/react/solid";
-import Avatar from "../../images/Avatar.png";
+import {Avatar} from "../../../assets/images";
 import BackgroundGray from "./backgroundGray";
-import {
-  uploadImage,
-  postSubmit,
-  fetchPostToEdit,
-  updateUserProfile,
-} from "../../api";
+import { uploadImage, updateUserProfile } from "../../../api";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import { userProfileUpdate } from "../../actions/userProfileUpdate";
+import { userProfileUpdate } from "../../../redux/actions/userProfileUpdate";
 import { toast } from "react-toastify";
+import { authUser } from "../../../redux/reducers/authUser";
 
 const UpdateUserProfileModal = ({
-  handlePostModal,
   dashboardTrue,
-
-  editPost,
-  postId,
   handleProfileImage,
 }) => {
   const postEditModalDataFound = useSelector(
@@ -85,10 +77,11 @@ const UpdateUserProfileModal = ({
         const userProfileImageData = data.userProfileImageData;
         console.log(userProfileImageData);
         // console.log(data.userProfileImageData);
-        toast.success("Your profile image image is updated");
+        toast.success("Your profile image is updated");
 
         // Update Redux User Profile Store
         dispatch(userProfileUpdate(userProfileImageData));
+        dispatch(authUser(userProfileImageData))
       }
     } catch (error) {
       console.log("Error=> ", error);

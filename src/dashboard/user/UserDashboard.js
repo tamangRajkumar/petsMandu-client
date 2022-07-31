@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { useHistory } from "react-router-dom";
-import UserProfile from "../../components/userDashboard/UserProfile";
-import PostedContent from "../../components/userDashboard/PostedContent";
-import AddNewPostForm from "../../components/userDashboard/AddNewPostButton";
+import UserProfile from "../../components/modal/userDashboard/UserProfile";
+import PostedContent from "../../components/modal/userDashboard/PostedContent";
+import AddNewPostForm from "../../components/modal/userDashboard/AddNewPostButton";
 import { useDispatch, useSelector } from "react-redux";
-import PostModal from "../../components/userDashboard/PostModal";
-import BackgroundGray from "../../components/userDashboard/backgroundGray";
-import { fetchPosts, fetchPostToEdit } from "../../api";
-import { PencilIcon } from "@heroicons/react/solid";
-import { postEditModalPreData } from "../../actions/postEditPreData";
-import UpdateUserProfileModal from "../../components/userDashboard/UpdateUserProfileModal";
+import PostModal from "../../components/modal/userDashboard/PostModal";
+import { fetchPosts } from "../../api";
+import { postEditModalPreData } from "../../redux/actions/postEditPreData";
+import UpdateUserProfileModal from "../../components/modal/userDashboard/UpdateUserProfileModal";
+import { UserCircleIcon, XIcon } from "@heroicons/react/solid";
 
 const UserDashboard = () => {
   //   getCurrentUser();
@@ -54,6 +52,8 @@ const UserDashboard = () => {
   // const [postEditData, setPostEditData] = useState();
   const [postId, setPostId] = useState();
   const [profileUpdateModal, setProfileUpdateModal] = useState(false);
+  const [sideBarProfileView, setSideBarProfileView] = useState(false);
+
   const handleProfileImage = (value) => {
     setProfileUpdateModal(value);
   };
@@ -71,7 +71,6 @@ const UserDashboard = () => {
       // dispatch(postEditModalPreData(postId));
       // setPostEditData(data);
       setPostId(postId);
-      
     } else {
       setPostModal(value);
       setEditPost(false);
@@ -104,6 +103,10 @@ const UserDashboard = () => {
     history.push(`/user/viewpost/${post._id}`);
   };
 
+  const handleSideBarProfileMobileView = () => {
+    setSideBarProfileView((prev) => !prev);
+  };
+
   return (
     <>
       <div>
@@ -118,6 +121,21 @@ const UserDashboard = () => {
               createdAt={user.createdAt}
             />
           </div>
+
+          {/* Sidebar Mobile view */}
+          {sideBarProfileView && (
+            <div className=" absolute  ml-10 mr-3   ">
+              <UserProfile
+                fName={user.fname}
+                lName={user.lname}
+                userEmail={user.email}
+                handleProfileImage={handleProfileImage}
+                createdAt={user.createdAt}
+                mobileView={true}
+              />
+            </div>
+          )}
+
           {/* Update User Profile Modal */}
           <div className="z-50">
             {profileUpdateModal && (
@@ -131,12 +149,26 @@ const UserDashboard = () => {
           </div>
 
           <div className=" flex-auto   bg-gray-50 justify-center items-center  rounded-t-lg ">
-            {/* Add New Post  */}
+            {sideBarProfileView ? (
+              <div>
+                <XIcon
+                  onClick={handleSideBarProfileMobileView}
+                  className="fixed z-50 bottom-14 left-8 shadow-xl hover:shadow-2xl  transform hover:scale-105 cursor-pointer p-4 text-white h-16 w-16 rounded-full bg-gray-500  "
+                />
+              </div>
+            ) : (
+              <div>
+                <UserCircleIcon
+                  onClick={handleSideBarProfileMobileView}
+                  className="fixed md:hidden lg:hidden z-50 bottom-14 left-8 shadow-xl hover:shadow-2xl  transform hover:scale-105 cursor-pointer p-1 text-white h-16 w-16 rounded-full bg-gray-500  "
+                />
+              </div>
+            )}
 
+            {/* Add New Post  */}
             <AddNewPostForm handlePostModal={handlePostModal} />
 
             {/* Show Modal */}
-
             {postModal ? (
               <>
                 <PostModal

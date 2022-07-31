@@ -5,7 +5,6 @@ import { PhoneIcon, StarIcon } from "@heroicons/react/solid";
 function cardForIndividualRoute(props) {
   return (
     <div>
-      <h1 className="text-white ">Hotels</h1>
       <div className="text-center font-bold text-3xl  mt-20 mb-8 ">
         <h1>{props.hotelName}</h1>
       </div>

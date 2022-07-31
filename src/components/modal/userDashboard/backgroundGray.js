@@ -18,7 +18,7 @@ const BackgroundGray = ({ dashboardTrue }) => {
             width: "100%",
             height: "100%",
           }}
-          className=" z-40 bg-gray-500 opacity-70  top-4 "
+          className=" z-30 bg-gray-500 opacity-70  top-4 "
         ></button>
       ) : (
         <button

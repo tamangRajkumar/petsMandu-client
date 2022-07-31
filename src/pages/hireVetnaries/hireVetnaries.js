@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchPosts } from "../../api";
 import allPetsLists from "../../components/AllPetsLists/allPetsList";
-import Cards from "../../components/CardsVerticalAligned";
+import Cards from "../../components/cards/CardsVerticalAligned";
 import { fetchPostsByCategory } from "../../api";
 
 const NearestVetneries = () => {

@@ -2,7 +2,7 @@
 import React from "react";
 import allVehiclesList from "../../components/AllPetsLists/allPetsList";
 import allInstrumetsLists from "../../components/AllPetsLists/allPetsList"
-import Cards from "../../components/CardsVerticalAligned"
+import Cards from "../../components/cards/CardsVerticalAligned"
 
 function favoritesList(){
     return(

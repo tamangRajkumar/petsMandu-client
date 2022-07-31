@@ -23,15 +23,14 @@ import ResetPassword from "../pages/LogInSignIn/forgotPassword/ResetPassword";
 import favoritesList from "../pages/yourFavorites/favoritesList";
 import PetsProblemsAndSolutions from "../pages/petsProblemsAndSolutions/petsProblemsAndSolutions";
 import lostAndFoundPets from "../pages/lostAndFound/lostAndFound";
-import cats from "../components/cats/cats";
-import dogs from "../components/dogs/allDogs";
+
 import nearestVetnaries from "../pages/hireVetnaries/hireVetnaries";
 import allPets from "../pages/searchAllPets/allPets";
-import IndividualRoute from "../components/individualRouteUsingParams/individualRoute";
 import Footer from "../components/headerAndFooter/Footer";
 import AdoptPets from "../pages/adoptPets/AdoptPets";
 import UserDashboard from "../dashboard/user/UserDashboard";
 import SinglePostView from "../pages/singleViewPost/SinglePostView";
+import IndividualRoute from "../components/individualRouteUsingParams/individualRoute";
 
 function App() {
   //  const {menuHandle, menuHandlePass}= useState(false);
@@ -75,9 +74,6 @@ function App() {
 
           <Route path="/nearest_vetnaries" component={nearestVetnaries} />
 
-          <Route path="/dogs" component={dogs} />
-
-          <Route path="/cats" component={cats} />
           <Route path="/lost_found_pets" component={lostAndFoundPets} />
           <Route
             path="/pets_problems_and_solutions"
@@ -86,9 +82,12 @@ function App() {
           <Route path="/favorites_list" component={favoritesList} />
           <Route path="/adopt_pets" component={AdoptPets} />
 
-          {/* individual pets page routing using params */}
-          <Route path="/pets/:indexNumber" component={IndividualRoute} />
           <Route path="/user/dashboard" component={UserDashboard} />
+
+          {/* Individual Search route static */}
+          <Route path="/pets/:indexNumber" component={IndividualRoute} />
+
+          {/* individual pets page routing using params */}
           <Route path="/user/viewpost/:params" component={SinglePostView} />
         </Switch>
       </div>

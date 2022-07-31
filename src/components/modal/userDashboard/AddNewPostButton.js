@@ -20,7 +20,7 @@ const AddNewPostButton = ({ handlePostModal, NavBarPostButton }) => {
           {/* <div className="flex justify-center items-center text-lg font-bold">Add New Post </div> */}
           <div>
             <div
-              className="flex justify-center items-center  bg-white shadow-md rounded-xl mx-28 mt-5"
+              className="flex justify-center items-center  bg-white shadow-md rounded-xl mx-[10vh] mt-5"
               
             >
               <div onClick={() => handlePostModal(true)} className="flex justify-center items-center cursor-pointer border-2 border-gray-400 px-5 py-1 rounded-md">

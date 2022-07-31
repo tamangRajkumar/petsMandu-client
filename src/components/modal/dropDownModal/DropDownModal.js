@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { logOutUser } from "../../actions/authActions";
-import { userProfileUpdate } from "../../actions/userProfileUpdate";
+import { logOutUser } from "../../../redux/actions/authActions";
+import { userProfileUpdate } from "../../../redux/actions/userProfileUpdate";
 import { toast } from "react-toastify";
 
 const DropDownModal = ({ history }) => {
@@ -12,14 +12,23 @@ const DropDownModal = ({ history }) => {
 
   const dispatch = useDispatch();
 
-  const userLogOut = {};
+  const userLogOut = {
+    user: {
+      _id: "",
+    },
+  };
+
+  const userProfileData={
+    url:"",
+    
+  }
   const handleLogOut = () => {
     window.localStorage.removeItem("authUser");
-    console.log("userlog out called")
+    console.log("userlog out called");
     window.localStorage.removeItem("userProfileData");
     dispatch(logOutUser(userLogOut));
-    dispatch(userProfileUpdate(null));
-    toast.success("Logged out successfully")
+    dispatch(userProfileUpdate(userProfileData));
+    toast.success("Logged out successfully");
     history.push("/login");
   };
 
@@ -29,13 +38,13 @@ const DropDownModal = ({ history }) => {
       <div className="flex flex-col bg-gray-100 w-48   shadow-lg shadow-indigo-500/50 rounded-xl font-medium">
         {isAuthenticated ? (
           <Link to="/user/dashboard">
-            <div className="text-base hover:text-xl pl-3 pb-2 pt-4 border-b-2 border-gray-300 hover:bg-gray-300 rounded-t-xl py-2  ">
+            <div className="text-base  pl-3 pb-2 pt-4 border-b-2 border-gray-300 hover:bg-gray-300 rounded-t-xl py-2  ">
               Dashboard
             </div>
           </Link>
         ) : (
           <Link to="/">
-            <div className="text-base hover:text-xl pl-3 pb-2 pt-4 border-b-2 border-gray-300 hover:bg-gray-300 rounded-t-xl py-2  ">
+            <div className="text-base  pl-3 pb-2 pt-4 border-b-2 border-gray-300 hover:bg-gray-300 rounded-t-xl py-2  ">
               PetsMandu
             </div>
           </Link>

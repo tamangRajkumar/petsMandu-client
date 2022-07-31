@@ -8,7 +8,11 @@ const initialState = {
   //After registered backend will send ok:true token and user data that will be stored herer
   currentUser: window.localStorage.getItem("authUser")
     ? JSON.parse(window.localStorage.getItem("authUser"))
-    : {},
+    : {
+        user: {
+          _id: "",
+        },
+      },
 };
 
 // Force logging out user after the expiry of token
@@ -50,5 +54,3 @@ export const authUser = (state = initialState, action) => {
       return state;
   }
 };
-
-

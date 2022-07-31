@@ -68,10 +68,14 @@ const SliderCarousel = ({
 
     return (
       <>
-        <div className="mt-20">
+        <div className="mt-12 md:mt-20 lg:mt-20">
           <div className="flex justify-between items-center ">
-            <h1 className="font-bold text-4xl ml-40 ">{title}</h1>
-            <div className="flex space-x-2 absolute right-32 justify-around items-center  cursor-pointer">
+            <div>
+              <h1 className="font-bold text-lg ml-20 md:font-bold md:text-xl md:ml-24 lg:font-bold lg:text-4xl lg:ml-36 ">
+                {title}
+              </h1>
+            </div>
+            <div className="flex space-x-2 absolute right-20 md:right-24 lg:right-32 justify-around items-center  cursor-pointer">
               <div onClick={() => sliderRef.current.slickPrev()}>
                 {/* <p className="">Prev</p> */}
                 <ArrowCircleLeftIcon className="h-10 w-10 text-gray-500 hover:text-gray-700 transform hover:scale-105" />
@@ -84,26 +88,29 @@ const SliderCarousel = ({
           </div>
 
           {/* Mapping data in slider */}
-          <div className="ml-20 mr-20 mt-5  bg-contain">
+          <div className="ml-10 mr-10 mt-5  bg-contain">
             <Slider {...settings} ref={sliderRef}>
               {posts &&
                 posts.map((post) => {
                   return (
                     <>
-                      <div key={post._id} className="mx-8 ">
+                      <div
+                        key={post._id}
+                        className="mx-3 md:mx-3 lg:mx-5 py-1 "
+                      >
                         <div
-                          className="cursor-pointer    "
+                          className="cursor-pointer h-40 md:h-40 lg:h-48   "
                           onClick={() => handlePostRouteIndividual(post)}
                         >
                           <img
                             src={post.image.url}
                             alt=""
-                            className="object-cover rounded-2xl  "
+                            className=" object-cover h-[100%] w-[100%] rounded-lg "
                           />
                         </div>
-                        <p className="text-center">
-                          {post.description}
-                        </p>
+                        <div>
+                          <p className="text-center mt-2">{post.description}</p>
+                        </div>
 
                         {/* View Post Button */}
                         <div

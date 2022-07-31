@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import allPetsLists from "../../components/AllPetsLists/allPetsList";
 
-import Cards from "../../components/Cards";
+import Cards from "../../components/cards/Cards";
 import { petsGroupImg, puppyGroupImg } from "../../assets/images";
 import { fetchPostsByCategory } from "../../api";
 
@@ -112,24 +112,28 @@ function HomeRoute() {
         <div className="flex   justify-center items-center ">
           {/* <ChevronDoubleLeftIcon className="w-20 h-20 text-gray-500 cursor-pointer"/>    */}
 
-          <div className="mx-20    ">
+          <div className="   ">
             {/* hover:shadow-2xl rounded-3xl */}
-            <div>
-              {/* Sign to post button */}
-              {isAuthenticated ? (
-                <></>
-              ) : (
-                <button className="absolute right-20 md:right-40 mt-80 animate-spin outline-none   rounded-2xl bg-blue-300 px-2 pb-1  hover:bg-black transform hover:scale-110  hover:border-gray-700 duration-150">
-                  <Link
-                    to="/signUp"
-                    className="text-xl px-5 text-black font-bold hover:text-gray-200 outline-none"
-                  >
-                    Sign Up to Post
-                  </Link>
-                </button>
-              )}
-            </div>
-            <img src={petsGroupImg} alt="" className=" h-96   rounded-3xl " />
+
+            {/* Sign to post button */}
+            {isAuthenticated ? (
+              ""
+            ) : (
+              <button className="absolute md:py-1 md:px-3  lg:py-1 lg:px-5 right-[20vh] bottom-[57vh]  md:bottom-[50vh] md:right-[20vh] lg:bottom-[22vh] lg:right-[30vh] animate-spin outline-none   rounded-full bg-blue-300 px-2 pb-1  hover:bg-black transform hover:scale-110  hover:border-gray-700 duration-150">
+                <Link
+                  to="/signUp"
+                  className="text-sm md:text-base lg:text-xl  text-black font-bold hover:text-gray-200 outline-none"
+                >
+                  Sign Up to Post
+                </Link>
+              </button>
+            )}
+
+            <img
+              src={petsGroupImg}
+              alt=""
+              className="h-40 md:h-56 lg:h-full w-full rounded-3xl "
+            />
           </div>
 
           {/* <ChevronDoubleRightIcon className="text-gray-500 w-20 h-20  cursor-pointer" />   */}
@@ -160,17 +164,18 @@ function HomeRoute() {
       )}
 
       {/* About petsMandu */}
-      <div className=" flex my-28 py-20  bg-gray-200 shadow-md px-20   ">
-        <img
-          className="h-96 w-auto rounded-xl  shadow-xl "
-          src={puppyGroupImg}
-          alt=""
-        ></img>
-
-        <div className="flex justify-center items-center ml-10  ">
+      <div className=" lg:flex my-28 py-20  bg-gray-200 shadow-md px-20   ">
+        <div className=" lg:w-[250vh] md:flex md:justify-center">
+          <img
+            className="object-cover  md:h-[70%] md:w-[70%] lg:h-[100%] lg:w-[100%] rounded-xl  shadow-xl "
+            src={puppyGroupImg}
+            alt=""
+          />
+        </div>
+        <div className=" flex justify-center items-center ml-10 text-center md:text-center lg:text-justify  ">
           <div>
-            <p className="text-3xl font-bold my-5   "> About petsMandu</p>
-            <p className="text-lg font-medium text-justify">
+            <p className="text-3xl font-bold my-5  b "> About petsMandu</p>
+            <p className="text-lg font-medium ">
               petsMandu is an online plateform for those who wants to post lost
               and found pets, find nearest vetnery, and share pets related
               problems and answer other people pets problems
@@ -185,7 +190,7 @@ function HomeRoute() {
           <SliderCarousel
             title={"Lost and Found Pets"}
             handlePostRouteIndividual={handlePostRouteIndividual}
-            posts={nearestVetneriesPetsPosts  }
+            posts={nearestVetneriesPetsPosts}
           />
         </div>
       )}

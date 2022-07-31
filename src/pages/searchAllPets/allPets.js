@@ -1,5 +1,5 @@
 import React from "react";
-import Cards from "../../components/Cards";
+import Cards from "../../components/cards/Cards";
 import allPetsList from "../../components/AllPetsLists/allPetsList";
 
 function allPets() {

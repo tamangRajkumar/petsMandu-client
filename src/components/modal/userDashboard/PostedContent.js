@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { deletePost, fetchPosts } from "../../api";
+import { deletePost, fetchPosts } from "../../../api";
 import { Selector, useSelector } from "react-redux";
-import Avatar from "../../images/Avatar.png";
+import { Avatar } from "../../../assets/images";
 import { TrashIcon, XIcon, PencilIcon } from "@heroicons/react/solid";
 import PostModal from "./PostModal";
 import moment from "moment";
@@ -33,7 +33,7 @@ const PostedContent = ({
       console.log(data);
       if (data.deleted == "true") {
         getUserPosts();
-        toast.success("Your post has been deleted successfully");
+        toast.success("Your post is deleted successfully");
       }
     } catch (error) {
       console.log("Error=> ", error);
@@ -90,12 +90,12 @@ const PostedContent = ({
                         <p className="ml-2">{post.postedBy.fname}</p>
                         <p className="ml-1">{post.postedBy.lname}</p>
                       </div>
-                    
-                    <p className="ml-2">{moment(post.createdAt).calendar()}</p>
-                    {/* <p>{post.createdAt}</p> */}
 
+                      <p className="ml-2">
+                        {moment(post.createdAt).calendar()}
+                      </p>
+                      {/* <p>{post.createdAt}</p> */}
                     </div>
-
                   </div>
 
                   {post.image ? (

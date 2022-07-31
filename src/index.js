@@ -14,7 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 // import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
-import store from "./store";
+import store from "./redux/store";
 const app = (
   <BrowserRouter>
     <Provider store={store}>

@@ -2,10 +2,10 @@ import React from "react";
 import { useState } from "react";
 
 import { Redirect } from "react-router-dom";
-import { signUpUser } from "../../actions/authActions";
+import { signUpUser } from "../../redux/actions/authActions";
 import { useDispatch, Selector, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
-import coverImage from "../../images/signInLogIn/signUpCoverImage.jpg";
+import {signUpLogiInCoverImage} from "../../assets/images";
 
 // Import Image
 
@@ -52,7 +52,7 @@ const SignUp = () => {
       <form onSubmit={handleSubmit}>
         <div className="flex justify-around items-center mt-20">
           <div className="flex justify-center items-center">
-            <img className="rounded-3xl " src={coverImage} alt="" />
+            <img className="rounded-3xl " src={signUpLogiInCoverImage} alt="" />
           </div>
 
           <div className=" flex flex-col items-center justify-center text-center  ">

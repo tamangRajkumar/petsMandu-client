@@ -1,5 +1,5 @@
 import { LOGIN, LOGOUT, USERPROFILEDATA } from "./types";
-import * as api from "../api/index";
+import * as api from "../../api";
 import axios from "axios";
 import { toast } from "react-toastify";
 

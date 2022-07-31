@@ -1,5 +1,5 @@
 import { POSTEDITMODAL, POSTEDITMODALEMPTY } from "./types";
-import * as api from "../api/index";
+import * as api from "../../api/index";
 
 // Post Edit Data get in Modal
 export const postEditModalPreData = (postId) => async (dispatch) => {
