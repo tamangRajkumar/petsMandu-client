@@ -3,9 +3,12 @@ import { fetchPosts } from "../../api";
 import allPetsLists from "../../components/AllPetsLists/allPetsList";
 import Cards from "../../components/cards/CardsVerticalAligned";
 import { fetchPostsByCategory } from "../../api";
+import { useSelector } from "react-redux";
 
 const LostAndFoundPets = () => {
   const [posts, setPosts] = useState(null);
+  const userId = useSelector((state) => state.authUser.currentUser.user._id);
+
 
   useEffect(() => {
     if (posts == null) {
@@ -24,6 +27,16 @@ const LostAndFoundPets = () => {
     }
   };
 
+
+
+  const favoritePosts = JSON.parse(
+    window.localStorage.getItem("favoritePostsList")
+  );
+  // console.log(favoritePosts);
+
+  const token = useSelector((state) => state.authUser.currentUser.token);
+  console.log(token);
+
   return (
     <>
       {" "}
@@ -37,13 +50,18 @@ const LostAndFoundPets = () => {
               posts.map((post) => {
                 return (
                   <Cards
-                    key={post._id}
-                    description={post.description}
-                    image={post.image.url}
-                    address={post.address}
-                    title={post.title}
-                    post={post}
-                  />
+                        description={post.description}
+                        image={post.image.url}
+                        address={post.address}
+                        title={post.title}
+                        post={post}
+                        userId={userId}
+                        token={token}
+                        fetchPosts={fetchPosts}
+                        isFavoritePost={  favoritePosts && favoritePosts.some(
+                          (favPost) => favPost["_id"] === post._id
+                        )}
+                      />
                 );
               })}
           </div>

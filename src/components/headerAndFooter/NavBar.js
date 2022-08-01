@@ -16,6 +16,7 @@ import {
 import DropDownModal from "../modal/dropDownModal/DropDownModal";
 
 import NavbarPostModal from "./NavbarPostModal";
+import { toast } from "react-toastify";
 
 const NavBar = () => {
   const [menuClicked, setMenuClicked] = useState(false);
@@ -131,7 +132,9 @@ const NavBar = () => {
                 {/* Search Icon */}
                 <Link to="/all_pets">
                   <SearchIcon
-                    onClick={() => setSearchInputShowHide(false)}
+                    onClick={() => {
+                      toast.error("Search feature is in progress!")
+                      setSearchInputShowHide(false)}}
                     class="h-6 w-6 text-gray-500 absolute ml-52 mt-2.5 z-40  "
                   />
                 </Link>

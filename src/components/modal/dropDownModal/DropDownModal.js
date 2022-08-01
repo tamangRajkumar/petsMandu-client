@@ -18,16 +18,18 @@ const DropDownModal = ({ history }) => {
     },
   };
 
-  const userProfileData={
-    url:"",
-    
-  }
+  const userProfileData = {
+    url: "",
+  };
   const handleLogOut = () => {
     window.localStorage.removeItem("authUser");
     console.log("userlog out called");
     window.localStorage.removeItem("userProfileData");
+    window.localStorage.removeItem("favoritePostsList");
+    // window.localStorage.removeItem("userProfileData");
     dispatch(logOutUser(userLogOut));
     dispatch(userProfileUpdate(userProfileData));
+
     toast.success("Logged out successfully");
     history.push("/login");
   };

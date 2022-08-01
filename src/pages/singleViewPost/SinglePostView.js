@@ -116,12 +116,25 @@ const SinglePostView = () => {
               <p>{post.category}</p>
             </div> */}
 
+
             <div className="flex mt-10 items-center bg-white shadow-md py-5 px-3 rounded-lg">
-              <img
+             {post.postedBy.image.url?    <img
                 src={post.postedBy.image.url}
                 className="h-20 w-20 object-cover rounded-full"
                 alt=""
+              />:
+              
+              <div> 
+              <img
+                src={Avatar}
+                className="h-20 w-20 object-cover rounded-full"
+                alt=""
               />
+              </div>
+               }
+             
+           
+              
               <div className="ml-3">
                 Posted By:{" "}
                 <span className="font-medium">{post.postedBy.fname} </span>{" "}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import App from "../containers/App.css";
 import { HeartIcon, PhoneIcon, StarIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addFavoritePostsList,
@@ -17,6 +17,10 @@ const CardsVerticalAligned = ({
   address,
   title,
   userId,
+  isFavoritePost,
+  token,
+  fetchPosts,
+  favoritePostsPostRoute,
 }) => {
   // Handle Route to view invidual post
   const history = useHistory();
@@ -27,10 +31,14 @@ const CardsVerticalAligned = ({
   // const userId = useSelector((state) => state.authUser.currentUser.user._id);
   // console.log(userId);
 
+  console.log(isFavoritePost);
   const handleHeartIconTrue = () => {
     if (userId) {
       setHeartIconClick(true);
-      dispatch(addFavoritePostsList(post));
+      dispatch(addFavoritePostsList(post, token));
+      !favoritePostsPostRoute && fetchPosts();
+      favoritePostsPostRoute && Redirect("/favorite-posts-list");
+
       toast.success("Post is added to favorite list successfully");
     }
     if (!userId) {
@@ -44,7 +52,9 @@ const CardsVerticalAligned = ({
   const handleHeartIconFalse = () => {
     setHeartIconClick(false);
     dispatch(removeFavoritePostsList(post._id));
+    !favoritePostsPostRoute && fetchPosts();
     toast.success("Post is removed from favorite list successfully ");
+    if (favoritePostsPostRoute) history.push("/favorite-posts-list")
   };
 
   const handleViewPostRoute = () => {
@@ -66,23 +76,30 @@ const CardsVerticalAligned = ({
         </div>
 
         <div className="flex-col  w-[55vh]  ml-6  ">
+          {isFavoritePost || favoritePostsPostRoute ? (
+            <div className="flex justify-end ">
+              <HeartIcon
+                onClick={handleHeartIconFalse}
+                className="h-8 w-8 p-1 text-red-500 cursor-pointer   rounded-full"
+              />
+            </div>
+          ) : (
+            <div className="flex justify-end ">
+              <HeartIcon
+                onClick={handleHeartIconTrue}
+                className="h-8 w-8 p-1 text-white bg-gray-400 shadow-sm cursor-pointer     rounded-full"
+              />
+            </div>
+          )}
+
+          {/* 
           <div>
             {heartIconClick ? (
-              <div className="flex justify-end ">
-                <HeartIcon
-                  onClick={handleHeartIconFalse}
-                  className="h-8 w-8 p-1 text-red-500 cursor-pointer   rounded-full"
-                />
-              </div>
+             
             ) : (
-              <div className="flex justify-end ">
-                <HeartIcon
-                  onClick={handleHeartIconTrue}
-                  className="h-8 w-8 p-1 text-white bg-gray-400 shadow-sm cursor-pointer     rounded-full"
-                />
-              </div>
+              
             )}
-          </div>
+          </div> */}
 
           <div className=" mt-5">
             <h1

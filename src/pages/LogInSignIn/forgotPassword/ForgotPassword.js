@@ -1,10 +1,12 @@
 import React from "react";
-
+import { toast } from "react-toastify";
 function ForgotPassword() {
+  const handleSubmit = () => {
+    toast.error("Error! This feature is in progress!");
+  };
   return (
     <>
-      <div className="my-28">
-   
+      <div className="my-[25vh]">
         <div className="text-center">
           <h1 className="text-base font-semibold my-4">
             {" "}
@@ -19,8 +21,8 @@ function ForgotPassword() {
         <div className="flex justify-center items-center mt-2">
           <button
             type="submit"
-            //   onClick={handleSubmit}
-            className="border focus:outline-none bg-gradient-to-r from-purple-300 to-purple-400 rounded-2xl shadow-xl px-9   py-2 font-bold m-3 hover: transform hover:scale-110  hover:shadow-xl "
+            onClick={handleSubmit}
+            className="border  focus:outline-none bg-gradient-to-r from-purple-300 to-purple-400 rounded-2xl shadow-xl px-9   py-2 font-bold m-3 hover: transform hover:scale-110  hover:shadow-xl "
           >
             Send Code
           </button>

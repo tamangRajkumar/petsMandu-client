@@ -1,6 +1,7 @@
 import { ADDFAVORITEPOSTSLIST, REMOVEFAVORITEPOSTSLIST } from "../actions/types";
 
 const initialState = {
+  
   favoritePostsList: [],
 };
 export const userFavoritePostsList = (state = initialState, action) => {

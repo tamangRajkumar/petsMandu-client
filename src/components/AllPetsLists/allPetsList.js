@@ -6,7 +6,7 @@ import image4 from "../images/img4.jpg";
 const allVehiclesList = [
   {
     id: 1,
-    name: "Germanshepher",
+    name: "Dogs",
     imgURL: image1,
     place: "kathmandu, Nepal",
     rating: "4.9",
@@ -20,7 +20,7 @@ const allVehiclesList = [
   },
   {
     id: 2,
-    name: "BullDog",
+    name: "find vet",
     imgURL: image2,
     place: "kathmandu, Nepal",
     rating: "4.2",
@@ -30,7 +30,7 @@ const allVehiclesList = [
   },
   {
     id: 3,
-    name: "bhotey dog",
+    name: "lost and found",
     imgURL: image3,
     place: "kathmandu, Nepal",
     rating: "3.9",
@@ -39,7 +39,7 @@ const allVehiclesList = [
   },
   {
     id: 4,
-    name: "Germanshepher",
+    name: "Dogs",
     imgURL: image4,
     place: "kathmandu, Nepal",
     rating: "4.5",
@@ -48,7 +48,7 @@ const allVehiclesList = [
   },
   {
     id: 5,
-    name: "Germanshepher",
+    name: "Dogs",
     imgURL: image1,
     place: "kathmandu, Nepal",
     rating: "4.9",
@@ -61,7 +61,7 @@ const allVehiclesList = [
   },
   {
     id: 6,
-    name: "Germanshepher",
+    name: "Dogs",
     imgURL: image2,
     place: "kathmandu, Nepal",
     rating: "4.2",
@@ -71,7 +71,7 @@ const allVehiclesList = [
   },
   {
     id: 7,
-    name: "Germanshepher",
+    name: "Dogs",
     imgURL: image3,
     place: "kathmandu, Nepal",
     rating: "3.9",
@@ -80,7 +80,7 @@ const allVehiclesList = [
   },
   {
     id: 8,
-    name: "Bulldog",
+    name: "find vet",
     imgURL: image4,
     place: "kathmandu, Nepal",
     rating: "4.5",
@@ -89,7 +89,7 @@ const allVehiclesList = [
   },
   {
     id: 9,
-    name: "Germanshepher",
+    name: "Dogs",
     imgURL: image1,
     place: "kathmandu, Nepal",
     rating: "4.9",
@@ -102,7 +102,7 @@ const allVehiclesList = [
   },
   {
     id: 10,
-    name: "Germanshepher",
+    name: "Dogs",
     imgURL: image2,
     place: "kathmandu, Nepal",
     rating: "4.2",
@@ -112,7 +112,7 @@ const allVehiclesList = [
   },
   {
     id: 11,
-    name: "Bulldog",
+    name: "find vet",
     imgURL: image3,
     place: "kathmandu, Nepal",
     rating: "3.9",
@@ -121,7 +121,7 @@ const allVehiclesList = [
   },
   {
     id: 12,
-    name: "Germanshepher",
+    name: "Dogs",
     imgURL: image4,
     place: "kathmandu, Nepal",
     rating: "4.5",
@@ -130,7 +130,7 @@ const allVehiclesList = [
   },
   {
     id: 13,
-    name: "Germanshepher",
+    name: "Dogs",
     imgURL: image1,
     place: "kathmandu, Nepal",
     rating: "4.9",
@@ -143,7 +143,7 @@ const allVehiclesList = [
   },
   {
     id: 14,
-    name: "Germanshepher",
+    name: "Dogs",
     imgURL: image2,
     place: "kathmandu, Nepal",
     rating: "4.2",
@@ -153,7 +153,7 @@ const allVehiclesList = [
   },
   {
     id: 15,
-    name: "Germanshepher",
+    name: "Dogs",
     imgURL: image3,
     place: "kathmandu, Nepal",
     rating: "3.9",
@@ -162,7 +162,7 @@ const allVehiclesList = [
   },
   {
     id: 16,
-    name: "Germanshepher",
+    name: "Dogs",
     imgURL: image4,
     place: "kathmandu, Nepal",
     rating: "4.5",
@@ -171,7 +171,7 @@ const allVehiclesList = [
   },
   {
     id: 17,
-    name: "Bulldog",
+    name: "find vet",
     imgURL: image1,
     place: "kathmandu, Nepal",
     rating: "4.9",
@@ -184,7 +184,7 @@ const allVehiclesList = [
   },
   {
     id: 18,
-    name: "Germanshepher",
+    name: "Dogs",
     imgURL: image2,
     place: "kathmandu, Nepal",
     rating: "4.2",
@@ -194,7 +194,7 @@ const allVehiclesList = [
   },
   {
     id: 19,
-    name: "Germanshepher",
+    name: "Dogs",
     imgURL: image3,
     place: "kathmandu, Nepal",
     rating: "3.9",
@@ -203,7 +203,7 @@ const allVehiclesList = [
   },
   {
     id: 20,
-    name: "Germanshepher",
+    name: "Dogs",
     imgURL: image4,
     place: "kathmandu",
     rating: "4.5",

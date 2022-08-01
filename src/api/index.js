@@ -126,3 +126,16 @@ export const fetchPostCommentsDataOnly = (postId, token) => {
     }
   );
 };
+
+// Add Favorite Post Data
+export const addFavoritePost = (post, token) => {
+  return axios.post(
+    "http://localhost:9000/api/add-favorite-post",
+    { post },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};

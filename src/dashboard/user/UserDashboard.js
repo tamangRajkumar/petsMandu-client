@@ -124,7 +124,7 @@ const UserDashboard = () => {
 
           {/* Sidebar Mobile view */}
           {sideBarProfileView && (
-            <div className=" absolute  ml-10 mr-3   ">
+            <div className=" fixed top-[45vh] left-0 md:fixed md:top-[45vh] md:left-0  lg:fixed lg:top-20 lg:left-0 lg:mr-3   ">
               <UserProfile
                 fName={user.fname}
                 lName={user.lname}
@@ -160,7 +160,7 @@ const UserDashboard = () => {
               <div>
                 <UserCircleIcon
                   onClick={handleSideBarProfileMobileView}
-                  className="fixed md:hidden lg:hidden z-50 bottom-14 left-8 shadow-xl hover:shadow-2xl  transform hover:scale-105 cursor-pointer p-1 text-white h-16 w-16 rounded-full bg-gray-500  "
+                  className="fixed md:fixed lg:hidden z-50 bottom-14 left-8 shadow-xl hover:shadow-2xl  transform hover:scale-105 cursor-pointer p-1 text-white h-16 w-16 rounded-full bg-gray-500  "
                 />
               </div>
             )}

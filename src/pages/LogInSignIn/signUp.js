@@ -5,7 +5,7 @@ import { Redirect } from "react-router-dom";
 import { signUpUser } from "../../redux/actions/authActions";
 import { useDispatch, Selector, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
-import {signUpLogiInCoverImage} from "../../assets/images";
+import { signUpLogiInCoverImage } from "../../assets/images";
 
 // Import Image
 
@@ -23,6 +23,7 @@ const SignUp = () => {
       public_key: "",
     },
     confirmedSignUp: "false",
+    favoritePostsList: [],
   });
 
   //check whether the user is logged in or not if logged in and isAuthenticated is true then redirect to dashboard

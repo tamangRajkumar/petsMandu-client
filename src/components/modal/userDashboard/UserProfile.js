@@ -29,7 +29,7 @@ const UserProfile = ({
         className={
           mobileView
             ? "  absolute -left-10  z-50 -top-52 lg:flex pt-10 h-[100vh] lg:sticky justify-center items-center    overflow-y-scroll w-96  bg-gray-50    "
-            : "  hidden md:flex md:sticky   lg:sticky lg:top-32 justify-center items-center    overflow-y-scroll w-96 h-screen  bg-gray-50    "
+            : "  hidden lg:flex   lg:sticky lg:top-32 justify-center items-center    overflow-y-scroll w-96 h-screen  bg-gray-50    "
         }
       >
         {/* Profile Update Modal */}

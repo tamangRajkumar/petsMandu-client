@@ -40,16 +40,20 @@ export const logInUser = (userLogInData, history) => async (dispatch) => {
           payload: data.user.image,
         });
       }
-      // Save user authentication data in local storage
-      window.localStorage.setItem("authUser", JSON.stringify(data));
-
-      // Save user profile data in local storage
-      window.localStorage.setItem(
-        "userProfileData",
-        JSON.stringify(data.user.image)
-      );
 
       if (data.ok == "true") {
+        // Save user authentication data in local storage
+        window.localStorage.setItem("authUser", JSON.stringify(data));
+
+        // Save user profile data in local storage
+        window.localStorage.setItem(
+          "userProfileData",
+          JSON.stringify(data.user.image)
+        );
+
+        // Create local storage for favorite Posts List
+        window.localStorage.setItem("favoritePostsList", JSON.stringify([]));
+
         history.push("/user/dashboard");
         toast.success("Welcome, You have logged in successfully.");
       }

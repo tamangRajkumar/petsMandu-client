@@ -5,7 +5,6 @@ import Cards from "../../components/cards/CardsVerticalAligned";
 import { fetchPostsByCategory } from "../../api";
 import { useSelector } from "react-redux";
 
-
 function AdoptPets() {
   const [posts, setPosts] = useState(null);
 
@@ -28,6 +27,15 @@ function AdoptPets() {
     }
   };
 
+  const favoritePosts = JSON.parse(
+    window.localStorage.getItem("favoritePostsList")
+  );
+  // console.log(favoritePosts);
+
+  const token = useSelector((state) => state.authUser.currentUser.token);
+  console.log(token);
+
+  //  console.log(posts)
   return (
     <>
       {" "}
@@ -83,6 +91,14 @@ function AdoptPets() {
                         title={post.title}
                         post={post}
                         userId={userId}
+                        token={token}
+                        fetchPosts={fetchPosts}
+                        isFavoritePost={
+                          favoritePosts &&
+                          favoritePosts.some(
+                            (favPost) => favPost["_id"] === post._id
+                          )
+                        }
                       />
                     </div>
                   </>
